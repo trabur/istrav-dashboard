@@ -16,7 +16,7 @@ template.innerHTML = /*html*/`
 `
 
 //rating.js
-export class Rating extends HTMLElement { 
+export class MyRating extends HTMLElement { 
   static get observedAttributes() {
       return [ 'rating', 'max-rating' ];
   }
@@ -77,4 +77,4 @@ export class Rating extends HTMLElement {
   }
 }
 
-window.customElements.define('my-rating', Rating);
+window.customElements.define('my-rating', MyRating);
