@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col s12 m6"></div>
+	<div class="col s12 m6">
+		<div id="console">
+			<pre class=" language-javascript"><code class=" language-javascript"><span class="token punctuation">{</span> hello<span class="token operator">:</span> <span class="token string">"world"</span> <span class="token punctuation">}</span></code></pre>
+		<pre id="1" class=" language-javascript"><code class=" language-javascript">hi</code></pre><pre id="2" class=" language-javascript"><code class=" language-javascript">there</code></pre></div>
+	</div>
+</div>
+
+<script>
+	let counter = 0
+	window.console = {
+		log: function(str) {
+			var pre = document.createElement("pre")
+			var code = document.createElement("code")
+			pre.setAttribute('id', ++counter)
+			pre.setAttribute('class', "language-javascript")
+			code.appendChild(document.createTextNode(str))
+			document.getElementById("console").appendChild(pre)
+			document.getElementById(counter).appendChild(code)
+		}
+	}
+	console.log('hi')
+	console.log('there')
+</script>
