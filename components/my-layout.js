@@ -70,9 +70,9 @@ template.innerHTML = /*html*/`
 			<li><a href="/store.categories">store.categories()</a></li>
 			<li><a href="/store.collections">store.collections()</a></li>
 			<li><a href="/store.products">store.products()</a></li>
-			<li><a href="/meta.products">meta.events()</a></li>
-			<li><a href="/meta.products">meta.messages()</a></li>
-			<li><a href="/meta.products">meta.logs()</a></li>
+			<li><a href="/meta.channels">meta.channels()</a></li>
+			<li><a href="/meta.messages">meta.messages()</a></li>
+			<li><a href="/meta.logs">meta.logs()</a></li>
 		</ul>
 		<br />
 		<br />
