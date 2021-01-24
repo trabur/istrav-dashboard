@@ -1,3 +1,4 @@
+// @ts-nocheck
 export let fleetVehiclesTemplate = /*html*/`
 <p>hello fleet</p>
 <div id="demo-code"></div>

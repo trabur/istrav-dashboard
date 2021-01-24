@@ -1,3 +1,4 @@
+// @ts-nocheck
 export let accountUsersTemplate = /*html*/`
 <p>hello world</p>
 `
