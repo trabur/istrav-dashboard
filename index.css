@@ -22,6 +22,12 @@
 
 .center {
   background: #222;
+  color: #aaa;
+}
+
+.center p {
+  padding: 0.5em;
+  margin: 0;
 }
 
 .sidebar {
@@ -50,4 +56,8 @@ main {
 
 .report {
   padding: 1em;
+}
+
+.CodeMirror {
+  height: auto;
 }

@@ -42,6 +42,7 @@ window.onNavItemClick = function onNavItemClick (pathName) {
 navigationDiv.innerHTML = navigationTemplate;
 contentDiv.innerHTML = routes[window.location.pathname].template;
 reportDiv.innerHTML = reportTemplate;
+let load = routes[window.location.pathname].method; load();
 
 /**
  * logging
@@ -58,5 +59,4 @@ window.console = {
     document.getElementById(`${counter}`).appendChild(code)
   }
 }
-console.log('hi')
-console.log('there')
+console.log('welcome :)')

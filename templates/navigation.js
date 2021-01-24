@@ -1,5 +1,6 @@
 export let navigationTemplate = /*html*/`
 <ul style="font-size: 1.4em; font-family: monospace; list-style-type: none; text-align: center; margin: 0; padding: 0;">
+  <li><a href="#" onclick="onNavItemClick('/event-sources'); return false;">event.sources()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-users'); return false;">account.users()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-cart'); return false;">account.cart()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-orders'); return false;">account.orders()</a></li>
@@ -13,6 +14,5 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/store-products'); return false;">store.products()</a></li>
   <li><a href="#" onclick="onNavItemClick('/meta-channels'); return false;">meta.channels()</a></li>
   <li><a href="#" onclick="onNavItemClick('/meta-messages'); return false;">meta.messages()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/meta-logs'); return false;">meta.logs()</a></li>
 </ul>
 `
