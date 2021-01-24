@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
-    "istrav-library": "github:trabur/istrav-library",
+    "istrav": "^0.0.9",
     "typescript": "^4.1.3"
   }
 }
