@@ -47,7 +47,6 @@ reportDiv.innerHTML = reportTemplate;
  * logging
  */
 let counter = 0
-// @ts-ignore
 window.console = {
   log: function(str) {
     var pre = document.createElement("pre")

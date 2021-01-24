@@ -1,9 +1,19 @@
 ISTRAV-DASHBOARD
 ========
 
+### go
+```bash
+$ npm start
+```
+
+### deploy
+```bash
+$ git push heroku master
+```
+
 ### install library
 ```bash
-$ npm i istrav@github.com:trabur/istrav-library.git
+$ npm i trabur/istrav-library
 ```
 
 ### run project
