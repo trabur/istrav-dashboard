@@ -1,0 +1,53 @@
+.expand {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.masonry {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+}
+
+.item {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto;
+}
+
+.center {
+  background: #222;
+}
+
+.sidebar {
+  color: #333;
+  max-width: 300px;
+  margin: 0;
+  background: #eee;
+  height: 100%;
+  padding: 0 1em;
+  position: relative;
+  overflow: auto;
+}
+
+main {
+  color: #ccc;
+  position: relative;
+  width: 100%;
+  margin: 0; 
+  padding: 0; 
+  background: #111;
+}
+
+.sidebar a {
+  text-decoration: underline;
+}
+
+.report {
+  padding: 1em;
+}

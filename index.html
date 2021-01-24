@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.ico" />
+		<!-- <link rel="icon" href="/favicon.ico" /> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- library -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
@@ -10,15 +10,44 @@
 		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
 
 		<!-- dashboard -->
-		<script type="module" src="./components/my-layout.js"></script>
-		<script type="module" src="./components/my-rating.js"></script>
+		<!-- <script type="module" src="./templates/account.users.js"></script>
+		<script type="module" src="./templates/fleet.vehicles.js"></script> -->
+		<link type="text/css" rel="stylesheet" href="index.css">
 	</head>
 	<body>
 		<!-- dashboard -->
-		<my-layout>
-			<my-rating></my-rating> 
-		</my-layout>
-		
+		<div class="masonry expand">
+			<div class="item">
+				<br />
+				<br />
+				<br />
+				<div style="border-bottom: 5px dashed;">
+					<h1 style="text-align: center; font-size: 2em;">ISTRAV</h1>
+				</div>
+				<br />
+				<br />
+				<h3 style="text-align: center; margin: 0 0 0.2em 0; font-size: 1.5em; cursor: pointer;" onclick="onNavItemClick('/'); return false;">DASHBOARD</h3>
+					<div id="navigation" class="navigation"></div>
+				<br />
+				<br />
+				<div style="border-top: 5px dashed;">
+					<h1 style="text-align: center; font-size: 2em;">ISTRAV</h1>
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+			<div class="item center">
+				<div id="content" class="content"></div>
+			</div>
+			<main class="item">
+				<div id="report" class="report"></div>
+			</main>
+		</div>
+
+		<script src="./require.js"></script>
+		<script type="module" src="./index.js"></script>
+
 		<!-- library -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
