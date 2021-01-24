@@ -54,7 +54,7 @@ window.console = {
     pre.setAttribute('id', `${++counter}`)
     pre.setAttribute('class', "language-javascript")
     code.appendChild(document.createTextNode(str))
-    document.getElementById("log").appendChild(pre)
+    document.getElementById("log").prepend(pre)
     document.getElementById(`${counter}`).appendChild(code)
   }
 }
