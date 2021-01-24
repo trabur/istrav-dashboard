@@ -1,5 +1,7 @@
-import { fleetVehiclesTemplate, fleetVehicles } from './templates/fleet.vehicles.js'
-import { accountUsersTemplate, accountUsers }  from './templates/account.users.js'
+import { istrav } from "./node_modules/istrav/api/index.js";
+
+import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
+import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate } from './templates/report.js'
@@ -13,19 +15,19 @@ function noop() {}
 let routes = {
   '/': {
     template: accountUsersTemplate,
-    method: accountUsers,
+    method: accountUsersInit,
   },
   '/index.html': {
     template: accountUsersTemplate,
-    method: accountUsers,
+    method: accountUsersInit,
   },
   '/account-users': {
     template: accountUsersTemplate,
-    method: accountUsers,
+    method: accountUsersInit,
   },
   '/fleet-vehicles': {
     template: fleetVehiclesTemplate,
-    method: fleetVehicles,
+    method: fleetVehiclesInit,
   },
 };
 
@@ -43,6 +45,11 @@ navigationDiv.innerHTML = navigationTemplate;
 contentDiv.innerHTML = routes[window.location.pathname].template;
 reportDiv.innerHTML = reportTemplate;
 let load = routes[window.location.pathname].method; load();
+
+/**
+ * expose library
+ */
+window.istrav = istrav
 
 /**
  * logging

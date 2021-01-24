@@ -2,6 +2,6 @@ export let accountUsersTemplate = /*html*/`
 <p>hello world</p>
 `
 
-export function accountUsers () {
+export function accountUsersInit () {
   console.log('account users')
 }
