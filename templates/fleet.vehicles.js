@@ -1,29 +1,30 @@
 // @ts-nocheck
+let sourceId = 'fleet.vehicles()'
+let scriptId = 'getAll'
+let logTo = 'my-log'
+let backupTo = 'my-backup'
+
 export let fleetVehiclesTemplate = /*html*/`
+<h2>::: fleet.vehicles()</h2>
+<h3>> keep track of them.</h3>
 <p>hello fleet</p>
-<div id="all-code"></div>
+<div id="getAllCode"></div>
 <div class="script-actions">
-  <a class="waves-effect waves-light btn" onclick="onRunScript('allCode'); return false;">run</a>
+  <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getAll', logTo, backupTo); return false;">run</a>
 </div>
 `
 
-window.onRunScript = async function onRunScript (scriptId) {
-  let script = window[scriptId].getValue()
-  // console.log(script)
-  let method = new Function('return ' + script)()
-  let called = await method(istrav)
-  console.log(JSON.stringify(called, null, 2))
-}
-
-async function allScript (istrav) {
-  return await istrav.account.users.all()
-}
+import { getAll } from '../scripts/account.users.js'
 
 export async function fleetVehiclesInit () {
-  console.log('fleet.vehicles()')
+  window.sourceId = sourceId
+  window.scriptId = scriptId
+  window.logTo = logTo
+  window.backupTo = backupTo
+
   // @ts-ignore
-  window.allCode = CodeMirror(document.getElementById("all-code"), {
-    value: allScript.toString(),
+  window.getAllCode = CodeMirror(document.getElementById("getAllCode"), {
+    value: getAll.toString(),
     mode:  "javascript",
     theme: "material"
   });

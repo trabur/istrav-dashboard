@@ -7,10 +7,9 @@ import { accountUsersTemplate, accountUsersInit }  from './templates/account.use
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate } from './templates/report.js'
 
-let navigationDiv = document.getElementById('navigation');
-let contentDiv = document.getElementById('content');
-let reportDiv = document.getElementById('report');
-
+/**
+ * routing
+ */
 function noop() {}
 
 let routes = {
@@ -46,18 +45,51 @@ window.onNavItemClick = function onNavItemClick (pathName) {
   let init = routes[pathName].method; init();
 }
 
-navigationDiv.innerHTML = navigationTemplate;
-contentDiv.innerHTML = routes[window.location.pathname].template;
-reportDiv.innerHTML = reportTemplate;
-let load = routes[window.location.pathname].method; load();
-
 /**
  * expose library
  */
+window.id = () => Math.floor(Math.random() * 1000000000000)
 window.istrav = istrav
 istrav.account.users.init({
   host: 'https://api.istrav.com'
 })
+
+/**
+ * event sourcing
+ */
+window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
+  return {
+    id: window.id(),
+    createdAt: Date.now(),
+    source: sourceId,
+    script: scriptId,
+    // payload: data,
+    logging: logTo, // send all console.logs to this phoenix.js channel/topic
+    backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
+  }
+}
+
+/**
+ * event scripting
+ */
+window.eventScript = async function (sourceId, scriptId, logTo, backupTo) {
+  let script = window[`${scriptId}Code`].getValue()
+  // console.log(script)
+  let call = new Function('return ' + script)()
+  let called = await call(window.istrav, window.eventSource(sourceId, scriptId, logTo, backupTo))
+  console.log(JSON.stringify(called, null, 2))
+}
+
+/**
+ * init
+ */
+let navigationDiv = document.getElementById('navigation');
+let contentDiv = document.getElementById('content');
+let reportDiv = document.getElementById('report');
+
+navigationDiv.innerHTML = navigationTemplate;
+contentDiv.innerHTML = routes[window.location.pathname].template;
+reportDiv.innerHTML = reportTemplate;
 
 /**
  * logging
@@ -75,3 +107,4 @@ window.console = {
   }
 }
 console.log('welcome :)')
+let load = routes[window.location.pathname].method; load();
