@@ -30,6 +30,25 @@
   margin: 0;
 }
 
+.center h1 {
+  font-size: 2.2em;
+  padding: 0.1em 0.2em;
+}
+.center h2 {
+  font-size: 1.8em;
+  padding: 0.1em 0.3em;
+}
+.center h3 {
+  font-size: 1.4em;
+  padding: 0.1em 0.4em;
+}
+
+.center h1,
+.center h2,
+.center h3 {
+  margin: 0;
+}
+
 .sidebar {
   color: #333;
   max-width: 300px;

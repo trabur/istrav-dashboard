@@ -4,5 +4,5 @@ export let accountUsersTemplate = /*html*/`
 `
 
 export function accountUsersInit () {
-  console.log('account users')
+  console.log('account.users()')
 }

@@ -1,5 +1,6 @@
 import { istrav } from "./node_modules/istrav/api/index.js";
 
+import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 
@@ -14,12 +15,16 @@ function noop() {}
 
 let routes = {
   '/': {
-    template: accountUsersTemplate,
-    method: accountUsersInit,
+    template: eventSourcesTemplate,
+    method: eventSourcesInit,
   },
   '/index.html': {
-    template: accountUsersTemplate,
-    method: accountUsersInit,
+    template: eventSourcesTemplate,
+    method: eventSourcesInit,
+  },
+  '/event-sources': {
+    template: eventSourcesTemplate,
+    method: eventSourcesInit,
   },
   '/account-users': {
     template: accountUsersTemplate,
@@ -50,6 +55,9 @@ let load = routes[window.location.pathname].method; load();
  * expose library
  */
 window.istrav = istrav
+istrav.account.users.init({
+  host: 'https://api.istrav.com'
+})
 
 /**
  * logging
@@ -60,7 +68,7 @@ window.console = {
     var pre = document.createElement("pre")
     var code = document.createElement("code")
     pre.setAttribute('id', `${++counter}`)
-    pre.setAttribute('class', "language-javascript")
+    pre.setAttribute('class', "language-json")
     code.appendChild(document.createTextNode(str))
     document.getElementById("log").prepend(pre)
     document.getElementById(`${counter}`).appendChild(code)

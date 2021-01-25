@@ -11,6 +11,7 @@ const __dirname = dirname(__filename);
 
 // dashboard navigation
 app.get([
+  '/event-sources',
   '/fleet-vehicles',
   '/account-users'
 ], function(req, res) {
