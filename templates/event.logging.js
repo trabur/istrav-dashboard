@@ -16,7 +16,7 @@ export let eventLoggingTemplate = /*html*/`
 `
 
 import { 
-  getNew
+  getLog
 } from '../scripts/event.logging.js'
 
 export function eventLoggingInit () {

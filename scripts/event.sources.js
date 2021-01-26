@@ -1,9 +1,9 @@
 export async function doEventSource (state, event) {
   // state: data on a single sqljs/node.js node in a cluster of many other server nodes
-  console.log(`let state = ${JSON.stringify(state, null, 2)}`)
+  // console.log(`let state = ${JSON.stringify(state, null, 2)}`)
 
   // event: sent to AMQP then to each node in the cluster with mongodb for backup
-  console.log(`let event = ${JSON.stringify(event, null, 2)}`)
+  // console.log(`let event = ${JSON.stringify(event, null, 2)}`)
 
   // always return an event object with these required props:
   return {
@@ -20,18 +20,20 @@ export async function doEventSource (state, event) {
 
 export async function doPublish (state, event) {
   let queueId = 'my-events'
-
-  await state.event.sources.publish(queueId, {
+  let eventSource = scripts.doEventSource(state, event)
+  eventSource.payload = {
     hello: 'world'
-  })
+  }
+
+  await state.event.sources.publish(queueId, eventSource)
   return event
 }
 
 export async function getConsume (state, event) {
   let queueId = 'my-events'
-  let ack = false // add/remove message from queue
+  let noAck = true // keep or remove message from queue
 
-  event.payload = await state.event.sources.consume(queueId, { ack })
+  event.payload = await state.event.sources.consume(queueId, { noAck })
   return event
 }
 

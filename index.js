@@ -83,6 +83,18 @@ window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
 /**
  * event scripting
  */
+import { doEventSource, getCheck, doPublish, getConsume } from './scripts/event.sources.js'
+import { getHistory } from './scripts/event.backup.js'
+import { getLog } from './scripts/event.logging.js'
+import { getAll, getNew } from './scripts/account.users.js'
+
+window.scripts = {
+  doEventSource, getCheck, doPublish, getConsume,
+  getHistory,
+  getLog,
+  getAll, getNew
+}
+
 window.eventScript = async function (sourceId, scriptId, logTo, backupTo) {
   let script = window[`${scriptId}Code`].getValue()
   // console.log(script)

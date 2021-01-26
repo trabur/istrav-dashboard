@@ -15,7 +15,7 @@ export let eventBackupTemplate = /*html*/`
 `
 
 import { 
-  getNew
+  getHistory
 } from '../scripts/event.backup.js'
 
 export function eventBackupInit () {

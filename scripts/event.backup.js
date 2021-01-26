@@ -1,4 +1,4 @@
-export async function getNew (state, event) {
+export async function getHistory (state, event) {
   event.payload = await state.account.users.register({
     email: 'travis.burandt@gmail.com',
     username: 'cool-user',
