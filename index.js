@@ -96,9 +96,7 @@ window.scripts = {
 }
 
 window.eventScript = async function (sourceId, scriptId, logTo, backupTo) {
-  let script = window[`${scriptId}Code`].getValue()
-  // console.log(script)
-  let call = new Function('return ' + script)()
+  let call = new Function('return ' + window.scripts[scriptId].toString())()
   let called = await call(window.istrav, window.eventSource(sourceId, scriptId, logTo, backupTo))
   console.log(JSON.stringify(called, null, 2))
 }
