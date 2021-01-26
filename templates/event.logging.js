@@ -6,12 +6,8 @@ let backupTo = 'my-backup'
 
 export let eventLoggingTemplate = /*html*/`
   <h2>::: event.logging()</h2>
-  <h3>> from message exchange to topic</h3>
-  <div id="doPublishCode"></div>
-  <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'doPublish', logTo, backupTo); return false;">run</a>
-  </div>
-
+  <h3>> with phoenix.js channels as a backbone</h3>
+  <p>hello world</p>
   <p></p>
 
   <br />
@@ -20,7 +16,7 @@ export let eventLoggingTemplate = /*html*/`
 `
 
 import { 
-  doPublish,
+  getNew
 } from '../scripts/event.logging.js'
 
 export function eventLoggingInit () {
@@ -29,9 +25,4 @@ export function eventLoggingInit () {
   window.logTo = logTo
   window.backupTo = backupTo
 
-  window.doPublishCode = CodeMirror(document.getElementById("doPublishCode"), {
-    value: doPublish.toString(),
-    mode:  "javascript",
-    theme: "material"
-  });
 }

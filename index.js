@@ -1,6 +1,7 @@
 import { istrav } from "./node_modules/istrav/api/index.js";
 
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
+import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
@@ -25,6 +26,10 @@ let routes = {
   '/event-sources': {
     template: eventSourcesTemplate,
     method: eventSourcesInit,
+  },
+  '/event-backup': {
+    template: eventBackupTemplate,
+    method: eventBackupInit,
   },
   '/event-logging': {
     template: eventLoggingTemplate,
@@ -55,12 +60,10 @@ window.onNavItemClick = function onNavItemClick (pathName) {
  */
 window.id = () => Math.floor(Math.random() * 1000000000000)
 window.istrav = istrav
-istrav.event.logging.init({
-  host: 'https://api.istrav.com'
-})
-istrav.account.users.init({
-  host: 'https://api.istrav.com'
-})
+// istrav.event.source.init({ host: 'https://api.istrav.com' })
+// istrav.event.backup.init({ host: 'https://api.istrav.com' })
+istrav.event.logging.init({ host: 'https://api.istrav.com' })
+istrav.account.users.init({ host: 'https://api.istrav.com' })
 
 /**
  * event sourcing

@@ -17,15 +17,18 @@ export async function doEventSource (state, event) {
     backup: 'main-backup',     // rabbitmq/mongodb
   }
 }
+export async function doPublish (state, event) {
+  let queueId = 'my-stream'
 
-export async function getNew (state, event) {
-  event.payload = await state.account.users.register({
-    email: 'travis.burandt@gmail.com',
-    username: 'cool-user',
-    password: 'my-password',
-    firstName: 'john',
-    lastName: 'doe',
-    role: 'ADMIN'
+  await state.event.logging.publish(queueId, {
+    hello: 'world'
   })
+  return event
+}
+
+export async function getSubscribe (state, event) {
+  let queueId = 'my-stream'
+
+  event.payload = await state.event.logging.subscribe(queueId)
   return event
 }
