@@ -60,8 +60,8 @@ window.onNavItemClick = function onNavItemClick (pathName) {
  */
 window.id = () => Math.floor(Math.random() * 1000000000000)
 window.istrav = istrav
-// istrav.event.source.init({ host: 'https://api.istrav.com' })
-// istrav.event.backup.init({ host: 'https://api.istrav.com' })
+istrav.event.sources.init({ host: 'https://api.istrav.com' })
+istrav.event.backup.init({ host: 'https://api.istrav.com' })
 istrav.event.logging.init({ host: 'https://api.istrav.com' })
 istrav.account.users.init({ host: 'https://api.istrav.com' })
 

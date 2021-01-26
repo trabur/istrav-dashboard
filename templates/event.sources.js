@@ -20,15 +20,22 @@ export let eventSourcesTemplate = /*html*/`
   </div>
 
   <p>however the above code snippet isn't vary useful as it is just an example. assume from here on out that all scripts will work in some way.</p>
-  <p>(pub)</p>
+  <p>(pubSub)</p>
   <div id="doPublishCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'doPublish', logTo, backupTo); return false;">run</a>
   </div>
-  <p>(sub)</p>
-  <div id="getSubscribeCode"></div>
+  
+  <p>(pubSub)</p>
+  <div id="getConsumeCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getSubscribe', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getConsume', logTo, backupTo); return false;">run</a>
+  </div>
+
+  <p>(pubSub)</p>
+  <div id="getCheckCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getCheck', logTo, backupTo); return false;">run</a>
   </div>
 
   <br />
@@ -39,7 +46,8 @@ export let eventSourcesTemplate = /*html*/`
 import { 
   doEventSource,
   doPublish,
-  getSubscribe
+  getConsume,
+  getCheck
 } from '../scripts/event.sources.js'
 
 export function eventSourcesInit () {
@@ -60,8 +68,14 @@ export function eventSourcesInit () {
     theme: "material"
   });
 
-  window.getSubscribeCode = CodeMirror(document.getElementById("getSubscribeCode"), {
-    value: getSubscribe.toString(),
+  window.getConsumeCode = CodeMirror(document.getElementById("getConsumeCode"), {
+    value: getConsume.toString(),
+    mode:  "javascript",
+    theme: "material"
+  });
+
+  window.getCheckCode = CodeMirror(document.getElementById("getCheckCode"), {
+    value: getCheck.toString(),
     mode:  "javascript",
     theme: "material"
   });

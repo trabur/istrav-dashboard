@@ -17,18 +17,27 @@ export async function doEventSource (state, event) {
     backup: 'main-backup',     // rabbitmq/mongodb
   }
 }
+
 export async function doPublish (state, event) {
   let queueId = 'my-events'
 
-  await state.event.logging.publish(queueId, {
+  await state.event.sources.publish(queueId, {
     hello: 'world'
   })
   return event
 }
 
-export async function getSubscribe (state, event) {
+export async function getConsume (state, event) {
+  let queueId = 'my-events'
+  let ack = false // add/remove message from queue
+
+  event.payload = await state.event.sources.consume(queueId, { ack })
+  return event
+}
+
+export async function getCheck (state, event) {
   let queueId = 'my-events'
 
-  event.payload = await state.event.logging.subscribe(queueId)
+  event.payload = await state.event.sources.check(queueId)
   return event
 }
