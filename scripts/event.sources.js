@@ -18,7 +18,7 @@ export async function doEventSource (state, event) {
   }
 }
 export async function doPublish (state, event) {
-  let queueId = 'my-stream'
+  let queueId = 'my-events'
 
   await state.event.logging.publish(queueId, {
     hello: 'world'
@@ -27,7 +27,7 @@ export async function doPublish (state, event) {
 }
 
 export async function getSubscribe (state, event) {
-  let queueId = 'my-stream'
+  let queueId = 'my-events'
 
   event.payload = await state.event.logging.subscribe(queueId)
   return event
