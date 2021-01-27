@@ -19,7 +19,7 @@ export let eventSourcesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('doEventSource'); return false;">run</a>
   </div>
   <p>we follow the same patturn as prototypal chains which is to set the bottom value as undefined or null; see "payload" above.</p>
-  <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('hello istrav')", click run, and then "hello istrav" will show up.</p>
+  <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
   <p>as shown below "scripts.doEventSource" is a way to access a script from another script.</p>
   <div id="doPublishCode"></div>
   <div class="script-actions">
@@ -32,6 +32,7 @@ export let eventSourcesTemplate = /*html*/`
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('getConsume'); return false;">run</a>
   </div>
+  <p>in the above script "eventSource.noAck" is a way to acknowledge a message by either keeping the message in the queue or removing the message from the queue once it is read.</p>
 
   <p>with both "doPublish" and "getConsume" we have the ability to push eventSources to a queue and then get them back one after another. the following script is a way to check the status of a queue; like the total number of messages.</p>
   <div id="getCheckCode"></div>
@@ -39,6 +40,12 @@ export let eventSourcesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('getCheck'); return false;">run</a>
   </div>
 
+  <p>for the rest of the dashboard we are going to be less verbose about reoccuring patturns within the code. because once something is documented there is no need to go over it constantly after it has become second nature.</p>
+  <p>moving forward, the other two important parts that we should talk about next is "logging" and "backup"; let's go over them now :)</p>
+  <div style="text-align: center;">
+    <a href="/event-backup" class="waves-effect waves-light btn">event.backup()</a>
+    <a href="/event-logging" class="waves-effect waves-light btn">event.logging()</a>
+  </div>
   <br />
   <br />
   <br />

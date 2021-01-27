@@ -1,6 +1,6 @@
 export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
-  // console.log('hello istrav')
-  
+  // console.log('welcome to istrav')
+
   // always return an event object with these required props:
   return {
     id: window.id(),                     // random number
