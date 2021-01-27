@@ -21,11 +21,7 @@ export let eventSourcesTemplate = /*html*/`
 
   <p>however the above code snippet isn't vary useful as it is just an example. assume from here on out that all scripts will work in some way.</p>
   <p>we follow the same patturn as the javascript prototypal chain which is to have the bottom value of an object as undefined or null. so to publish an event all we need is to fill in that value and wrap it around an "eventSource" object.</p>
-  <div id="window.scripts.runCode"></div>
-  <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('window.scripts.run'); return false;">run</a>
-  </div>
-
+  
   <div id="doPublishCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('doPublish'); return false;">run</a>

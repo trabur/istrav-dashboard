@@ -74,7 +74,8 @@ import { getLog } from './scripts/event.logging.js'
 import { getAll, getNew } from './scripts/account.users.js'
 
 async function run (scriptId) {
-  let call = new Function('return ' + window.scripts[scriptId].toString())()
+  let script = window[`${scriptId}Code`].getValue()
+  let call = new Function('return ' + script)()
   let called = await call()
   console.log(JSON.stringify(called, null, 2))
 }

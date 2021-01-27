@@ -32,27 +32,30 @@ export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
 }
 
 export async function doPublish (topic, body) {
-  let queueId = topic || 'my-events'
-  let message = body || { hello: "world" }
+  let eventSource = await scripts.doEventSource('doPublish')
+  eventSource.topic = topic || 'my-events'
+  eventSource.body = body || { hello: "world" }
 
-  let eventSource = scripts.doEventSource('doPublish', 'event.sources()')
-  eventSource.payload = message
-  await istrav.event.sources.publish(queueId, eventSource)
-
+  await istrav.event.sources.publish(eventSource.topic, eventSource.body)
   return eventSource
 }
 
-export async function getConsume (state, event) {
-  let queueId = 'my-events'
-  let noAck = true // keep or remove message from queue
+export async function getConsume (topic, noAck) {
+  let eventSource = await scripts.doEventSource('getConsume')
+  eventSource.topic = topic || 'my-events'
+  
+  if (eventSource.noAck === undefined) {
+    eventSource.noAck = true // false = keep & true = remove
+  }
 
-  event.payload = await state.event.sources.consume(queueId, { noAck })
-  return event
+  eventSource.payload = await istrav.event.sources.consume(eventSource.topic, { noAck: eventSource.noAck })
+  return eventSource
 }
 
-export async function getCheck (state, event) {
-  let queueId = 'my-events'
+export async function getCheck (topic) {
+  let eventSource = await scripts.doEventSource('getCheck')
+  eventSource.topic = topic || 'my-events'
 
-  event.payload = await state.event.sources.check(queueId)
-  return event
+  eventSource.payload = await istrav.event.sources.check(eventSource.topic)
+  return eventSource
 }
