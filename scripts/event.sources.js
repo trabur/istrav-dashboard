@@ -1,4 +1,17 @@
-export async function doEventSource (state, event) {
+
+window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
+  return {
+    id: window.id(),
+    createdAt: Date.now(),
+    source: sourceId,
+    script: scriptId,
+    // payload: data,
+    logging: logTo, // send all console.logs to this phoenix.js channel/topic
+    backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
+  }
+}
+
+export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
   // state: data on a single sqljs/node.js node in a cluster of many other server nodes
   // console.log(`let state = ${JSON.stringify(state, null, 2)}`)
 
@@ -7,26 +20,25 @@ export async function doEventSource (state, event) {
 
   // always return an event object with these required props:
   return {
-    id: window.id(),           // random number
-    createdAt: Date.now(),     // current time
-    source: 'event.sources()', // data relation
-    script: 'doEventSource',   // cqrs
-    payload: undefined,        // undefined = command
-    // payload: {},            // defined = query
-    logging: 'main-log',       // phoenix.js
-    backup: 'main-backup',     // rabbitmq/mongodb
+    id: window.id(),                     // random number
+    createdAt: Date.now(),               // current time
+    source: sourceId || 'event.sources()', // data relation
+    script: scriptId || 'doEventSource', // cqrs
+    payload: undefined,                  // undefined = command
+    // payload: {},                      // defined = query
+    logging: logTo || 'main-log',        // phoenix.js
+    backup: backupTo || 'main-backup',   // rabbitmq/mongodb
   }
 }
 
-export async function doPublish (state, event) {
-  let queueId = 'my-events'
-  let eventSource = scripts.doEventSource(state, event)
-  eventSource.payload = {
-    hello: 'world'
-  }
+export async function doPublish (topic, body) {
+  let queueId = topic || 'my-events'
+  let message = body || { hello: "world" }
 
-  await state.event.sources.publish(queueId, eventSource)
-  return event
+  let eventSource = scripts.doEventSource('doPublish', 'event.sources()')
+  await istrav.event.sources.publish(queueId, eventSource)
+
+  return eventSource
 }
 
 export async function getConsume (state, event) {

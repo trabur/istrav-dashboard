@@ -66,21 +66,6 @@ istrav.event.logging.init({ host: 'https://api.istrav.com' })
 istrav.account.users.init({ host: 'https://api.istrav.com' })
 
 /**
- * event sourcing
- */
-window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
-  return {
-    id: window.id(),
-    createdAt: Date.now(),
-    source: sourceId,
-    script: scriptId,
-    // payload: data,
-    logging: logTo, // send all console.logs to this phoenix.js channel/topic
-    backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
-  }
-}
-
-/**
  * event scripting
  */
 import { doEventSource, getCheck, doPublish, getConsume } from './scripts/event.sources.js'
@@ -97,7 +82,7 @@ window.scripts = {
 
 window.eventScript = async function (sourceId, scriptId, logTo, backupTo) {
   let call = new Function('return ' + window.scripts[scriptId].toString())()
-  let called = await call(window.istrav, window.eventSource(sourceId, scriptId, logTo, backupTo))
+  let called = await call()
   console.log(JSON.stringify(called, null, 2))
 }
 
