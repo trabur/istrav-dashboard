@@ -73,17 +73,18 @@ import { getHistory } from './scripts/event.backup.js'
 import { getLog } from './scripts/event.logging.js'
 import { getAll, getNew } from './scripts/account.users.js'
 
+async function run (scriptId) {
+  let call = new Function('return ' + window.scripts[scriptId].toString())()
+  let called = await call()
+  console.log(JSON.stringify(called, null, 2))
+}
+
 window.scripts = {
+  run,
   doEventSource, getCheck, doPublish, getConsume,
   getHistory,
   getLog,
   getAll, getNew
-}
-
-window.eventScript = async function (sourceId, scriptId, logTo, backupTo) {
-  let call = new Function('return ' + window.scripts[scriptId].toString())()
-  let called = await call()
-  console.log(JSON.stringify(called, null, 2))
 }
 
 /**

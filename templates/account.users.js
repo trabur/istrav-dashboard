@@ -10,13 +10,13 @@ export let accountUsersTemplate = /*html*/`
   <p>hello fleet</p>
   <div id="getNewCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getNew', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run(sourceId, 'getNew', logTo, backupTo); return false;">run</a>
   </div>
 
   <p>hello fleet</p>
   <div id="getAllCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getAll', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run(sourceId, 'getAll', logTo, backupTo); return false;">run</a>
   </div>
 
   <br />

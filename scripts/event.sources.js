@@ -1,15 +1,15 @@
 
-window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
-  return {
-    id: window.id(),
-    createdAt: Date.now(),
-    source: sourceId,
-    script: scriptId,
-    // payload: data,
-    logging: logTo, // send all console.logs to this phoenix.js channel/topic
-    backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
-  }
-}
+// window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
+//   return {
+//     id: window.id(),
+//     createdAt: Date.now(),
+//     source: sourceId,
+//     script: scriptId,
+//     // payload: data,
+//     logging: logTo, // send all console.logs to this phoenix.js channel/topic
+//     backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
+//   }
+// }
 
 export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
   // state: data on a single sqljs/node.js node in a cluster of many other server nodes
@@ -36,6 +36,7 @@ export async function doPublish (topic, body) {
   let message = body || { hello: "world" }
 
   let eventSource = scripts.doEventSource('doPublish', 'event.sources()')
+  eventSource.payload = message
   await istrav.event.sources.publish(queueId, eventSource)
 
   return eventSource

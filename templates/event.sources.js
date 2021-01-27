@@ -16,26 +16,31 @@ export let eventSourcesTemplate = /*html*/`
   <p>here is what our that looks like:</p>
   <div id="doEventSourceCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'doEventSource', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doEventSource'); return false;">run</a>
   </div>
 
   <p>however the above code snippet isn't vary useful as it is just an example. assume from here on out that all scripts will work in some way.</p>
   <p>we follow the same patturn as the javascript prototypal chain which is to have the bottom value of an object as undefined or null. so to publish an event all we need is to fill in that value and wrap it around an "eventSource" object.</p>
+  <div id="window.scripts.runCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run('window.scripts.run'); return false;">run</a>
+  </div>
+
   <div id="doPublishCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'doPublish', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doPublish'); return false;">run</a>
   </div>
   
   <p>(pubSub)</p>
   <div id="getConsumeCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getConsume', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run('getConsume'); return false;">run</a>
   </div>
 
   <p>(pubSub)</p>
   <div id="getCheckCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="eventScript(sourceId, 'getCheck', logTo, backupTo); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.scripts.run('getCheck'); return false;">run</a>
   </div>
 
   <br />
@@ -56,27 +61,21 @@ export function eventSourcesInit () {
   window.logTo = logTo
   window.backupTo = backupTo
 
-  window.doEventSourceCode = CodeMirror(document.getElementById("doEventSourceCode"), {
-    value: doEventSource.toString(),
-    mode:  "javascript",
-    theme: "material"
-  });
-
-  window.doPublishCode = CodeMirror(document.getElementById("doPublishCode"), {
-    value: doPublish.toString(),
-    mode:  "javascript",
-    theme: "material"
-  });
-
-  window.getConsumeCode = CodeMirror(document.getElementById("getConsumeCode"), {
-    value: getConsume.toString(),
-    mode:  "javascript",
-    theme: "material"
-  });
-
-  window.getCheckCode = CodeMirror(document.getElementById("getCheckCode"), {
-    value: getCheck.toString(),
-    mode:  "javascript",
-    theme: "material"
-  });
+  let scripts = [
+    [ 'doEventSource', doEventSource ],
+    [ 'doPublish', doPublish ],
+    [ 'getConsume', getConsume ],
+    [ 'getCheck', getCheck ]
+  ].forEach(value => {
+    // window.doPublishCode = CodeMirror(document.getElementById("doPublishCode"), {
+    //   value: doPublish.toString(),
+    //   mode:  "javascript",
+    //   theme: "material"
+    // });
+    window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
+      value: value[1].toString(),
+      mode:  "javascript",
+      theme: "material"
+    })
+  })
 }
