@@ -1,22 +1,9 @@
-
-// window.eventSource = function (sourceId, scriptId, logTo, backupTo) {
-//   return {
-//     id: window.id(),
-//     createdAt: Date.now(),
-//     source: sourceId,
-//     script: scriptId,
-//     // payload: data,
-//     logging: logTo, // send all console.logs to this phoenix.js channel/topic
-//     backup: backupTo, // send this return { ... } to rabbitmq exchange/queue
-//   }
-// }
-
 export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
   // always return an event object with these required props:
   return {
     id: window.id(),                     // random number
     createdAt: Date.now(),               // current time
-    source: sourceId || 'event.sources()', // data relation
+    source: sourceId || 'event.sources', // data relation
     script: scriptId || 'doEventSource', // cqrs
     payload: undefined,                  // undefined = command
     // payload: {},                      // defined = query
@@ -26,23 +13,36 @@ export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
 }
 
 export async function doPublish (topic, body) {
+  // remember to always return an event object
   let eventSource = await scripts.doEventSource('doPublish')
+
+  // make sure all arguements are saved to the event object
   eventSource.topic = topic || 'my-events'
   eventSource.body = body || { hello: "world" }
 
+  // perform the doPublish thing
   await istrav.event.sources.publish(eventSource.topic, eventSource.body)
+
+  // finish
   return eventSource
 }
 
 export async function getConsume (topic, noAck) {
+  // object
   let eventSource = await scripts.doEventSource('getConsume')
+
+  // arguements
   eventSource.topic = topic || 'my-events'
-  
-  if (eventSource.noAck === undefined) {
+  if (noAck === undefined) {
     eventSource.noAck = true // false = keep & true = remove
+  } else {
+    eventSource.noAck = noAck
   }
 
+  // perform
   eventSource.payload = await istrav.event.sources.consume(eventSource.topic, { noAck: eventSource.noAck })
+
+  // finish
   return eventSource
 }
 
