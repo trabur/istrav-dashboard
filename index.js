@@ -77,7 +77,7 @@ async function run (scriptId) {
   let script = window[`${scriptId}Code`].getValue()
   let call = new Function('return ' + script)()
   let called = await call()
-  console.log(`eventSource ::: ${JSON.stringify(called, null, 2)}`)
+  console.log(`DASH ::: ${JSON.stringify(called, null, 2)}`)
 }
 
 window.scripts = {
