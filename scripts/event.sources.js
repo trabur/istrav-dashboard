@@ -1,4 +1,6 @@
 export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
+  // console.log('hello istrav')
+  
   // always return an event object with these required props:
   return {
     id: window.id(),                     // random number
@@ -23,7 +25,7 @@ export async function doPublish (topic, body) {
   // perform the doPublish thing
   await istrav.event.sources.publish(eventSource.topic, eventSource.body)
 
-  // finish
+  // finish block statement
   return eventSource
 }
 
@@ -47,9 +49,15 @@ export async function getConsume (topic, noAck) {
 }
 
 export async function getCheck (topic) {
+  // object
   let eventSource = await scripts.doEventSource('getCheck')
+
+  // arguements
   eventSource.topic = topic || 'my-events'
 
+  // perform
   eventSource.payload = await istrav.event.sources.check(eventSource.topic)
+
+  // finish
   return eventSource
 }

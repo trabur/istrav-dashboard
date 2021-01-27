@@ -13,27 +13,27 @@ export let eventSourcesTemplate = /*html*/`
   <h3>> with rabbitmq messaging as a backbone</h3>
   <p>most applications today are built around create, read, update, and delete or CRUD. that's not good enough for accounting level reliabilty; because with delete and update information is lost. meaning, if we update a model more than once ... our history is not kept. where data loss is not acceptable this is not good. in order to combat that every action is saved as an event. we then play out these events over a view to get our state. with our history getting backed up we can replay all of the events over a new view for recovery, analytics, or w/e.</p>
   <p>so instead of CRUD like we are more CQRS with microservice/REST like. for instance, take an application where there is a bunch of traffic hitting one API method more than another ... such as: only 10 new employees per month vs 1k vehicles updating their position every second. with microservices and CQRS we can scale up/down specific blocks of code in our app. so to handle this our naming convention for all scripts starts with "get" or "do" in order to signify "query" or "command" respectively. back to the example: getRegister and doChangeLocation.</p>
-  <p>here is what our that looks like:</p>
+  <p>here is our first block of code:</p>
   <div id="doEventSourceCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('doEventSource'); return false;">run</a>
   </div>
-
-  <p>however the above code snippet isn't vary useful as it is just an example. assume from here on out that all scripts will work in some way.</p>
-  <p>we follow the same patturn as the javascript prototypal chain which is to have the bottom value of an object as undefined or null. so to publish an event all we need is to fill in that value and wrap it around an "eventSource" object.</p>
-  
+  <p>we follow the same patturn as prototypal chains which is to set the bottom value as undefined or null; see "payload" above.</p>
+  <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('hello istrav')", click run, and then "hello istrav" will show up.</p>
+  <p>as shown below "scripts.doEventSource" is a way to access a script from another script.</p>
   <div id="doPublishCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('doPublish'); return false;">run</a>
   </div>
   
-  <p>(pubSub)</p>
+  <p>> note: with rabbitmq there are two ways to grab messages off the queue. the first is use consume which is a push based model and the second is to use get which is a pull based model; the getConsume script uses the pull method.</p>
+  <p>when the "eventSource.payload" is set we are returning something which makes this script a "get" rather than a "do" statement; see "payload" below.</p>
   <div id="getConsumeCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('getConsume'); return false;">run</a>
   </div>
 
-  <p>(pubSub)</p>
+  <p>with both "doPublish" and "getConsume" we have the ability to push eventSources to a queue and then get them back one after another. the following script is a way to check the status of a queue; like the total number of messages.</p>
   <div id="getCheckCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.scripts.run('getCheck'); return false;">run</a>
