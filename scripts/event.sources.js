@@ -14,49 +14,55 @@ export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
   }
 }
 
-export async function doPublish (topic, body) {
+export async function doPublish (id, body) {
   // remember to always return an event object
-  let eventSource = await scripts.doEventSource('doPublish')
+  let es = await scripts.doEventSource('doPublish')
 
   // make sure all arguements are saved to the event object
-  eventSource.topic = topic || 'my-events'
-  eventSource.body = body || { hello: "world" }
+  es.arguements = {
+    id: id || 'my-events',
+    body: body || { hello: "world" }
+  }
 
   // perform the doPublish thing
-  await istrav.event.sources.publish(eventSource.topic, eventSource.body)
+  let eventSource = await istrav.event.sources.publish(es)
 
   // finish block statement
   return eventSource
 }
 
-export async function getConsume (topic, noAck) {
+export async function getConsume (id, noAck) {
   // object
-  let eventSource = await scripts.doEventSource('getConsume')
+  let es = await scripts.doEventSource('getConsume')
 
   // arguements
-  eventSource.topic = topic || 'my-events'
+  es.arguements = {
+    id: id || 'my-events'
+  }
   if (noAck === undefined) {
-    eventSource.noAck = true // false = keep & true = remove
+    es.arguements.noAck = true // false = keep & true = remove
   } else {
-    eventSource.noAck = noAck
+    es.arguements.noAck = noAck
   }
 
   // perform
-  eventSource.payload = await istrav.event.sources.consume(eventSource.topic, { noAck: eventSource.noAck })
+  let eventSource = await istrav.event.sources.consume(es)
 
   // finish
   return eventSource
 }
 
-export async function getCheck (topic) {
+export async function getCheck (id) {
   // object
-  let eventSource = await scripts.doEventSource('getCheck')
+  let es = await scripts.doEventSource('getCheck')
 
   // arguements
-  eventSource.topic = topic || 'my-events'
+  es.arguements = {
+    id: id || 'my-events'
+  }
 
   // perform
-  eventSource.payload = await istrav.event.sources.check(eventSource.topic)
+  let eventSource = await istrav.event.sources.check(es)
 
   // finish
   return eventSource
