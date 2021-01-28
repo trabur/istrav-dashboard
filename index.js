@@ -1,5 +1,6 @@
 import { istrav } from "./node_modules/istrav/api/index.js";
 
+import { dashboardTemplate, dashboardInit } from './templates/dashboard.js'
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
@@ -16,12 +17,12 @@ function noop() {}
 
 let routes = {
   '/': {
-    template: eventSourcesTemplate,
-    method: eventSourcesInit,
+    template: dashboardTemplate,
+    method: dashboardInit,
   },
   '/index.html': {
-    template: eventSourcesTemplate,
-    method: eventSourcesInit,
+    template: dashboardTemplate,
+    method: dashboardInit,
   },
   '/event-sources': {
     template: eventSourcesTemplate,
@@ -58,7 +59,15 @@ window.onNavItemClick = function onNavItemClick (pathName) {
 /**
  * expose library
  */
-window.id = () => Math.floor(Math.random() * 1000000000000)
+window.id = (length) => {
+  var result  = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  var charactersLength = characters.length
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}
 window.istrav = istrav
 istrav.event.sources.init({ host: 'https://api.istrav.com' })
 istrav.event.backup.init({ host: 'https://api.istrav.com' })
@@ -69,7 +78,7 @@ istrav.account.users.init({ host: 'https://api.istrav.com' })
  * event scripting
  */
 import { doEventSource, getCheck, doPublish, getConsume } from './scripts/event.sources.js'
-import { getHistory } from './scripts/event.backup.js'
+import { doSaveEvents, getLoadEvents, doPlayEvents } from './scripts/event.backup.js'
 import { getLog } from './scripts/event.logging.js'
 import { getAll, getNew } from './scripts/account.users.js'
 
@@ -83,7 +92,7 @@ async function run (scriptId) {
 window.scripts = {
   run,
   doEventSource, getCheck, doPublish, getConsume,
-  getHistory,
+  doSaveEvents, getLoadEvents, doPlayEvents,
   getLog,
   getAll, getNew
 }

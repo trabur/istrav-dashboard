@@ -10,6 +10,10 @@ export let eventLoggingTemplate = /*html*/`
   <p>hello world</p>
   <p></p>
 
+  <div style="text-align: center;">
+    <a href="/event-backup" class="waves-effect waves-light btn"><-- previous</a>
+    <a href="/account-users" class="waves-effect waves-light btn">next --></a>
+  </div>
   <br />
   <br />
   <br />

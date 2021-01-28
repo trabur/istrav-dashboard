@@ -1,16 +1,20 @@
-export async function doEventSource (scriptId, sourceId, logTo, backupTo) {
+export async function doEventSource (scriptId, folderId, stateId, sourceId, storageId, outputId) {
   // console.log('welcome to istrav')
 
   // always return an event object with these required props:
   return {
-    id: window.id(),                     // random number
-    createdAt: Date.now(),               // current time
-    source: sourceId || 'event.sources', // data relation
+    id: window.id(32),                   // very long random string
+    startAt: Date.now(),                 // set by client
+    serverAt: null,                      // set by server
+    finishAt: null,                      // set by client
+    folder: folderId || 'event.sources', // data relation
     script: scriptId || 'doEventSource', // cqrs
     payload: undefined,                  // undefined = command
     // payload: {},                      // defined = query
-    logging: logTo || 'main-log',        // phoenix.js
-    backup: backupTo || 'main-backup',   // rabbitmq/mongodb
+    state: stateId || 'my-state',        // backup: node.js/postgresql
+    source: sourceId || 'my-source',     // backup: rabbitmq queue
+    storage: storageId || 'my-storage',  // backup: mongodb collection
+    output: outputId || 'my-output'      // logging: phoenix.js
   }
 }
 
@@ -20,7 +24,7 @@ export async function doPublish (id, body) {
 
   // make sure all arguements are saved to the event object
   es.arguements = {
-    id: id || 'my-events',
+    id: id || 'my-source',
     body: body || { hello: "world" }
   }
 
@@ -35,9 +39,9 @@ export async function getConsume (id, noAck) {
   // object
   let es = await scripts.doEventSource('getConsume')
 
-  // arguements
+  // params
   es.arguements = {
-    id: id || 'my-events'
+    id: id || 'my-source'
   }
   if (noAck === undefined) {
     es.arguements.noAck = true // false = keep & true = remove
@@ -56,9 +60,9 @@ export async function getCheck (id) {
   // object
   let es = await scripts.doEventSource('getCheck')
 
-  // arguements
+  // params
   es.arguements = {
-    id: id || 'my-events'
+    id: id || 'my-source'
   }
 
   // perform

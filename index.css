@@ -25,6 +25,14 @@
   color: #aaa;
 }
 
+.center ul {
+  padding: 0.5em;
+  margin: 0 2em;
+}
+.center ul li {
+  list-style-type: circle;
+}
+
 .center p {
   padding: 0.5em;
   margin: 0;
