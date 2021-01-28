@@ -20,6 +20,11 @@ app.get([
   res.sendFile('./index.html', { root: __dirname });
 })
 
+// directory listing
+import serveIndex from 'serve-index'
+app.use('/scripts', serveIndex('scripts'))
+app.use('/templates', serveIndex('templates'))
+
 // dashboard default
 app.get('/*', express.static('.'))
 
