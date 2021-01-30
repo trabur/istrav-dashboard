@@ -4,9 +4,9 @@ export async function doEventSource (scriptId, folderId, stateId, sourceId, stor
   // always return an event object with these required props:
   return {
     id: window.id(32),                   // very long random string
-    startAt: Date.now(),                 // set by client
+    timeAt: Date.now(),                  // set by this function
     serverAt: null,                      // set by server
-    finishAt: null,                      // set by client
+    clientAt: null,                      // set by client
     folder: folderId || 'event.sources', // data relation
     script: scriptId || 'doEventSource', // cqrs
     payload: undefined,                  // undefined = command
@@ -21,11 +21,13 @@ export async function doEventSource (scriptId, folderId, stateId, sourceId, stor
 export async function doPublish (id, body) {
   // remember to always return an event object
   let es = await scripts.doEventSource('doPublish')
+  let demo = await scripts.doEventSource('doEventSource')
+  demo.payload = { hello: "world" }
 
   // make sure all arguements are saved to the event object
   es.arguements = {
     id: id || 'my-source',
-    body: body || { hello: "world" }
+    body: body || demo
   }
 
   // perform the doPublish thing
