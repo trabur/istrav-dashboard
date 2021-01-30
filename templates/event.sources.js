@@ -15,7 +15,6 @@ export let eventSourcesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('doEventSource'); return false;">run</a>
   </div>
   <p>we follow the same patturn as prototypal chains which is to set the bottom value as undefined or null; see "payload" above.</p>
-  <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
   <p>as shown below "scripts.event.sources.doEventSource" is a way to access a script from another script.</p>
   <div id="doPublishCode"></div>
   <div class="script-actions">

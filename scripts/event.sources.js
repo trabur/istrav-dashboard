@@ -2,8 +2,6 @@ import { istrav } from '../node_modules/istrav/api/index.js'
 import { scripts } from './dashboard.js'
 
 export async function doEventSource (scriptId, folderId, stateId, sourceId, storageId, outputId) {
-  // console.log('welcome to istrav')
-
   // always return an event object with these required props:
   return {
     id: window.id(32),                   // very long random string

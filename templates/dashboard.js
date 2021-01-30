@@ -7,7 +7,7 @@ export let dashboardTemplate = /*html*/`
     <a href="/templates" class="waves-effect waves-light btn">templates</a>
   </div>
   <p>i've placed the two buttons above for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts & templates.</p>
-  <p>example node.js project:</p>
+  <p>example script:</p>
   <div id="doHelloWorldCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('doHelloWorld'); return false;">run</a>
@@ -18,6 +18,8 @@ export let dashboardTemplate = /*html*/`
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('doRun'); return false;">run</a>
   </div>
+  <h3>> console.log() outputs to the right!</h3>
+  <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
   <p>the entire project is open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
   <div style="text-align: center;">
     <a href="https://github.com/trabur/istrav-api" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-api</a><br /><br />
@@ -37,6 +39,13 @@ export let dashboardTemplate = /*html*/`
     <li>gigalixir.com // Elixir’s Platform as a Service</li>
     <li>heroku.com // node.js frontend and backend</li>
     <li>elephantsql.com // PostgreSQL as a Service</li>
+  </ul>
+  <p>production endpoints:</p>
+  <ul>
+    <li><a href="https://istrav.com" target="_blank">https://istrav.com</a> // storefront</li>
+    <li><a href="https://api.istrav.com" target="_blank">https://api.istrav.com</a> // backend</li>
+    <li><a href="https://dashboard.istrav.com" target="_blank">https://dashboard.istrav.com</a> // admin</li>
+    <li><a href="https://channels.istrav.com" target="_blank">https://channels.istrav.com</a> // backend</li>
   </ul>
   <p>i've added event.sources() to the top because of it's importance. that's because we record every command and every query that goes on around the frontend and backend. so let's get stared...</p>
   <br />

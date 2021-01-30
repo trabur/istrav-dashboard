@@ -43,4 +43,6 @@ export async function doRun (scriptId) {
   let call = new Function('return ' + script)()
   let called = await call()
   console.log(`SCRIPT ::: ${JSON.stringify(called, null, 2)}`)
+  
+  // console.log('welcome to istrav')
 }
