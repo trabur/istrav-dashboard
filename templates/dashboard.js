@@ -38,7 +38,7 @@ export let dashboardTemplate = /*html*/`
     <li>heroku.com // node.js frontend and backend</li>
     <li>elephantsql.com // PostgreSQL as a Service</li>
   </ul>
-  <p>we've added event.sources() to the top because of it's importance. that's because we record a history of every command and every query that goes on around the frontend and backend. so let's get stared...</p>
+  <p>i've added event.sources() to the top because of it's importance. that's because we record every command and every query that goes on around the frontend and backend. so let's get stared...</p>
   <br />
   <div style="text-align: center;">
     <a href="/event-sources" class="waves-effect waves-light btn">continue</a>
