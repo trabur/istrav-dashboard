@@ -19,14 +19,14 @@ export let dashboardTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('doRun'); return false;">run</a>
   </div>
   <p>the entire project is open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
-  <p>code involved:</p>
-  <ul>
-    <li>https://github.com/trabur/istrav-api</li>
-    <li>https://github.com/trabur/istrav-channels</li>
-    <li>https://github.com/trabur/istrav-dashboard</li>
-    <li>https://github.com/trabur/istrav-library</li>
-    <li>https://github.com/trabur/istrav-storefront</li>
-  </ul>
+  <div style="text-align: center;">
+    <a href="https://github.com/trabur/istrav-api" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-api</a><br /><br />
+    <a href="https://github.com/trabur/istrav-channels" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-channels</a><br /><br />
+    <a href="https://github.com/trabur/istrav-dashboard" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-dashboard</a><br /><br />
+    <a href="https://github.com/trabur/istrav-library" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-library</a><br /><br />
+    <a href="https://github.com/trabur/istrav-storefront" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-storefront</a><br /><br />
+    <p>(give one or all projects a like to show your support!)</p>
+  </div>
   <p>speaking of 3rd party software here is a list of products that i use just to keep the lights on. note: all these services have free plans available however if i start getting use out of these endpoints i'll have to start paying and ultimatly having to charge subscribers.</p>
   <p>services involved:</p>
   <ul>
