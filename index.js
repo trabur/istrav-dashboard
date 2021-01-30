@@ -1,5 +1,3 @@
-import { istrav } from "./node_modules/istrav/api/index.js";
-
 import { dashboardTemplate, dashboardInit } from './templates/dashboard.js'
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
@@ -57,7 +55,7 @@ window.onNavItemClick = function onNavItemClick (pathName) {
 }
 
 /**
- * expose library
+ * primary key generator
  */
 window.id = (length) => {
   var result  = '';
@@ -68,19 +66,22 @@ window.id = (length) => {
   }
   return result
 }
+
+/**
+ * libraries
+ */
+import { istrav } from "./node_modules/istrav/api/index.js";
+
 window.istrav = istrav
 istrav.event.sources.init({ host: 'https://api.istrav.com' })
 istrav.event.backup.init({ host: 'https://api.istrav.com' })
 istrav.event.logging.init({ host: 'https://api.istrav.com' })
 istrav.account.users.init({ host: 'https://api.istrav.com' })
 
-/**
- * event scripting
- */
 import { scripts } from './scripts/dashboard.js'
 
-window.doRun = scripts.dashboard.doRun
 window.scripts = scripts
+window.doRun = scripts.dashboard.doRun
 
 /**
  * init
