@@ -12,28 +12,28 @@ export let eventSourcesTemplate = /*html*/`
   <p>here is our first block of code:</p>
   <div id="doEventSourceCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doEventSource'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doEventSource'); return false;">run</a>
   </div>
   <p>we follow the same patturn as prototypal chains which is to set the bottom value as undefined or null; see "payload" above.</p>
   <p>> notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
   <p>as shown below "scripts.doEventSource" is a way to access a script from another script.</p>
   <div id="doPublishCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doPublish'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doPublish'); return false;">run</a>
   </div>
   
   <p>> note: with rabbitmq there are two ways to grab messages off the queue. the first is use consume which is a push based model and the second is to use get which is a pull based model; the getConsume script uses the pull method.</p>
   <p>when the "eventSource.payload" is set we are returning something which makes this script a "get" rather than a "do" statement; see "payload" below.</p>
   <div id="getConsumeCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('getConsume'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getConsume'); return false;">run</a>
   </div>
   <p>in the above script "eventSource.noAck" is a way to acknowledge a message by either keeping the message in the queue or removing the message from the queue once it is read.</p>
 
   <p>with both "doPublish" and "getConsume" we have the ability to push eventSources to a queue and then get them back one after another. the following script is a way to check the status of a queue; like the total number of messages.</p>
   <div id="getCheckCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('getCheck'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getCheck'); return false;">run</a>
   </div>
 
   <p>for the rest of the dashboard we are going to be less verbose about reoccuring patturns within the code. because once something is documented there is no need to go over it constantly after it has become second nature.</p>

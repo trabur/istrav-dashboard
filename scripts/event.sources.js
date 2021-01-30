@@ -1,3 +1,6 @@
+import { istrav } from '../node_modules/istrav/api/index.js'
+import { scripts } from './dashboard.js'
+
 export async function doEventSource (scriptId, folderId, stateId, sourceId, storageId, outputId) {
   // console.log('welcome to istrav')
 
@@ -20,8 +23,8 @@ export async function doEventSource (scriptId, folderId, stateId, sourceId, stor
 
 export async function doPublish (id, body) {
   // remember to always return an event object
-  let es = await scripts.doEventSource('doPublish')
-  let demo = await scripts.doEventSource('doEventSource')
+  let es = await scripts.event.sources.doEventSource('doPublish')
+  let demo = await scripts.event.sources.doEventSource('doEventSource')
   demo.payload = { hello: "world" }
 
   // make sure all arguements are saved to the event object
@@ -39,7 +42,7 @@ export async function doPublish (id, body) {
 
 export async function getConsume (id, noAck) {
   // object
-  let es = await scripts.doEventSource('getConsume')
+  let es = await scripts.event.sources.doEventSource('getConsume')
 
   // params
   es.arguements = {
@@ -60,7 +63,7 @@ export async function getConsume (id, noAck) {
 
 export async function getCheck (id) {
   // object
-  let es = await scripts.doEventSource('getCheck')
+  let es = await scripts.event.sources.doEventSource('getCheck')
 
   // params
   es.arguements = {

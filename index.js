@@ -77,25 +77,10 @@ istrav.account.users.init({ host: 'https://api.istrav.com' })
 /**
  * event scripting
  */
-import { doEventSource, getCheck, doPublish, getConsume } from './scripts/event.sources.js'
-import { doSaveEvents, getLoadEvents, doPlayEvents } from './scripts/event.backup.js'
-import { getLog } from './scripts/event.logging.js'
-import { getAll, getNew } from './scripts/account.users.js'
+import { scripts } from './scripts/dashboard.js'
 
-async function run (scriptId) {
-  let script = window[`${scriptId}Code`].getValue()
-  let call = new Function('return ' + script)()
-  let called = await call()
-  console.log(`SCRIPT ::: ${JSON.stringify(called, null, 2)}`)
-}
-
-window.scripts = {
-  run,
-  doEventSource, getCheck, doPublish, getConsume,
-  doSaveEvents, getLoadEvents, doPlayEvents,
-  getLog,
-  getAll, getNew
-}
+window.doRun = scripts.dashboard.doRun
+window.scripts = scripts
 
 /**
  * init

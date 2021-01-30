@@ -15,20 +15,20 @@ export let eventBackupTemplate = /*html*/`
   <p>therefore we have save...</p>
   <div id="doSaveEventsCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doSaveEvents'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doSaveEvents'); return false;">run</a>
   </div>
 
   <p>and load...</p>
   <div id="getLoadEventsCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('getLoadEvents'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getLoadEvents'); return false;">run</a>
   </div>
   <p>let's go over the above scripts ... </p>
 
   <p>plus the ability to "play" events over a view's state:</p>
   <div id="doPlayEventsCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.scripts.run('doPlayEvents'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doPlayEvents'); return false;">run</a>
   </div>
   <br />
   <div style="text-align: center;">

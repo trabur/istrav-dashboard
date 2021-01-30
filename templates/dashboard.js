@@ -6,8 +6,19 @@ export let dashboardTemplate = /*html*/`
     <a href="/scripts" class="waves-effect waves-light btn">scripts</a>
     <a href="/templates" class="waves-effect waves-light btn">templates</a>
   </div>
-  <p>i've placed the two buttons above for any devlopers, such as myself, to mainly browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts & templates.</p>
-  <p>the rest of the project is also open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
+  <p>i've placed the two buttons above for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts & templates.</p>
+  <p>example node.js project:</p>
+  <div id="doHelloWorldCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doHelloWorld'); return false;">run</a>
+  </div>
+
+  <p>here is how scripts run in browser:</p>
+  <div id="doRunCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('doRun'); return false;">run</a>
+  </div>
+  <p>the entire project is open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
   <p>code involved:</p>
   <ul>
     <li>https://github.com/trabur/istrav-api</li>
@@ -38,6 +49,20 @@ export let dashboardTemplate = /*html*/`
   <br />
 `
 
+import { 
+  doHelloWorld,
+  doRun
+} from '../scripts/dashboard.js'
+
 export function dashboardInit () {
-  console.log('hello world')
+  let scripts = [
+    [ 'doHelloWorld', doHelloWorld ],
+    [ 'doRun', doRun ],
+  ].forEach(value => {
+    window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
+      value: value[1].toString(),
+      mode:  "javascript",
+      theme: "material"
+    })
+  })
 }

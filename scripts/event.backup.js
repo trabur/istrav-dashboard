@@ -1,6 +1,9 @@
+import { istrav } from '../node_modules/istrav/api/index.js'
+import { scripts } from './dashboard.js'
+
 export async function doSaveEvents (to, from) {
   // object
-  let es = await scripts.doEventSource('doSaveEvents', 'event.backup')
+  let es = await scripts.event.sources.doEventSource('doSaveEvents', 'event.backup')
 
   // params
   es.arguements = {
@@ -17,7 +20,7 @@ export async function doSaveEvents (to, from) {
 
 export async function getLoadEvents (from, to) {
   // object
-  let es = await scripts.doEventSource('getLoadEvents', 'event.backup')
+  let es = await scripts.event.sources.doEventSource('getLoadEvents', 'event.backup')
 
   // params
   es.arguements = {
@@ -34,7 +37,7 @@ export async function getLoadEvents (from, to) {
 
 export async function doPlayEvents (source, state, stopAt) {
   // object
-  let es = await scripts.doEventSource('doPlayEvents', 'event.backup')
+  let es = await scripts.event.sources.doEventSource('doPlayEvents', 'event.backup')
 
   // params
   es.arguements = {
