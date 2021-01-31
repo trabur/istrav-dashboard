@@ -1,6 +1,11 @@
 ISTRAV-DASHBOARD
 ========
 
+### bower
+```bash
+$ bower install phoenix-js
+```
+
 ### go
 ```bash
 $ npm start

@@ -82,6 +82,10 @@ main {
 }
 
 .report {
+  padding: 0;
+}
+
+.report .log {
   padding: 1em;
 }
 

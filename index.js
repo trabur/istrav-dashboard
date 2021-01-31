@@ -6,7 +6,7 @@ import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehi
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 
 import { navigationTemplate } from './templates/navigation.js'
-import { reportTemplate } from './templates/report.js'
+import { reportTemplate, reportInit } from './templates/report.js'
 
 /**
  * routing
@@ -93,6 +93,7 @@ let reportDiv = document.getElementById('report');
 navigationDiv.innerHTML = navigationTemplate;
 contentDiv.innerHTML = routes[window.location.pathname].template;
 reportDiv.innerHTML = reportTemplate;
+reportInit()
 
 /**
  * logging
