@@ -9,7 +9,7 @@ export let eventSourcesTemplate = /*html*/`
   <h3>> with rabbitmq messaging as a backbone</h3>
   <p>most applications today are built around create, read, update, and delete or CRUD. that's not good enough for accounting level reliabilty; because with delete and update information is lost. meaning, if we update a model more than once ... our history is not kept. where data loss is not acceptable this is not good. in order to combat that every action is saved as an event. we then play out these events over a view to get our state. with our history getting backed up we can replay all of the events over a new view for recovery, analytics, or w/e.</p>
   <p>so instead of CRUD like we are more CQRS with microservice/REST like. for instance, take an application where there is a bunch of traffic hitting one API method more than another ... such as: only 10 new employees per month vs 1k vehicles updating their position every second. with microservices and CQRS we can scale up/down specific blocks of code in our app. so to handle this our naming convention for all scripts starts with "get" or "do" in order to signify "query" or "command" respectively. back to the example: getRegister and doChangeLocation.</p>
-  <p>here is our first block of code:</p>
+  <p>all events start with this script:</p>
   <div id="doEventSourceCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('doEventSource'); return false;">run</a>
