@@ -27,7 +27,7 @@ export let eventSourcesTemplate = /*html*/`
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('getConsume'); return false;">run</a>
   </div>
-  <p>in the above script "eventSource.noAck" is a way to acknowledge a message by either keeping the message in the queue or removing the message from the queue once it is read.</p>
+  <p>in the above script "eventSource.arguements.noAck" is a way to acknowledge a message by either keeping the message in the queue or removing the message from the queue once it is read.</p>
 
   <p>with both "doPublish" and "getConsume" we have the ability to push eventSources to a queue and then get them back one after another. the following script is a way to check the status of a queue; like the total number of messages.</p>
   <div id="getCheckCode"></div>
