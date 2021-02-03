@@ -14,6 +14,8 @@ app.get([
   '/event-sources',
   '/event-backup',
   '/event-logging',
+  '/tenant-members',
+  '/tenant-apps',
   '/fleet-vehicles',
   '/account-users'
 ], function(req, res) {
