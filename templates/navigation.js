@@ -3,6 +3,7 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/event-sources'); return false;">event.sources()</a></li>
   <li><a href="#" onclick="onNavItemClick('/event-backup'); return false;">event.backup()</a></li>
   <li><a href="#" onclick="onNavItemClick('/event-logging'); return false;">event.logging()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/tenant-accounts'); return false;">tenant.accounts()</a></li>
   <li><a href="#" onclick="onNavItemClick('/tenant-apps'); return false;">tenant.apps()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-users'); return false;">account.users()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-cart'); return false;">account.cart()</a></li>
