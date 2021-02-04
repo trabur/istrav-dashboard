@@ -17,15 +17,17 @@ export async function getAll (token) {
   return eventSource
 }
 
-export async function getSave (token, domain, state) {
+export async function getSave (token, change) {
   // object
   let es = await scripts.event.sources.doEventSource('getSave', 'tenent.apps')
 
   // params
   es.arguements = {
     token: token || '',
-    domain: domain || 'istrav.com',
-    state: state || 'production',
+    change: change || {
+      domain: 'istrav.com',
+      state: 'production'
+    }
   }
 
   // perform
@@ -53,7 +55,7 @@ export async function getOne (token, domain, state) {
   return eventSource
 }
 
-export async function getUpdate (token, domain, state) {
+export async function getUpdate (token, domain, state, change) {
   // object
   let es = await scripts.event.sources.doEventSource('getUpdate', 'tenent.apps')
 
@@ -62,7 +64,7 @@ export async function getUpdate (token, domain, state) {
     token: token || '',
     domain: domain || 'istrav.com',
     state: state || 'production',
-    change: {
+    change: change || {
       // domain: '',
       state: 'development',
       // ownerId: ''
