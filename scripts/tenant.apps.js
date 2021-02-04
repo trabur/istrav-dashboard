@@ -25,7 +25,7 @@ export async function getSave (token, domain, state) {
   es.arguements = {
     token: token || '',
     domain: domain || 'istrav.com',
-    state: domain || 'production',
+    state: state || 'production',
   }
 
   // perform
