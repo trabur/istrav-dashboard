@@ -1,17 +1,17 @@
 import { istrav } from '../node_modules/istrav/api/index.js'
 import { scripts } from './dashboard.js'
 
-export async function getRegister (id) {
+export async function getRegister (email, username, password, firstName, lastName) {
   // object
   let es = await scripts.event.sources.doEventSource('getRegister', 'tenent.members')
 
   // params
   es.arguements = {
-    email: 'travis.burandt@gmail.com',
-    username: 'cool-user',
-    password: 'my-password',
-    firstName: 'john',
-    lastName: 'doe',
+    email: email || 'travis.burandt@gmail.com',
+    username: username || 'cool-user',
+    password: password || 'my-password',
+    firstName: firstName || 'john',
+    lastName: lastName || 'doe',
   }
 
   // perform
@@ -22,14 +22,14 @@ export async function getRegister (id) {
 }
 
 
-export async function getLogin (id) {
+export async function getLogin (email, password) {
   // object
   let es = await scripts.event.sources.doEventSource('getLogin', 'tenent.members')
 
   // params
   es.arguements = {
-    email: 'travis.burandt@gmail.com',
-    password: 'my-password'
+    email: email || 'travis.burandt@gmail.com',
+    password: password || 'my-password'
   }
 
   // perform
