@@ -78,7 +78,7 @@ export async function getUpdate (token, domain, state) {
 
 export async function getRemove (token, domain, state) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getRemove', 'tenent.apps')
 
   // params
   es.arguements = {
