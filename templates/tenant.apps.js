@@ -7,12 +7,29 @@ let backupTo = 'my-backup'
 export let tenantAppsTemplate = /*html*/`
   <h2>::: tenant.apps()</h2>
   <h3>> with postgresql database as a backbone</h3>
-  <p></p>
-
-  <p>therefore we have save...</p>
-  <div id="getLoginCode"></div>
+  <div id="getSaveCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.doRun('getLogin'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getSave'); return false;">run</a>
+  </div>
+
+  <div id="getAllCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getAll'); return false;">run</a>
+  </div>
+
+  <div id="getUpdateCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getUpdate'); return false;">run</a>
+  </div>
+
+  <div id="getOneCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getOne'); return false;">run</a>
+  </div>
+
+  <div id="getDeleteCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getDelete'); return false;">run</a>
   </div>
 
   <br />
@@ -26,8 +43,11 @@ export let tenantAppsTemplate = /*html*/`
 `
 
 import {
-  getLogin,
-  getRegister
+  getSave,
+  getAll,
+  getUpdate,
+  getOne,
+  getDelete
 } from '../scripts/tenant.apps.js'
 
 export function tenantAppsInit () {
@@ -37,8 +57,11 @@ export function tenantAppsInit () {
   window.backupTo = backupTo
 
   let scripts = [
-    [ 'getLogin', getLogin ],
-    [ 'getRegister', getRegister ]
+    [ 'getSave', getSave ],
+    [ 'getAll', getAll ],
+    [ 'getUpdate', getUpdate ],
+    [ 'getOne', getOne ],
+    [ 'getDelete', getDelete ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
       value: value[1].toString(),
