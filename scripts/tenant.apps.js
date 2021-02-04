@@ -76,7 +76,7 @@ export async function getUpdate (token, domain, state) {
   return eventSource
 }
 
-export async function getDelete (token, domain, state) {
+export async function getRemove (token, domain, state) {
   // object
   let es = await scripts.event.sources.doEventSource('getUpdate', 'tenent.apps')
 
@@ -88,7 +88,7 @@ export async function getDelete (token, domain, state) {
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.update(es)
+  let eventSource = await istrav.tenant.apps.remove(es)
 
   // finish
   return eventSource
