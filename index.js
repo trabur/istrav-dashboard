@@ -2,6 +2,8 @@ import { dashboardTemplate, dashboardInit } from './templates/dashboard.js'
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
+import { tenantMembersTemplate, tenantMembersInit }  from './templates/tenant.members.js'
+import { tenantAppsTemplate, tenantAppsInit }  from './templates/tenant.apps.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 
@@ -33,6 +35,14 @@ let routes = {
   '/event-logging': {
     template: eventLoggingTemplate,
     method: eventLoggingInit,
+  },
+  '/tenant-members': {
+    template: tenantMembersTemplate,
+    method: tenantMembersInit,
+  },
+  '/tenant-apps': {
+    template: tenantAppsTemplate,
+    method: tenantAppsInit,
   },
   '/account-users': {
     template: accountUsersTemplate,
@@ -76,6 +86,8 @@ window.istrav = istrav
 istrav.event.sources.init({ host: 'https://api.istrav.com' })
 istrav.event.backup.init({ host: 'https://api.istrav.com' })
 istrav.event.logging.init({ host: 'https://api.istrav.com' })
+istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
+istrav.tenant.members.init({ host: 'https://api.istrav.com' })
 istrav.account.users.init({ host: 'https://api.istrav.com' })
 
 import { scripts } from './scripts/dashboard.js'
