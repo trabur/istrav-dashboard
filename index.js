@@ -7,6 +7,8 @@ import { tenantAppsTemplate, tenantAppsInit }  from './templates/tenant.apps.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 import { storeProductsTemplate, storeProductsInit }  from './templates/store.products.js'
+import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store.categories.js'
+import { storeFeaturedTemplate, storeFeaturedInit }  from './templates/store.featured.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -44,6 +46,14 @@ let routes = {
   '/tenant-apps': {
     template: tenantAppsTemplate,
     method: tenantAppsInit,
+  },
+  '/store-featured': {
+    template: storeFeaturedTemplate,
+    method: storeFeaturedInit,
+  },
+  '/store-categories': {
+    template: storeCategoriesTemplate,
+    method: storeCategoriesInit,
   },
   '/store-products': {
     template: storeProductsTemplate,
