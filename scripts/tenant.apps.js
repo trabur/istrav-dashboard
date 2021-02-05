@@ -37,13 +37,12 @@ export async function getSave (token, change) {
   return eventSource
 }
 
-export async function getOne (token, domain, state) {
+export async function getOne (domain, state) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'tenent.apps')
 
   // params
   es.arguements = {
-    token: token || '',
     domain: domain || 'istrav.com',
     state: state || 'production',
   }
