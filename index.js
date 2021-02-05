@@ -6,6 +6,7 @@ import { tenantMembersTemplate, tenantMembersInit }  from './templates/tenant.me
 import { tenantAppsTemplate, tenantAppsInit }  from './templates/tenant.apps.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
+import { storeProductsTemplate, storeProductsInit }  from './templates/store.products.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -43,6 +44,10 @@ let routes = {
   '/tenant-apps': {
     template: tenantAppsTemplate,
     method: tenantAppsInit,
+  },
+  '/store-products': {
+    template: storeProductsTemplate,
+    method: storeProductsInit,
   },
   '/account-users': {
     template: accountUsersTemplate,
