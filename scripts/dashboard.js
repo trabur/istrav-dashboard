@@ -4,6 +4,8 @@ import * as eventSources from './event.sources.js'
 import * as eventBackup from './event.backup.js'
 import * as eventLogging from './event.logging.js'
 import * as accountUsers from './account.users.js'
+import * as tenantApps from './tenant.apps'
+import * as tenantMembers from './tenant.members'
 
 export let scripts = {
   dashboard: {
@@ -14,6 +16,10 @@ export let scripts = {
     sources: eventSources,
     backup: eventBackup,
     logging: eventLogging
+  },
+  tenant: {
+    members: tenantMembers,
+    apps: tenantApps
   },
   account: {
     users: accountUsers
