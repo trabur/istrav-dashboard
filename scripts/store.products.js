@@ -1,96 +1,99 @@
 import { istrav } from '../node_modules/istrav/api/index.js'
 import { scripts } from './dashboard.js'
 
-export async function getAll (token) {
+export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getAll', 'store.products')
 
   // params
   es.arguements = {
-    token: token || '' // obtain from tenant.members.login
+    appId: appId || 'my-app'
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.all(es)
+  let eventSource = await istrav.store.products.all(es)
 
   // finish
   return eventSource
 }
 
-export async function getSave (token, change) {
+export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getSave', 'store.products')
 
   // params
   es.arguements = {
+    appId: appId || 'my-app',
     token: token || '',
     change: change || {
-      domain: 'istrav.com',
-      state: 'production'
+      name: 'istrav.com',
+      slug: 'istrav.com',
+      categoryId: "plain",
+      image: "IMG-0695.jpg",
+      price: 23.00,
+      details: "",
+      description: ""
     }
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.save(es)
+  let eventSource = await istrav.store.products.save(es)
 
   // finish
   return eventSource
 }
 
-export async function getOne (token, domain, state) {
+export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getOne', 'store.products')
 
   // params
   es.arguements = {
-    token: token || '',
-    domain: domain || 'istrav.com',
-    state: state || 'production',
+    appId: appId || 'my-app',
+    slug: slug || 'fpuh348f38f...'
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.get(es)
+  let eventSource = await istrav.store.products.get(es)
 
   // finish
   return eventSource
 }
 
-export async function getUpdate (token, domain, state, change) {
+export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getUpdate', 'store.products')
 
   // params
   es.arguements = {
+    appId: appId || 'my-app',
     token: token || '',
-    domain: domain || 'istrav.com',
-    state: state || 'production',
+    slug: slug || 'fpuh348f38f...',
     change: change || {
-      // domain: '',
-      state: 'development',
-      // ownerId: ''
+      price: 25.00
     }
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.update(es)
+  let eventSource = await istrav.store.products.update(es)
 
   // finish
   return eventSource
 }
 
-export async function getRemove (token, domain, state) {
+export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getRemove', 'store.products')
 
   // params
   es.arguements = {
+    appId: appId || 'my-app',
     token: token || '',
-    domain: domain || 'istrav.com',
-    state: state || 'production'
+    slug: slug || 'fpuh348f38f...'
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.remove(es)
+  let eventSource = await istrav.store.products.remove(es)
 
   // finish
   return eventSource

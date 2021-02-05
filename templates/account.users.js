@@ -22,15 +22,33 @@ export let accountUsersTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getAll'); return false;">run</a>
   </div>
 
+  <div id="getUpdateCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getUpdate'); return false;">run</a>
+  </div>
+
+  <div id="getOneCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getOne'); return false;">run</a>
+  </div>
+
+  <div id="getRemoveCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getRemove'); return false;">run</a>
+  </div>
+
   <br />
   <br />
   <br />
 `
 
 import { 
-  getAll,
   getLogin,
-  getRegister
+  getRegister,
+  getAll,
+  getUpdate,
+  getOne,
+  getRemove
 } from '../scripts/account.users.js'
 
 export function accountUsersInit () {
@@ -40,9 +58,12 @@ export function accountUsersInit () {
   window.backupTo = backupTo
 
   let scripts = [
-    [ 'getAll', getAll ],
     [ 'getLogin', getLogin ],
-    [ 'getRegister', getRegister ]
+    [ 'getRegister', getRegister ],
+    [ 'getAll', getAll ],
+    [ 'getUpdate', getUpdate ],
+    [ 'getOne', getOne ],
+    [ 'getRemove', getRemove ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
       value: value[1].toString(),
