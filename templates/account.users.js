@@ -7,14 +7,14 @@ let backupTo = 'my-backup'
 export let accountUsersTemplate = /*html*/`
   <h2>::: account.users()</h2>
   <h3>> simple and secure.</h3>
-  <div id="getLoginCode"></div>
-  <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.doRun('getLogin'); return false;">run</a>
-  </div>
-
   <div id="getRegisterCode"></div>
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('getRegister'); return false;">run</a>
+  </div>
+
+  <div id="getLoginCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getLogin'); return false;">run</a>
   </div>
 
   <div id="getAllCode"></div>

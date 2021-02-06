@@ -48,7 +48,7 @@ import {
   getUpdate,
   getOne,
   getRemove
-} from '../scripts/store.categories.js'
+} from '../scripts/store.featured.js'
 
 export function storeFeaturedInit () {
   window.sourceId = sourceId
