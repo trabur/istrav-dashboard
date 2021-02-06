@@ -20,7 +20,9 @@ app.get([
   '/store-categories',
   '/store-products',
   '/fleet-vehicles',
-  '/account-users'
+  '/account-users',
+  '/account-cart',
+  '/account-orders',
 ], function(req, res) {
   res.sendFile('./index.html', { root: __dirname });
 })
