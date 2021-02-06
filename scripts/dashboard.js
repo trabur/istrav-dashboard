@@ -4,8 +4,13 @@ import * as eventSources from './event.sources.js'
 import * as eventBackup from './event.backup.js'
 import * as eventLogging from './event.logging.js'
 import * as accountUsers from './account.users.js'
+import * as accountCart from './account.cart.js'
+import * as accountOrders from './account.orders.js'
 import * as tenantApps from './tenant.apps.js'
 import * as tenantMembers from './tenant.members.js'
+import * as storeCategories from './store.categories.js'
+import * as storeFeatured from './store.featured.js'
+import * as storeProducts from './store.products.js'
 
 export let scripts = {
   dashboard: {
@@ -22,7 +27,14 @@ export let scripts = {
     apps: tenantApps
   },
   account: {
-    users: accountUsers
+    users: accountUsers,
+    cart: accountCart,
+    orders: accountOrders
+  },
+  store: {
+    featured: storeFeatured,
+    categories: storeCategories,
+    products: storeProducts
   }
 }
 
