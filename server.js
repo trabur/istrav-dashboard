@@ -3,6 +3,14 @@ import express from "express"
 const app = express()
 const port = process.env.PORT || 3000
 
+// cors
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
+  next()
+})
+
 // load "process.env" params from a .env file
 import dotenv from 'dotenv'
 dotenv.config()
