@@ -11,10 +11,11 @@
   "dependencies": {
     "axios": "^0.21.1",
     "browser-resolve": "^2.0.0",
+    "dotenv": "^8.2.0",
     "esmify": "^2.1.1",
     "express": "^4.17.1",
     "finalhandler": "^1.1.2",
-    "istrav": "^0.0.28",
+    "istrav": "^0.0.29",
     "phoenix": "^1.5.7",
     "serve-index": "^1.9.1",
     "serve-static": "^1.14.1",

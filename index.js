@@ -108,12 +108,27 @@ window.id = (length) => {
 import { istrav } from "./node_modules/istrav/api/index.js";
 
 window.istrav = istrav
-istrav.event.sources.init({ host: 'https://api.istrav.com' })
-istrav.event.backup.init({ host: 'https://api.istrav.com' })
-istrav.event.logging.init({ host: 'https://api.istrav.com' })
-istrav.tenant.apps.init({ host: 'https://api.istrav.com' })
-istrav.tenant.members.init({ host: 'https://api.istrav.com' })
-istrav.account.users.init({ host: 'https://api.istrav.com' })
+function init (response) {
+  let API_URI = response.data.API_URI
+  console.log(`API_URI ::: ${API_URI}`)
+  istrav.event.sources.init({ host: API_URI })
+  istrav.event.backup.init({ host: API_URI })
+  istrav.event.logging.init({ host: API_URI })
+  istrav.tenant.apps.init({ host: API_URI })
+  istrav.tenant.members.init({ host: API_URI })
+  istrav.account.users.init({ host: API_URI })
+  istrav.account.cart.init({ host: API_URI })
+  istrav.account.orders.init({ host: API_URI })
+  istrav.store.featured.init({ host: API_URI })
+  istrav.store.categories.init({ host: API_URI })
+  istrav.store.products.init({ host: API_URI })
+}
+async function environment () {
+  return await axios
+    .get('/environment')
+    .then(init)
+}
+environment()
 
 import { scripts } from './scripts/dashboard.js'
 

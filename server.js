@@ -3,6 +3,10 @@ import express from "express"
 const app = express()
 const port = process.env.PORT || 3000
 
+// load "process.env" params from a .env file
+import dotenv from 'dotenv'
+dotenv.config()
+
 // get dirname working in repl
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -34,6 +38,13 @@ app.use('/templates', serveIndex('templates'))
 
 // dashboard default
 app.get('/*', express.static('.'))
+
+// backend url
+app.get('/environment', (req, res) => {
+  res.json({
+    API_URI: process.env.API_URI
+  })
+})
 
 // run
 app.listen(port, () => {
