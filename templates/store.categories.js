@@ -5,7 +5,7 @@ let logTo = 'my-log'
 let backupTo = 'my-backup'
 
 export let storeCategoriesTemplate = /*html*/`
-  <h2>::: tenant.apps()</h2>
+  <h2>::: store.categories()</h2>
   <h3>> with postgresql database as a backbone</h3>
   <div id="getSaveCode"></div>
   <div class="script-actions">
