@@ -4,9 +4,8 @@ export let dashboardTemplate = /*html*/`
   <p>this dashboard is a collection of tools and utilities put together for running a robust and reliable service business. the dashboard navigation sits on the left, the dashboard controls sits in the center, while the dashboard reports get streamed on the right.</p>
   <div style="text-align: center;">
     <a href="/scripts" class="waves-effect waves-light btn">scripts</a>
-    <a href="/templates" class="waves-effect waves-light btn">templates</a>
   </div>
-  <p>i've placed the two buttons above for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts & templates.</p>
+  <p>i've placed the button above for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts.</p>
   <p>example script:</p>
   <div id="doHelloWorldCode"></div>
   <div class="script-actions">
@@ -30,6 +29,7 @@ export let dashboardTemplate = /*html*/`
     <a href="https://github.com/trabur/istrav-dashboard" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-dashboard</a><br /><br />
     <a href="https://github.com/trabur/istrav-library" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-library</a><br /><br />
     <a href="https://github.com/trabur/istrav-storefront" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-storefront</a><br /><br />
+    <a href="https://github.com/trabur/istrav-admin" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-admin</a><br /><br />
   </div>
   <h3>> services used and offered:</h3>
   <p>speaking of 3rd party software here is a list of products that i use just to keep the lights on. note: all these services have free plans available however if i start getting use out of these endpoints i'll have to start paying and ultimatly having to charge subscribers.</p>
@@ -42,13 +42,15 @@ export let dashboardTemplate = /*html*/`
     <li>gigalixir.com // Elixir’s Platform as a Service</li>
     <li>heroku.com // node.js frontend and backend</li>
     <li>elephantsql.com // PostgreSQL as a Service</li>
+    <li>vercel.com // frontends</li>
   </ul>
   <p>production endpoints:</p>
   <ul>
     <li><a href="https://istrav.com" target="_blank">https://istrav.com</a> // storefront</li>
     <li><a href="https://api.istrav.com" target="_blank">https://api.istrav.com</a> // backend</li>
-    <li><a href="https://dashboard.istrav.com" target="_blank">https://dashboard.istrav.com</a> // admin</li>
+    <li><a href="https://dashboard.istrav.com" target="_blank">https://dashboard.istrav.com</a> // backend</li>
     <li><a href="https://channels.istrav.com" target="_blank">https://channels.istrav.com</a> // backend</li>
+    <li><a href="https://admin.istrav.com" target="_blank">https://admin.istrav.com</a> // backend</li>
   </ul>
   <h3>> scripts and documentation:</h3>
   <p>i've added event.sources() to the top because of it's importance. that's because we record every command and every query that goes on around the frontend and backend. so let's get stared...</p>

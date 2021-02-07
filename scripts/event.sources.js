@@ -17,7 +17,7 @@ function id (length) {
 export async function doEventSource (scriptId, folderId, stateId, sourceId, storageId, outputId) {
   // always return an event object with these required props:
   return {
-    id: id(32),                   // very long random string
+    id: id(32),                          // very long random string
     timeAt: Date.now(),                  // set by this function
     serverAt: null,                      // set by server
     clientAt: null,                      // set by client
