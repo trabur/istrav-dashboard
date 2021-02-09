@@ -105,7 +105,7 @@ export async function getDemo (demo) {
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.get(es)
+  let eventSource = await istrav.tenant.apps.demo(es)
 
   // finish
   return eventSource
