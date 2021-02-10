@@ -4,7 +4,7 @@ export let dashboardTemplate = /*html*/`
   <p>this dashboard is a collection of tools and utilities put together for running a robust and reliable service business. the dashboard navigation sits on the left, the dashboard controls sits in the center, while the dashboard reports get streamed on the right.</p>
   <div style="text-align: center;">
   <a href="/scripts" class="waves-effect waves-light btn">scripts</a>
-  <a href="https://www.npmjs.com/package/istrav" class="waves-effect waves-light btn">library</a>
+  <a href="https://www.npmjs.com/package/istrav" target="_blank" class="waves-effect waves-light btn">library</a>
   </div>
   <p>i've placed the button above two buttons for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts.</p>
   <p>example script:</p>
