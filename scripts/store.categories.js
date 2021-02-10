@@ -49,7 +49,7 @@ export async function getUpdate (appId, token, slug, change) {
     token: token || '',
     slug: slug || 'fpuh348f38f...',
     change: change || {
-      price: 25.00
+      image: "hello.jpg"
     }
   }
 

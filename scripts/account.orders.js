@@ -67,7 +67,7 @@ export async function getUpdate (appId, token, id, change) {
     token: token || '',
     id: id || 'fpuh348f38f...',
     change: change || {
-      price: 25.00
+      productId: 'u43h8bubv93fb...'
     }
   }
 
