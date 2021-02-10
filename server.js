@@ -28,7 +28,7 @@ app.get([
   '/event-logging',
   '/tenant-members',
   '/tenant-apps',
-  '/store-featured',
+  '/store-collections',
   '/store-categories',
   '/store-products',
   '/fleet-vehicles',

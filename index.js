@@ -10,7 +10,7 @@ import { accountCartTemplate, accountCartInit }  from './templates/account.cart.
 import { accountOrdersTemplate, accountOrdersInit }  from './templates/account.orders.js'
 import { storeProductsTemplate, storeProductsInit }  from './templates/store.products.js'
 import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store.categories.js'
-import { storeFeaturedTemplate, storeFeaturedInit }  from './templates/store.featured.js'
+import { storeCollectionsTemplate, storeCollectionsInit }  from './templates/store.collections.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -49,9 +49,9 @@ let routes = {
     template: tenantAppsTemplate,
     method: tenantAppsInit,
   },
-  '/store-featured': {
-    template: storeFeaturedTemplate,
-    method: storeFeaturedInit,
+  '/store-collections': {
+    template: storeCollectionsTemplate,
+    method: storeCollectionsInit,
   },
   '/store-categories': {
     template: storeCategoriesTemplate,
@@ -106,7 +106,7 @@ function init (response) {
   istrav.account.users.init({ host: API_URI })
   istrav.account.cart.init({ host: API_URI })
   istrav.account.orders.init({ host: API_URI })
-  istrav.store.featured.init({ host: API_URI })
+  istrav.store.collections.init({ host: API_URI })
   istrav.store.categories.init({ host: API_URI })
   istrav.store.products.init({ host: API_URI })
 }

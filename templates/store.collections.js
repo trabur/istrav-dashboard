@@ -4,8 +4,8 @@ let scriptId = ''
 let logTo = 'my-log'
 let backupTo = 'my-backup'
 
-export let storeFeaturedTemplate = /*html*/`
-  <h2>::: store.featured()</h2>
+export let storeCollectionsTemplate = /*html*/`
+  <h2>::: store.collections()</h2>
   <h3>> with postgresql database as a backbone</h3>
   <div id="getSaveCode"></div>
   <div class="script-actions">
@@ -48,9 +48,9 @@ import {
   getUpdate,
   getOne,
   getRemove
-} from '../scripts/store.featured.js'
+} from '../scripts/store.collections.js'
 
-export function storeFeaturedInit () {
+export function storeCollectionsInit () {
   window.sourceId = sourceId
   window.scriptId = scriptId
   window.logTo = logTo

@@ -9,7 +9,7 @@ import * as accountOrders from './account.orders.js'
 import * as tenantApps from './tenant.apps.js'
 import * as tenantMembers from './tenant.members.js'
 import * as storeCategories from './store.categories.js'
-import * as storeFeatured from './store.featured.js'
+import * as storeCollections from './store.collections.js'
 import * as storeProducts from './store.products.js'
 
 export let scripts = {
@@ -32,7 +32,7 @@ export let scripts = {
     orders: accountOrders
   },
   store: {
-    featured: storeFeatured,
+    collections: storeCollections,
     categories: storeCategories,
     products: storeProducts
   }
