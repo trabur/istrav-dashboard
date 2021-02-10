@@ -10,6 +10,8 @@ export async function getSave (appId, token, change) {
     appId: appId || 'my-app',
     token: token || '',
     change: change || {
+      name: 'test',
+      slug: 'test',
       productId: 'iufh34ufhu8bf4...'
     }
   }
