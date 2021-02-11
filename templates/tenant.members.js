@@ -19,10 +19,30 @@ export let tenantMembersTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getLogin'); return false;">run</a>
   </div>
 
+  <div id="getAllCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getAll'); return false;">run</a>
+  </div>
+
+  <div id="getOneCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getOne'); return false;">run</a>
+  </div>
+
+  <div id="getRemoveCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getRemove'); return false;">run</a>
+  </div>
+
+  <div id="getUpdateCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getUpdate'); return false;">run</a>
+  </div>
+
   <br />
   <div style="text-align: center;">
-    <a href="/event-sources" class="waves-effect waves-light btn"><-- previous</a>
-    <a href="/event-logging" class="waves-effect waves-light btn">next --></a>
+    <a href="/event-logging" class="waves-effect waves-light btn"><-- previous</a>
+    <a href="/tenant-apps" class="waves-effect waves-light btn">next --></a>
   </div>
   <br />
   <br />
@@ -31,7 +51,11 @@ export let tenantMembersTemplate = /*html*/`
 
 import {
   getLogin,
-  getRegister
+  getRegister,
+  getAll,
+  getOne,
+  getRemove,
+  getUpdate
 } from '../scripts/tenant.members.js'
 
 export function tenantMembersInit () {
@@ -42,7 +66,11 @@ export function tenantMembersInit () {
 
   let scripts = [
     [ 'getRegister', getRegister ],
-    [ 'getLogin', getLogin ]
+    [ 'getLogin', getLogin ],
+    [ 'getAll', getAll ],
+    [ 'getOne', getOne ],
+    [ 'getRemove', getRemove ],
+    [ 'getUpdate', getUpdate ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
       value: value[1].toString(),
