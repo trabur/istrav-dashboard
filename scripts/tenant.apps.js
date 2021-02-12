@@ -110,3 +110,20 @@ export async function getDemo (demo) {
   // finish
   return eventSource
 }
+
+export async function getTotals (domain, state) {
+  // object
+  let es = await scripts.event.sources.doEventSource('getTotals', 'tenent.apps')
+
+  // params
+  es.arguements = {
+    domain: domain || 'istrav.com',
+    state: state || 'production'
+  }
+
+  // perform
+  let eventSource = await istrav.tenant.apps.demo(es)
+
+  // finish
+  return eventSource
+}
