@@ -122,7 +122,7 @@ export async function getTotals (domain, state) {
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.demo(es)
+  let eventSource = await istrav.tenant.apps.totals(es)
 
   // finish
   return eventSource
