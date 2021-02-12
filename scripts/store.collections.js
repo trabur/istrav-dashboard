@@ -11,8 +11,7 @@ export async function getSave (appId, token, change) {
     token: token || '',
     change: change || {
       name: 'test',
-      slug: 'test',
-      productId: 'iufh34ufhu8bf4...'
+      slug: 'test'
     }
   }
 
@@ -39,7 +38,7 @@ export async function getAll (appId) {
   return eventSource
 }
 
-export async function getUpdate (appId, token, productId, change) {
+export async function getUpdate (appId, token, slug, change) {
   // object
   let es = await scripts.event.sources.doEventSource('getUpdate', 'store.collections')
 
@@ -47,9 +46,9 @@ export async function getUpdate (appId, token, productId, change) {
   es.arguements = {
     appId: appId || 'my-app',
     token: token || '',
-    productId: productId || 'fpuh348f38f...',
+    slug: slug || 'fpuh348f38f...',
     change: change || {
-      productId: 'iufh34ufhu8bf4...'
+      name: 'test'
     }
   }
 
@@ -60,14 +59,14 @@ export async function getUpdate (appId, token, productId, change) {
   return eventSource
 }
 
-export async function getOne (appId, productId) {
+export async function getOne (appId, slug) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'store.collections')
 
   // params
   es.arguements = {
     appId: appId || 'my-app',
-    productId: productId || 'fpuh348f38f...'
+    slug: slug || 'this-slug'
   }
 
   // perform
@@ -77,7 +76,7 @@ export async function getOne (appId, productId) {
   return eventSource
 }
 
-export async function getRemove (appId, token, productId) {
+export async function getRemove (appId, token, slug) {
   // object
   let es = await scripts.event.sources.doEventSource('getRemove', 'store.collections')
 
@@ -85,7 +84,7 @@ export async function getRemove (appId, token, productId) {
   es.arguements = {
     appId: appId || 'my-app',
     token: token || '',
-    productId: productId || 'fpuh348f38f...'
+    slug: slug || 'slug-here'
   }
 
   // perform
