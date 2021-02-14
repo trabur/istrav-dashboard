@@ -28,6 +28,8 @@ app.get([
   '/event-logging',
   '/tenant-members',
   '/tenant-apps',
+  '/app-menus',
+  '/app-pages',
   '/store-collections',
   '/store-categories',
   '/store-products',

@@ -11,6 +11,8 @@ import { accountOrdersTemplate, accountOrdersInit }  from './templates/account.o
 import { storeProductsTemplate, storeProductsInit }  from './templates/store.products.js'
 import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store.categories.js'
 import { storeCollectionsTemplate, storeCollectionsInit }  from './templates/store.collections.js'
+import { appMenusTemplate, appMenusInit }  from './templates/app.menus.js'
+import { appPagesTemplate, appPagesInit }  from './templates/app.pages.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -48,6 +50,14 @@ let routes = {
   '/tenant-apps': {
     template: tenantAppsTemplate,
     method: tenantAppsInit,
+  },
+  '/app-menus': {
+    template: appMenusTemplate,
+    method: appMenusInit,
+  },
+  '/app-pages': {
+    template: appPagesTemplate,
+    method: appPagesInit,
   },
   '/store-collections': {
     template: storeCollectionsTemplate,
@@ -102,6 +112,8 @@ function init (response) {
   istrav.event.backup.init({ host: API_URI })
   istrav.event.logging.init({ host: API_URI })
   istrav.tenant.apps.init({ host: API_URI })
+  istrav.app.menus.init({ host: API_URI })
+  istrav.app.pages.init({ host: API_URI })
   istrav.tenant.members.init({ host: API_URI })
   istrav.account.users.init({ host: API_URI })
   istrav.account.cart.init({ host: API_URI })
