@@ -32,9 +32,9 @@ export let tenantAppsTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getRemove'); return false;">run</a>
   </div>
 
-  <div id="getDemoCode"></div>
+  <div id="getEndpointCode"></div>
   <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.doRun('getDemo'); return false;">run</a>
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getEndpoint'); return false;">run</a>
   </div>
 
   <div id="getTotalsCode"></div>
@@ -58,7 +58,7 @@ import {
   getUpdate,
   getOne,
   getRemove,
-  getDemo,
+  getEndpoint,
   getTotals
 } from '../scripts/tenant.apps.js'
 
@@ -74,7 +74,7 @@ export function tenantAppsInit () {
     [ 'getUpdate', getUpdate ],
     [ 'getOne', getOne ],
     [ 'getRemove', getRemove ],
-    [ 'getDemo', getDemo ],
+    [ 'getEndpoint', getEndpoint ],
     [ 'getTotals', getTotals ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {

@@ -95,17 +95,17 @@ export async function getRemove (token, domain, state) {
   return eventSource
 }
 
-export async function getDemo (demo) {
+export async function getEndpoint (endpoint) {
   // object
-  let es = await scripts.event.sources.doEventSource('getDemo', 'tenent.apps')
+  let es = await scripts.event.sources.doEventSource('getEndpoint', 'tenent.apps')
 
   // params
   es.arguements = {
-    demo: demo || 'istrav'
+    endpoint: endpoint || 'istrav'
   }
 
   // perform
-  let eventSource = await istrav.tenant.apps.demo(es)
+  let eventSource = await istrav.tenant.apps.endpoint(es)
 
   // finish
   return eventSource
