@@ -93,3 +93,20 @@ export async function getRemove (appId, token, slug) {
   // finish
   return eventSource
 }
+
+export async function getProducts (appId, slug) {
+  // object
+  let es = await scripts.event.sources.doEventSource('getProducts', 'store.collections')
+
+  // params
+  es.arguements = {
+    appId: appId || 'my-app',
+    slug: slug || 'slug-here'
+  }
+
+  // perform
+  let eventSource = await istrav.store.collections.products(es)
+
+  // finish
+  return eventSource
+}
