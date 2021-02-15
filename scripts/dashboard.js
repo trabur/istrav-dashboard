@@ -11,6 +11,8 @@ import * as tenantMembers from './tenant.members.js'
 import * as storeCategories from './store.categories.js'
 import * as storeCollections from './store.collections.js'
 import * as storeProducts from './store.products.js'
+import * as appMenus from './app.menus.js'
+import * as appPages from './app.pages.js'
 
 export let scripts = {
   dashboard: {
@@ -25,6 +27,10 @@ export let scripts = {
   tenant: {
     members: tenantMembers,
     apps: tenantApps
+  },
+  app: {
+    menus: appMenus,
+    pages: appPages
   },
   account: {
     users: accountUsers,
