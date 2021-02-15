@@ -3,7 +3,7 @@ import { scripts } from './dashboard.js'
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'store.products')
+  let es = await scripts.event.sources.doEventSource('getAll', 'app.menus')
 
   // params
   es.arguements = {
@@ -11,7 +11,7 @@ export async function getAll (appId) {
   }
 
   // perform
-  let eventSource = await istrav.store.products.all(es)
+  let eventSource = await istrav.app.menus.all(es)
 
   // finish
   return eventSource
@@ -19,7 +19,7 @@ export async function getAll (appId) {
 
 export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'store.products')
+  let es = await scripts.event.sources.doEventSource('getSave', 'app.menus')
 
   // params
   es.arguements = {
@@ -41,7 +41,7 @@ export async function getSave (appId, token, change) {
   }
 
   // perform
-  let eventSource = await istrav.store.products.save(es)
+  let eventSource = await istrav.app.menus.save(es)
 
   // finish
   return eventSource
@@ -49,7 +49,7 @@ export async function getSave (appId, token, change) {
 
 export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'store.products')
+  let es = await scripts.event.sources.doEventSource('getOne', 'app.menus')
 
   // params
   es.arguements = {
@@ -58,7 +58,7 @@ export async function getOne (appId, slug) {
   }
 
   // perform
-  let eventSource = await istrav.store.products.get(es)
+  let eventSource = await istrav.app.menus.get(es)
 
   // finish
   return eventSource
@@ -66,7 +66,7 @@ export async function getOne (appId, slug) {
 
 export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'store.products')
+  let es = await scripts.event.sources.doEventSource('getUpdate', 'app.menus')
 
   // params
   es.arguements = {
@@ -79,7 +79,7 @@ export async function getUpdate (appId, token, slug, change) {
   }
 
   // perform
-  let eventSource = await istrav.store.products.update(es)
+  let eventSource = await istrav.app.menus.update(es)
 
   // finish
   return eventSource
@@ -87,7 +87,7 @@ export async function getUpdate (appId, token, slug, change) {
 
 export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'store.products')
+  let es = await scripts.event.sources.doEventSource('getRemove', 'app.menus')
 
   // params
   es.arguements = {
@@ -97,7 +97,7 @@ export async function getRemove (appId, token, slug) {
   }
 
   // perform
-  let eventSource = await istrav.store.products.remove(es)
+  let eventSource = await istrav.app.menus.remove(es)
 
   // finish
   return eventSource
