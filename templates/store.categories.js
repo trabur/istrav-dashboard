@@ -32,6 +32,11 @@ export let storeCategoriesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getRemove'); return false;">run</a>
   </div>
 
+  <div id="getProductsCode"></div>
+  <div class="script-actions">
+    <a class="waves-effect waves-light btn" onclick="window.doRun('getProducts'); return false;">run</a>
+  </div>
+
   <br />
   <div style="text-align: center;">
     <a href="/event-sources" class="waves-effect waves-light btn"><-- previous</a>
@@ -47,7 +52,8 @@ import {
   getAll,
   getUpdate,
   getOne,
-  getRemove
+  getRemove,
+  getProducts
 } from '../scripts/store.categories.js'
 
 export function storeCategoriesInit () {
@@ -61,7 +67,8 @@ export function storeCategoriesInit () {
     [ 'getAll', getAll ],
     [ 'getUpdate', getUpdate ],
     [ 'getOne', getOne ],
-    [ 'getRemove', getRemove ]
+    [ 'getRemove', getRemove ],
+    [ 'getProducts', getProducts ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
       value: value[1].toString(),
