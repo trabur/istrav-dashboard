@@ -6,7 +6,7 @@ import { tenantMembersTemplate, tenantMembersInit }  from './templates/tenant.me
 import { tenantAppsTemplate, tenantAppsInit }  from './templates/tenant.apps.js'
 import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
-import { accountCartTemplate, accountCartInit }  from './templates/account.cart.js'
+import { accountCartsTemplate, accountCartsInit }  from './templates/account.carts.js'
 import { accountOrdersTemplate, accountOrdersInit }  from './templates/account.orders.js'
 import { storeProductsTemplate, storeProductsInit }  from './templates/store.products.js'
 import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store.categories.js'
@@ -75,9 +75,9 @@ let routes = {
     template: accountUsersTemplate,
     method: accountUsersInit,
   },
-  '/account-cart': {
-    template: accountCartTemplate,
-    method: accountCartInit,
+  '/account-carts': {
+    template: accountCartsTemplate,
+    method: accountCartsInit,
   },
   '/account-orders': {
     template: accountOrdersTemplate,
