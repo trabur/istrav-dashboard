@@ -116,7 +116,7 @@ function init (response) {
   istrav.app.pages.init({ host: API_URI })
   istrav.tenant.members.init({ host: API_URI })
   istrav.account.users.init({ host: API_URI })
-  istrav.account.cart.init({ host: API_URI })
+  istrav.account.carts.init({ host: API_URI })
   istrav.account.orders.init({ host: API_URI })
   istrav.store.collections.init({ host: API_URI })
   istrav.store.categories.init({ host: API_URI })

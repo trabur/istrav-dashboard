@@ -5,7 +5,7 @@ let logTo = 'my-log'
 let backupTo = 'my-backup'
 
 export let accountCartTemplate = /*html*/`
-  <h2>::: account.cart()</h2>
+  <h2>::: account.carts()</h2>
   <h3>> with postgresql database as a backbone</h3>
   <div id="getSaveCode"></div>
   <div class="script-actions">
@@ -48,7 +48,7 @@ import {
   getUpdate,
   getOne,
   getRemove
-} from '../scripts/account.cart.js'
+} from '../scripts/account.carts.js'
 
 export function accountCartInit () {
   window.sourceId = sourceId

@@ -11,7 +11,7 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/store-categories'); return false;">store.categories()</a></li>
   <li><a href="#" onclick="onNavItemClick('/store-products'); return false;">store.products()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-users'); return false;">account.users()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/account-cart'); return false;">account.cart()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/account-carts'); return false;">account.carts()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-orders'); return false;">account.orders()</a></li>
   <li><a href="#" onclick="onNavItemClick('/fleet-vehicles'); return false;">fleet.vehicles()</a></li>
   <li><a href="#" onclick="onNavItemClick('/fleet-employees'); return false;">fleet.employees()</a></li>

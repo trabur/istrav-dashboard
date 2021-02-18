@@ -4,7 +4,7 @@ import * as eventSources from './event.sources.js'
 import * as eventBackup from './event.backup.js'
 import * as eventLogging from './event.logging.js'
 import * as accountUsers from './account.users.js'
-import * as accountCart from './account.cart.js'
+import * as accountCarts from './account.carts.js'
 import * as accountOrders from './account.orders.js'
 import * as tenantApps from './tenant.apps.js'
 import * as tenantMembers from './tenant.members.js'
@@ -34,7 +34,7 @@ export let scripts = {
   },
   account: {
     users: accountUsers,
-    cart: accountCart,
+    carts: accountCarts,
     orders: accountOrders
   },
   store: {
