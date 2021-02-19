@@ -37,12 +37,13 @@ export async function getSave (token, change) {
   return eventSource
 }
 
-export async function getOne (domain, state) {
+export async function getOne (token, domain, state) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'tenent.apps')
 
   // params
   es.arguements = {
+    token: token || '',
     domain: domain || 'istrav.com',
     state: state || 'production',
   }
@@ -95,12 +96,13 @@ export async function getRemove (token, domain, state) {
   return eventSource
 }
 
-export async function getEndpoint (endpoint) {
+export async function getEndpoint (token, endpoint) {
   // object
   let es = await scripts.event.sources.doEventSource('getEndpoint', 'tenent.apps')
 
   // params
   es.arguements = {
+    token: token || '',
     endpoint: endpoint || 'istrav'
   }
 
