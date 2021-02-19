@@ -7,7 +7,7 @@ export async function getAll (token) {
 
   // params
   es.arguements = {
-    token: token || '' // obtain from tenant.members.login
+    token: token || null // obtain from tenant.members.login
   }
 
   // perform
@@ -23,7 +23,7 @@ export async function getSave (token, change) {
 
   // params
   es.arguements = {
-    token: token || '',
+    token: token || null,
     change: change || {
       domain: 'istrav.com',
       state: 'production'
@@ -43,7 +43,7 @@ export async function getOne (token, domain, state) {
 
   // params
   es.arguements = {
-    token: token || '',
+    token: token || null,
     domain: domain || 'istrav.com',
     state: state || 'production',
   }
@@ -61,7 +61,7 @@ export async function getUpdate (token, domain, state, change) {
 
   // params
   es.arguements = {
-    token: token || '',
+    token: token || null,
     domain: domain || 'istrav.com',
     state: state || 'production',
     change: change || {
@@ -84,7 +84,7 @@ export async function getRemove (token, domain, state) {
 
   // params
   es.arguements = {
-    token: token || '',
+    token: token || null,
     domain: domain || 'istrav.com',
     state: state || 'production'
   }
@@ -102,7 +102,7 @@ export async function getEndpoint (token, endpoint) {
 
   // params
   es.arguements = {
-    token: token || '',
+    token: token || null,
     endpoint: endpoint || 'istrav'
   }
 
