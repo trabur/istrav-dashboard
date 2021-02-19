@@ -35,8 +35,8 @@ app.get([
   '/store-products',
   '/fleet-vehicles',
   '/account-users',
-  '/account-cart',
-  '/account-orders',
+  '/account-carts',
+  '/account-orders'
 ], function(req, res) {
   res.sendFile('./index.html', { root: __dirname });
 })

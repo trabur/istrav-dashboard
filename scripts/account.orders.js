@@ -10,9 +10,7 @@ export async function getSave (appId, token, change) {
     appId: appId || 'my-app',
     token: token || '',
     change: change || {
-      userId: 'uhd408dhf082...',
-      cartId: '843h84fbf8uf...',
-      productId: 'u43h8bubv93fb...'
+      products: []
     }
   }
 
@@ -23,13 +21,14 @@ export async function getSave (appId, token, change) {
   return eventSource
 }
 
-export async function getAll (appId) {
+export async function getAll (appId, token) {
   // object
   let es = await scripts.event.sources.doEventSource('getAll', 'account.orders')
 
   // params
   es.arguements = {
-    appId: appId || 'my-app'
+    appId: appId || 'my-app',
+    token: token || '',
   }
 
   // perform
@@ -67,7 +66,7 @@ export async function getUpdate (appId, token, id, change) {
     token: token || '',
     id: id || 'fpuh348f38f...',
     change: change || {
-      productId: 'u43h8bubv93fb...'
+      products: ['u43h8bubv93fb...']
     }
   }
 

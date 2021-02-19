@@ -10,8 +10,7 @@ export async function getSave (appId, token, change) {
     appId: appId || 'my-app',
     token: token || '',
     change: change || {
-      userId: 'uhd408dhf082...',
-      isPaid: false
+      products: []
     }
   }
 
@@ -22,13 +21,14 @@ export async function getSave (appId, token, change) {
   return eventSource
 }
 
-export async function getAll (appId) {
+export async function getAll (appId, token) {
   // object
   let es = await scripts.event.sources.doEventSource('getAll', 'account.carts')
 
   // params
   es.arguements = {
-    appId: appId || 'my-app'
+    appId: appId || 'my-app',
+    token: token || ''
   }
 
   // perform
@@ -38,13 +38,14 @@ export async function getAll (appId) {
   return eventSource
 }
 
-export async function getOne (appId, id) {
+export async function getOne (appId, token, id) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'account.carts')
 
   // params
   es.arguements = {
     appId: appId || 'my-app',
+    token: token || '',
     id: id || 'fpuh348f38f...'
   }
 
@@ -65,7 +66,7 @@ export async function getUpdate (appId, token, id, change) {
     token: token || '',
     id: id || 'fpuh348f38f...',
     change: change || {
-      isPaid: true
+      products: ['uhd408dhf082...']
     }
   }
 
