@@ -1,4 +1,4 @@
-import { dashboardTemplate, dashboardInit } from './templates/dashboard.js'
+import { headlessTemplate, headlessInit } from './templates/headless.js'
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
@@ -24,12 +24,12 @@ function noop() {}
 
 let routes = {
   '/': {
-    template: dashboardTemplate,
-    method: dashboardInit,
+    template: headlessTemplate,
+    method: headlessInit,
   },
   '/index.html': {
-    template: dashboardTemplate,
-    method: dashboardInit,
+    template: headlessTemplate,
+    method: headlessInit,
   },
   '/event-sources': {
     template: eventSourcesTemplate,
@@ -129,10 +129,10 @@ async function environment () {
 }
 environment()
 
-import { scripts } from './scripts/dashboard.js'
+import { scripts } from './scripts/headless.js'
 
 window.scripts = scripts
-window.doRun = scripts.dashboard.doRun
+window.doRun = scripts.headless.doRun
 
 /**
  * init

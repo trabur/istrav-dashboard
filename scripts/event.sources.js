@@ -1,5 +1,5 @@
 import { istrav } from '../node_modules/istrav/api/index.js'
-import { scripts } from './dashboard.js'
+import { scripts } from './headless.js'
 
 /**
  * primary key generator

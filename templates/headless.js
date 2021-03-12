@@ -1,7 +1,7 @@
-export let dashboardTemplate = /*html*/`
-  <h1>DASHBOARD</h1>
+export let headlessTemplate = /*html*/`
+  <h1>HEADLESS</h1>
   <h3>> data sorcery for wizards!</h3>
-  <p>this dashboard is a collection of tools and utilities put together for running a robust and reliable service business. the dashboard navigation sits on the left, the dashboard controls sits in the center, while the dashboard reports get streamed on the right.</p>
+  <p>headless is a collection of tools and utilities put together for running a robust and reliable service business. the navigation sits on the left, the controls sits in the center, while reports get streamed on the right.</p>
   <div style="text-align: center;">
   <a href="/scripts" class="waves-effect waves-light btn">scripts</a>
   <a href="https://www.npmjs.com/package/istrav" target="_blank" class="waves-effect waves-light btn">library</a>
@@ -19,7 +19,7 @@ export let dashboardTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('doRun'); return false;">run</a>
   </div>
   <h3>> console.log() outputs to the right!</h3>
-  <p>notice: when we run each script in the dashboard our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
+  <p>notice: when we run each script our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
 
   <h3>> code is free and open source!</h3>
   <p>the entire project is free and open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
@@ -27,7 +27,7 @@ export let dashboardTemplate = /*html*/`
     <p>(give one or all projects a like to show your support!)</p>
     <a href="https://github.com/trabur/istrav-api" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-api</a><br /><br />
     <a href="https://github.com/trabur/istrav-channels" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-channels</a><br /><br />
-    <a href="https://github.com/trabur/istrav-dashboard" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-dashboard</a><br /><br />
+    <a href="https://github.com/trabur/istrav-headless" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-headless</a><br /><br />
     <a href="https://github.com/trabur/istrav-library" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-library</a><br /><br />
     <a href="https://github.com/trabur/istrav-storefront" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-storefront</a><br /><br />
     <a href="https://github.com/trabur/istrav-admin" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-admin</a><br /><br />
@@ -49,7 +49,7 @@ export let dashboardTemplate = /*html*/`
   <ul>
     <li><a href="https://istrav.com" target="_blank">https://istrav.com</a> // storefront</li>
     <li><a href="https://api.istrav.com" target="_blank">https://api.istrav.com</a> // backend</li>
-    <li><a href="https://dashboard.istrav.com" target="_blank">https://dashboard.istrav.com</a> // backend</li>
+    <li><a href="https://headless.istrav.com" target="_blank">https://headless.istrav.com</a> // backend</li>
     <li><a href="https://channels.istrav.com" target="_blank">https://channels.istrav.com</a> // backend</li>
     <li><a href="https://admin.istrav.com" target="_blank">https://admin.istrav.com</a> // backend</li>
   </ul>
@@ -68,9 +68,9 @@ export let dashboardTemplate = /*html*/`
 import { 
   doHelloWorld,
   doRun
-} from '../scripts/dashboard.js'
+} from '../scripts/headless.js'
 
-export function dashboardInit () {
+export function headlessInit () {
   let scripts = [
     [ 'doHelloWorld', doHelloWorld ],
     [ 'doRun', doRun ],

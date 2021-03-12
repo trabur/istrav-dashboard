@@ -1,4 +1,4 @@
-ISTRAV-DASHBOARD
+ISTRAV-HEADLESS
 ========
 
 ### bower
@@ -9,11 +9,6 @@ $ bower install phoenix-js
 ### go
 ```bash
 $ npm start
-```
-
-### deploy
-```bash
-$ git push heroku master
 ```
 
 ### install library

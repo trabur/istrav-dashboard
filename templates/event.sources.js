@@ -35,7 +35,7 @@ export let eventSourcesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getCheck'); return false;">run</a>
   </div>
 
-  <p>for the rest of the dashboard we are going to be less verbose about reoccuring patturns within the code. because once something is documented there is no need to go over it constantly after it has become second nature.</p>
+  <p>for the rest of headless we are going to be less verbose about reoccuring patturns within the code. because once something is documented there is no need to go over it constantly after it has become second nature.</p>
   <p>moving forward, the other two important parts that we should talk about next is "logging" and "backup"; let's go over them now :)</p>
   
   <br />

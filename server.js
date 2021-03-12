@@ -21,7 +21,7 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// dashboard navigation
+// headless navigation
 app.get([
   '/event-sources',
   '/event-backup',
@@ -46,7 +46,7 @@ import serveIndex from 'serve-index'
 app.use('/scripts', serveIndex('scripts'))
 app.use('/templates', serveIndex('templates'))
 
-// dashboard default
+// headless default
 app.get('/*', express.static('.'))
 
 // backend url
