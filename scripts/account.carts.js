@@ -94,3 +94,21 @@ export async function getRemove (appId, token, id) {
   // finish
   return eventSource
 }
+
+export async function getStripeCheckoutSession (appId, token, id) {
+  // object
+  let es = await scripts.event.sources.doEventSource('getStripeCheckoutSession', 'account.carts')
+
+  // params
+  es.arguements = {
+    appId: appId || 'my-app',
+    token: token || '',
+    id: id || 'fpuh348f38f...'
+  }
+
+  // perform
+  let eventSource = await istrav.account.carts.stripeCheckoutSession(es)
+
+  // finish
+  return eventSource
+}
