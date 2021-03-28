@@ -13,9 +13,7 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/account-users'); return false;">account.users()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-carts'); return false;">account.carts()</a></li>
   <li><a href="#" onclick="onNavItemClick('/account-orders'); return false;">account.orders()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/fleet-vehicles'); return false;">fleet.vehicles()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/fleet-employees'); return false;">fleet.employees()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/fleet-customers'); return false;">fleet.customers()</a></li>
-  <li><a href="#" onclick="onNavItemClick('/fleet-locations'); return false;">fleet.locations()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/subscription-licenses'); return false;">subscription.licenses()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/subscription-plans'); return false;">subscription.plans()</a></li>
 </ul>
 `

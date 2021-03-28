@@ -13,6 +13,8 @@ import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store
 import { storeCollectionsTemplate, storeCollectionsInit }  from './templates/store.collections.js'
 import { appMenusTemplate, appMenusInit }  from './templates/app.menus.js'
 import { appPagesTemplate, appPagesInit }  from './templates/app.pages.js'
+import { subscriptionLicensesTemplate, subscriptionLicensesInit }  from './templates/subscription.licenses.js'
+import { subscriptionPlansTemplate, subscriptionPlansInit }  from './templates/subscription.plans.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -83,9 +85,13 @@ let routes = {
     template: accountOrdersTemplate,
     method: accountOrdersInit,
   },
-  '/fleet-vehicles': {
-    template: fleetVehiclesTemplate,
-    method: fleetVehiclesInit,
+  '/subscription-licenses': {
+    template: subscriptionLicensesTemplate,
+    method: subscriptionLicensesInit,
+  },
+  '/subscription-plans': {
+    template: subscriptionPlansTemplate,
+    method: subscriptionPlansInit,
   },
 };
 

@@ -36,7 +36,9 @@ app.get([
   '/fleet-vehicles',
   '/account-users',
   '/account-carts',
-  '/account-orders'
+  '/account-orders',
+  '/subscription-licenses',
+  '/subscription-plans'
 ], function(req, res) {
   res.sendFile('./index.html', { root: __dirname });
 })
