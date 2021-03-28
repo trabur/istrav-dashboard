@@ -127,6 +127,8 @@ function init (response) {
   istrav.store.collections.init({ host: API_URI })
   istrav.store.categories.init({ host: API_URI })
   istrav.store.products.init({ host: API_URI })
+  istrav.subscriptions.licenses.init({ host: API_URI })
+  istrav.subscriptions.plans.init({ host: API_URI })
 }
 async function environment () {
   return await axios

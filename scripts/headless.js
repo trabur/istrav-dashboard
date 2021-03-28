@@ -13,6 +13,8 @@ import * as storeCollections from './store.collections.js'
 import * as storeProducts from './store.products.js'
 import * as appMenus from './app.menus.js'
 import * as appPages from './app.pages.js'
+import * as subscriptionLicenses from './subscription.licenses.js'
+import * as subscriptionPlans from './subscription.plans.js'
 
 export let scripts = {
   headless: {
@@ -41,6 +43,10 @@ export let scripts = {
     collections: storeCollections,
     categories: storeCategories,
     products: storeProducts
+  },
+  subscription: {
+    licenses: subscriptionLicenses,
+    plans: subscriptionPlans
   }
 }
 
