@@ -38,7 +38,9 @@ app.get([
   '/account-carts',
   '/account-orders',
   '/subscription-licenses',
-  '/subscription-plans'
+  '/subscription-plans',
+  '/channel-videos',
+  '/channel-guides'
 ], function(req, res) {
   res.sendFile('./index.html', { root: __dirname });
 })

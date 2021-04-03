@@ -15,6 +15,8 @@ import * as appMenus from './app.menus.js'
 import * as appPages from './app.pages.js'
 import * as subscriptionLicenses from './subscription.licenses.js'
 import * as subscriptionPlans from './subscription.plans.js'
+import * as channelVideos from './channel.videos.js'
+import * as channelGuides from './channel.guides.js'
 
 export let scripts = {
   headless: {
@@ -47,6 +49,10 @@ export let scripts = {
   subscription: {
     licenses: subscriptionLicenses,
     plans: subscriptionPlans
+  },
+  channel: {
+    videos: channelVideos,
+    guides: channelGuides
   }
 }
 
