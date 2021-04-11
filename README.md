@@ -1,22 +1,17 @@
 ISTRAV-HEADLESS
 ========
-
-### bower
-```bash
-$ bower install phoenix-js
-```
-
-### go
 ```bash
 $ npm start
 ```
 
-### install library
 ```bash
 $ npm i trabur/istrav-library
 ```
 
-### run project
 ```bash
-$ http-server . -p 3000
+git push
+git tag
+git tag v0.6
+git push --tags
+git push --delete origin v0.6
 ```
