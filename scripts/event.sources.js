@@ -1,7 +1,7 @@
 import { istrav } from '../node_modules/istrav/api/index.js'
 import { scripts } from './headless.js'
 
-export async function doEventSource (scriptId, folderId, stateId, sourceId, storageId, outputId) {
+export async function doEventSource (scriptId, folderId, roomId) {
   /**
    * primary key generator
    */
@@ -25,10 +25,7 @@ export async function doEventSource (scriptId, folderId, stateId, sourceId, stor
     script: scriptId || 'doEventSource', // cqrs
     payload: undefined,                  // undefined = command
     // payload: {},                      // defined = query
-    state: stateId || 'my-state',        // backup: node.js/postgresql
-    source: sourceId || 'my-source',     // backup: rabbitmq queue
-    storage: storageId || 'my-storage',  // backup: mongodb collection
-    output: outputId || 'my-output'      // logging: phoenix.js
+    io: roomId || 'my-output',           // socket.io: room id
   }
 }
 
