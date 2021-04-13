@@ -56,7 +56,7 @@ export async function getLogin (appId, email, password) {
   return eventSource
 }
 
-export async function getOne (appId, token, id) {
+export async function getOne (appId, token, username) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'account.users')
 
@@ -64,7 +64,7 @@ export async function getOne (appId, token, id) {
   es.arguements = {
     appId: appId || 'my-app',
     token: token || '',
-    id: id || 'fh3uhf0uhf084f83fyb38ybf434f...'
+    username: username || 'istrav'
   }
 
   // perform
@@ -74,7 +74,7 @@ export async function getOne (appId, token, id) {
   return eventSource
 }
 
-export async function getUpdate (appId, token, id, change) {
+export async function getUpdate (appId, token, username, change) {
   // object
   let es = await scripts.event.sources.doEventSource('getUpdate', 'account.users')
 
@@ -82,7 +82,7 @@ export async function getUpdate (appId, token, id, change) {
   es.arguements = {
     appId: appId || 'my-app',
     token: token || '',
-    id: id || 'fh3uhf0uhf084f83fyb38ybf434f...',
+    username: username || 'istrav',
     change: change || {
       firstName: 'tim',
       lastName: 'smith'
@@ -96,7 +96,7 @@ export async function getUpdate (appId, token, id, change) {
   return eventSource
 }
 
-export async function getRemove (appId, token, id) {
+export async function getRemove (appId, token, username) {
   // object
   let es = await scripts.event.sources.doEventSource('getRemove', 'account.users')
 
@@ -104,7 +104,7 @@ export async function getRemove (appId, token, id) {
   es.arguements = {
     appId: appId || 'my-app',
     token: token || '',
-    id: id || 'fh3uhf0uhf084f83fyb38ybf434f...', 
+    username: username || 'istrav', 
   }
 
   // perform
