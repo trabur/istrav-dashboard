@@ -25,7 +25,7 @@ export async function doEventSource (scriptId, folderId, roomId) {
     script: scriptId || 'doEventSource', // cqrs
     payload: undefined,                  // undefined = command
     // payload: {},                      // defined = query
-    io: roomId || 'my-output',           // socket.io: room id
+    io: roomId || 'my-room',             // socket.io: room id
   }
 }
 
