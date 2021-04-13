@@ -1,8 +1,8 @@
 import { istrav } from '../node_modules/istrav/api/index.js'
 
 import * as eventSources from './event.sources.js'
-import * as eventBackup from './event.backup.js'
-import * as eventLogging from './event.logging.js'
+// import * as eventBackup from './event.backup.js'
+// import * as eventLogging from './event.logging.js'
 import * as accountUsers from './account.users.js'
 import * as accountCarts from './account.carts.js'
 import * as accountOrders from './account.orders.js'
@@ -25,8 +25,8 @@ export let scripts = {
   },
   event: {
     sources: eventSources,
-    backup: eventBackup,
-    logging: eventLogging
+    // backup: eventBackup,
+    // logging: eventLogging
   },
   tenant: {
     members: tenantMembers,

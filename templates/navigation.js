@@ -1,8 +1,10 @@
 export let navigationTemplate = /*html*/`
 <ul style="font-size: 1.4em; font-family: monospace; list-style-type: none; text-align: center; margin: 0; padding: 0;">
   <li><a href="#" onclick="onNavItemClick('/event-sources'); return false;">event.sources()</a></li>
+  <!--
   <li><a href="#" onclick="onNavItemClick('/event-backup'); return false;">event.backup()</a></li>
   <li><a href="#" onclick="onNavItemClick('/event-logging'); return false;">event.logging()</a></li>
+  -->
   <li><a href="#" onclick="onNavItemClick('/tenant-members'); return false;">tenant.members()</a></li>
   <li><a href="#" onclick="onNavItemClick('/tenant-apps'); return false;">tenant.apps()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-menus'); return false;">app.menus()</a></li>

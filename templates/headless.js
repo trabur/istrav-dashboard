@@ -6,7 +6,7 @@ export let headlessTemplate = /*html*/`
   <a href="/scripts" class="waves-effect waves-light btn">scripts</a>
   <a href="https://www.npmjs.com/package/istrav" target="_blank" class="waves-effect waves-light btn">library</a>
   </div>
-  <p>i've placed the button above two buttons for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://oldneckties.com" target="_blank">oldneckties.com</a> and <a href="https://printedbasics.com" target="_blank">printedbasics.com</a> are both storefronts with a cart and checkout which use these scripts.</p>
+  <p>i've placed the button above two buttons for any devlopers, such as myself, to browse and import code into other projects. these are our functions as a service API endpoints available for 3rd party or public use. for example, <a href="https://shop.oldneckties.com" target="_blank">shop.oldneckties.com</a> and <a href="https://shop.istrav.com" target="_blank">shop.istrav.com</a> are both storefronts with a cart and checkout which use these scripts.</p>
   <p>example script:</p>
   <div id="doHelloWorldCode"></div>
   <div class="script-actions">
@@ -21,40 +21,20 @@ export let headlessTemplate = /*html*/`
   <h3>> console.log() outputs to the right!</h3>
   <p>notice: when we run each script our logging shows up on the right ... all we need todo is code "console.log('welcome to istrav')", click run, and then "welcome to istrav" will show up.</p>
 
-  <h3>> code is free and open source!</h3>
-  <p>the entire project is free and open source. you can clone all of our code and run each project by yourself; that is: if you know what your doing. although, i'm updating the code daily which would make constantly deploying to production a hassle therefore it's built with multi tenant in mind. i also have 10 or so other websites that i want to integrate without having to redeploy all kinds of other code and _blank_ as a service 3rd party software.</p>
-  <div style="text-align: center;">
-    <p>(give one or all projects a like to show your support!)</p>
-    <a href="https://github.com/trabur/istrav-api" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-api</a><br /><br />
-    <a href="https://github.com/trabur/istrav-channels" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-channels</a><br /><br />
-    <a href="https://github.com/trabur/istrav-headless" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-headless</a><br /><br />
-    <a href="https://github.com/trabur/istrav-library" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-library</a><br /><br />
-    <a href="https://github.com/trabur/istrav-storefront" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-storefront</a><br /><br />
-    <a href="https://github.com/trabur/istrav-admin" target="_blank" class="waves-effect waves-light btn">github.com/trabur/istrav-admin</a><br /><br />
-  </div>
-  <h3>> services used and offered:</h3>
-  <p>speaking of 3rd party software here is a list of products that i use just to keep the lights on. note: all these services have free plans available however if i start getting use out of these endpoints i'll have to start paying and ultimatly having to charge subscribers.</p>
-  <p>project requirments:</p>
-  <ul>
-    <li>aws.amazon.com // route53 domain name</li>
-    <li>cloudflare.com // dns</li>
-    <li>cloudamqp.com // rabbitmq as a service</li>
-    <li>cloud.mongodb.com // Database-as-a-Service for MongoDB</li>
-    <li>gigalixir.com // Elixir’s Platform as a Service</li>
-    <li>heroku.com // node.js frontend and backend</li>
-    <li>elephantsql.com // PostgreSQL as a Service</li>
-    <li>vercel.com // frontends</li>
-  </ul>
   <p>production endpoints:</p>
   <ul>
-    <li><a href="https://istrav.com" target="_blank">https://istrav.com</a> // storefront</li>
     <li><a href="https://api.istrav.com" target="_blank">https://api.istrav.com</a> // backend</li>
+    <li><a href="https://io.istrav.com" target="_blank">https://io.istrav.com</a> // sockets</li>
     <li><a href="https://headless.istrav.com" target="_blank">https://headless.istrav.com</a> // backend</li>
-    <li><a href="https://channels.istrav.com" target="_blank">https://channels.istrav.com</a> // backend</li>
     <li><a href="https://admin.istrav.com" target="_blank">https://admin.istrav.com</a> // backend</li>
+    <li><a href="https://www.istrav.com" target="_blank">https://www.istrav.com</a> // marketing</li>
+    <li><a href="https://shop.istrav.com" target="_blank">https://shop.istrav.com</a> // storefront</li>
+    <li><a href="https://channel.istrav.com" target="_blank">https://channel.istrav.com</a> // videos</li>
+    <li><a href="https://forum.istrav.com" target="_blank">https://forum.istrav.com</a> // bulletin board</li>
+    <li><a href="https://promo.istrav.com" target="_blank">https://promo.istrav.com</a> // promotional products</li>
   </ul>
   <h3>> scripts and documentation:</h3>
-  <p>i've added event.sources() to the top because of it's importance. that's because we record every command and every query that goes on around the frontend and backend. so let's get stared...</p>
+  <p>let's get stared...</p>
   <br />
   <div style="text-align: center;">
     <a href="/event-sources" class="waves-effect waves-light btn">continue</a>

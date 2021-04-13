@@ -6,7 +6,7 @@ let backupTo = 'my-backup'
 
 export let eventSourcesTemplate = /*html*/`
   <h2>::: event.sources()</h2>
-  <h3>> with rabbitmq messaging as a backbone</h3>
+  <h3>> with express.js as a backbone</h3>
   <p>most applications today are built around create, read, update, and delete or CRUD. that's not good enough for accounting level reliabilty; because with delete and update information is lost. meaning, if we update a model more than once ... our history is not kept. where data loss is not acceptable this is not good. in order to combat that every action is saved as an event. we then play out these events over a view to get our state. with our history getting backed up we can replay all of the events over a new view for recovery, analytics, or w/e.</p>
   <p>so instead of CRUD like we are more CQRS with microservice/REST like. for instance, take an application where there is a bunch of traffic hitting one API method more than another ... such as: only 10 new employees per month vs 1k vehicles updating their position every second. with microservices and CQRS we can scale up/down specific blocks of code in our app. so to handle this our naming convention for all scripts starts with "get" or "do" in order to signify "query" or "command" respectively. back to the example: getRegister and doChangeLocation.</p>
   <p>all events start with this script:</p>
@@ -14,6 +14,8 @@ export let eventSourcesTemplate = /*html*/`
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('doEventSource'); return false;">run</a>
   </div>
+
+  <!--
   <p>we follow the same patturn as prototypal chains which is to set the bottom value as undefined or null; see "payload" above.</p>
   <p>as shown below "scripts.event.sources.doEventSource" is a way to access a script from another script.</p>
   <div id="doPublishCode"></div>
@@ -34,14 +36,14 @@ export let eventSourcesTemplate = /*html*/`
   <div class="script-actions">
     <a class="waves-effect waves-light btn" onclick="window.doRun('getCheck'); return false;">run</a>
   </div>
+  -->
 
   <p>for the rest of headless we are going to be less verbose about reoccuring patturns within the code. because once something is documented there is no need to go over it constantly after it has become second nature.</p>
-  <p>moving forward, the other two important parts that we should talk about next is "logging" and "backup"; let's go over them now :)</p>
   
   <br />
   <div style="text-align: center;">
     <a href="/" class="waves-effect waves-light btn"><-- previous</a>
-    <a href="/event-backup" class="waves-effect waves-light btn">next --></a>
+    <a href="/tenant-members" class="waves-effect waves-light btn">next --></a>
   </div>
   <br />
   <br />
@@ -50,9 +52,9 @@ export let eventSourcesTemplate = /*html*/`
 
 import { 
   doEventSource,
-  doPublish,
-  getConsume,
-  getCheck
+  // doPublish,
+  // getConsume,
+  // getCheck
 } from '../scripts/event.sources.js'
 
 export function eventSourcesInit () {
@@ -63,9 +65,9 @@ export function eventSourcesInit () {
 
   let scripts = [
     [ 'doEventSource', doEventSource ],
-    [ 'doPublish', doPublish ],
-    [ 'getConsume', getConsume ],
-    [ 'getCheck', getCheck ]
+    // [ 'doPublish', doPublish ],
+    // [ 'getConsume', getConsume ],
+    // [ 'getCheck', getCheck ]
   ].forEach(value => {
     // window.doPublishCode = CodeMirror(document.getElementById("doPublishCode"), {
     //   value: doPublish.toString(),
