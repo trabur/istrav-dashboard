@@ -1,7 +1,7 @@
 ISTRAV-HEADLESS
 ========
 ```bash
-$ npm start
+$ export PORT=9999; npm start
 ```
 
 ```bash

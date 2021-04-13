@@ -56,7 +56,7 @@ app.get('/*', express.static('.'))
 // backend url
 app.get('/environment', (req, res) => {
   res.json({
-    API_URI: process.env.API_URI
+    API_URI: process.env.API_URI || 'http://localhost:1337'
   })
 })
 
