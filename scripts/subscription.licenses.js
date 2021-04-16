@@ -38,13 +38,12 @@ export async function getSave (appId, token, change) {
   return eventSource
 }
 
-export async function getOne (appId, key) {
+export async function getOne (key) {
   // object
   let es = await scripts.event.sources.doEventSource('getOne', 'subscription.licenses')
 
   // params
   es.arguements = {
-    appId: appId || 'my-app',
     key: key || 'fpuh348f38f...'
   }
 
