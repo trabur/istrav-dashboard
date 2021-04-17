@@ -123,7 +123,9 @@ import { istrav } from "./node_modules/istrav/api/index.js";
 window.istrav = istrav
 function init (response) {
   let API_URI = response.data.API_URI
+  let IO_URI = response.data.IO_URI
   console.log(`API_URI ::: ${API_URI}`)
+  console.log(`IO_URI ::: ${IO_URI}`)
   istrav.event.sources.init({ host: API_URI })
   istrav.event.backup.init({ host: API_URI })
   istrav.event.logging.init({ host: API_URI })

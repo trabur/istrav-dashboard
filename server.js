@@ -56,7 +56,8 @@ app.get('/*', express.static('.'))
 // backend url
 app.get('/environment', (req, res) => {
   res.json({
-    API_URI: process.env.API_URI || 'http://localhost:1337'
+    IO_URI: process.env.IO_URI || 'http://localhost:3333',
+    API_URI: process.env.API_URI || 'http://localhost:1337',
   })
 })
 
