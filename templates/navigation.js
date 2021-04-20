@@ -19,5 +19,6 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/subscription-plans'); return false;">subscription.plans()</a></li>
   <li><a href="#" onclick="onNavItemClick('/channel-videos'); return false;">channel.videos()</a></li>
   <li><a href="#" onclick="onNavItemClick('/channel-guides'); return false;">channel.guides()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/channel-playlists'); return false;">channel.playlists()</a></li>
 </ul>
 `

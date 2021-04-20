@@ -40,7 +40,8 @@ app.get([
   '/subscription-licenses',
   '/subscription-plans',
   '/channel-videos',
-  '/channel-guides'
+  '/channel-guides',
+  '/channel-playlists',
 ], function(req, res) {
   res.sendFile('./index.html', { root: __dirname });
 })

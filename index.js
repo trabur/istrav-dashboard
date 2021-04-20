@@ -17,6 +17,7 @@ import { subscriptionLicensesTemplate, subscriptionLicensesInit }  from './templ
 import { subscriptionPlansTemplate, subscriptionPlansInit }  from './templates/subscription.plans.js'
 import { channelVideosTemplate, channelVideosInit }  from './templates/channel.videos.js'
 import { channelGuidesTemplate, channelGuidesInit }  from './templates/channel.guides.js'
+import { channelPlaylistsTemplate, channelPlaylistsInit }  from './templates/channel.playlists.js'
 
 import { navigationTemplate } from './templates/navigation.js'
 import { reportTemplate, reportInit } from './templates/report.js'
@@ -103,6 +104,10 @@ let routes = {
     template: channelGuidesTemplate,
     method: channelGuidesInit,
   },
+  '/channel-playlists': {
+    template: channelPlaylistsTemplate,
+    method: channelPlaylistsInit,
+  },
 };
 
 window.onpopstate = () => {
@@ -143,6 +148,7 @@ function init (response) {
   istrav.subscriptions.plans.init({ host: API_URI })
   istrav.channel.videos.init({ host: API_URI })
   istrav.channel.guides.init({ host: API_URI })
+  istrav.channel.playlists.init({ host: API_URI })
 }
 async function environment () {
   return await axios
