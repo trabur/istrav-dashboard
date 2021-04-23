@@ -13,6 +13,7 @@ import * as storeCollections from './store.collections.js'
 import * as storeProducts from './store.products.js'
 import * as appMenus from './app.menus.js'
 import * as appPages from './app.pages.js'
+import * as appFAQ from './app.faq.js'
 import * as subscriptionLicenses from './subscription.licenses.js'
 import * as subscriptionPlans from './subscription.plans.js'
 import * as channelVideos from './channel.videos.js'
@@ -35,7 +36,8 @@ export let scripts = {
   },
   app: {
     menus: appMenus,
-    pages: appPages
+    pages: appPages,
+    faq: appFAQ
   },
   account: {
     users: accountUsers,

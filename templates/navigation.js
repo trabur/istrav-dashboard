@@ -9,6 +9,7 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/tenant-apps'); return false;">tenant.apps()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-menus'); return false;">app.menus()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-pages'); return false;">app.pages()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/app-faq'); return false;">app.faq()</a></li>
   <li><a href="#" onclick="onNavItemClick('/store-collections'); return false;">store.collections()</a></li>
   <li><a href="#" onclick="onNavItemClick('/store-categories'); return false;">store.categories()</a></li>
   <li><a href="#" onclick="onNavItemClick('/store-products'); return false;">store.products()</a></li>

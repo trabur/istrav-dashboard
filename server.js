@@ -30,6 +30,7 @@ app.get([
   '/tenant-apps',
   '/app-menus',
   '/app-pages',
+  '/app-faq',
   '/store-collections',
   '/store-categories',
   '/store-products',

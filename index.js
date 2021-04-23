@@ -13,6 +13,7 @@ import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store
 import { storeCollectionsTemplate, storeCollectionsInit }  from './templates/store.collections.js'
 import { appMenusTemplate, appMenusInit }  from './templates/app.menus.js'
 import { appPagesTemplate, appPagesInit }  from './templates/app.pages.js'
+import { appFAQTemplate, appFAQInit }  from './templates/app.faq.js'
 import { subscriptionLicensesTemplate, subscriptionLicensesInit }  from './templates/subscription.licenses.js'
 import { subscriptionPlansTemplate, subscriptionPlansInit }  from './templates/subscription.plans.js'
 import { channelVideosTemplate, channelVideosInit }  from './templates/channel.videos.js'
@@ -63,6 +64,10 @@ let routes = {
   '/app-pages': {
     template: appPagesTemplate,
     method: appPagesInit,
+  },
+  '/app-faq': {
+    template: appFAQTemplate,
+    method: appFAQInit,
   },
   '/store-collections': {
     template: storeCollectionsTemplate,
@@ -137,6 +142,7 @@ function init (response) {
   istrav.tenant.apps.init({ host: API_URI })
   istrav.app.menus.init({ host: API_URI })
   istrav.app.pages.init({ host: API_URI })
+  istrav.app.faq.init({ host: API_URI })
   istrav.tenant.members.init({ host: API_URI })
   istrav.account.users.init({ host: API_URI })
   istrav.account.carts.init({ host: API_URI })
