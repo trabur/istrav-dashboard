@@ -57,5 +57,26 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/codemirror.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/mode/javascript/javascript.min.js"></script>
+
+		<!-- google analytics -->
+		<script>
+			let measurementId = 'G-WLHS6B3F48'
+	
+			// <!-- Global site tag (gtag.js) - Google Analytics -->
+			;(function() {
+				var s1 = document.createElement('script'),
+					s0 = document.getElementsByTagName('script')[0]
+				s1.async = true
+				s1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
+				// s1.setAttribute('crossorigin', '*')
+				s0.parentNode.insertBefore(s1, s0)
+			})()
+	
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			
+			gtag('config', measurementId);
+		</script>
 	</body>
 </html>
