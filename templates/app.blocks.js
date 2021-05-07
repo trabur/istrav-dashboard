@@ -4,8 +4,8 @@ let scriptId = ''
 let logTo = 'my-log'
 let backupTo = 'my-backup'
 
-export let appPagesTemplate = /*html*/`
-  <h2>::: app.pages()</h2>
+export let appBlocksTemplate = /*html*/`
+  <h2>::: app.blocks()</h2>
   <h3>> with postgresql database as a backbone</h3>
   <div id="getSaveCode"></div>
   <div class="script-actions">
@@ -32,11 +32,6 @@ export let appPagesTemplate = /*html*/`
     <a class="waves-effect waves-light btn" onclick="window.doRun('getRemove'); return false;">run</a>
   </div>
 
-  <div id="getBlocksCode"></div>
-  <div class="script-actions">
-    <a class="waves-effect waves-light btn" onclick="window.doRun('getBlocks'); return false;">run</a>
-  </div>
-
   <br />
   <div style="text-align: center;">
     <a href="/event-sources" class="waves-effect waves-light btn"><-- previous</a>
@@ -52,11 +47,10 @@ import {
   getAll,
   getUpdate,
   getOne,
-  getRemove,
-  getBlocks
-} from '../scripts/app.pages.js'
+  getRemove
+} from '../scripts/app.blocks.js'
 
-export function appPagesInit () {
+export function appBlocksInit () {
   window.sourceId = sourceId
   window.scriptId = scriptId
   window.logTo = logTo
@@ -67,8 +61,7 @@ export function appPagesInit () {
     [ 'getAll', getAll ],
     [ 'getUpdate', getUpdate ],
     [ 'getOne', getOne ],
-    [ 'getRemove', getRemove ],
-    [ 'getBlocks', getBlocks ]
+    [ 'getRemove', getRemove ]
   ].forEach(value => {
     window[`${value[0]}Code`] = CodeMirror(document.getElementById(`${value[0]}Code`), {
       value: value[1].toString(),

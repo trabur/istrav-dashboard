@@ -8,6 +8,7 @@ export let navigationTemplate = /*html*/`
   <li><a href="#" onclick="onNavItemClick('/tenant-members'); return false;">tenant.members()</a></li>
   <li><a href="#" onclick="onNavItemClick('/tenant-apps'); return false;">tenant.apps()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-menus'); return false;">app.menus()</a></li>
+  <li><a href="#" onclick="onNavItemClick('/app-blocks'); return false;">app.blocks()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-pages'); return false;">app.pages()</a></li>
   <li><a href="#" onclick="onNavItemClick('/app-faq'); return false;">app.faq()</a></li>
   <li><a href="#" onclick="onNavItemClick('/store-collections'); return false;">store.collections()</a></li>

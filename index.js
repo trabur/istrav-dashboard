@@ -4,7 +4,6 @@ import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.j
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
 import { tenantMembersTemplate, tenantMembersInit }  from './templates/tenant.members.js'
 import { tenantAppsTemplate, tenantAppsInit }  from './templates/tenant.apps.js'
-import { fleetVehiclesTemplate, fleetVehiclesInit } from './templates/fleet.vehicles.js'
 import { accountUsersTemplate, accountUsersInit }  from './templates/account.users.js'
 import { accountCartsTemplate, accountCartsInit }  from './templates/account.carts.js'
 import { accountOrdersTemplate, accountOrdersInit }  from './templates/account.orders.js'
@@ -12,6 +11,7 @@ import { storeProductsTemplate, storeProductsInit }  from './templates/store.pro
 import { storeCategoriesTemplate, storeCategoriesInit }  from './templates/store.categories.js'
 import { storeCollectionsTemplate, storeCollectionsInit }  from './templates/store.collections.js'
 import { appMenusTemplate, appMenusInit }  from './templates/app.menus.js'
+import { appBlocksTemplate, appBlocksInit }  from './templates/app.blocks.js'
 import { appPagesTemplate, appPagesInit }  from './templates/app.pages.js'
 import { appFAQTemplate, appFAQInit }  from './templates/app.faq.js'
 import { subscriptionLicensesTemplate, subscriptionLicensesInit }  from './templates/subscription.licenses.js'
@@ -60,6 +60,10 @@ let routes = {
   '/app-menus': {
     template: appMenusTemplate,
     method: appMenusInit,
+  },
+  '/app-blocks': {
+    template: appBlocksTemplate,
+    method: appBlocksInit,
   },
   '/app-pages': {
     template: appPagesTemplate,
@@ -141,6 +145,7 @@ function init (response) {
   // istrav.event.logging.init({ host: API_URI })
   istrav.tenant.apps.init({ host: API_URI })
   istrav.app.menus.init({ host: API_URI })
+  istrav.app.blocks.init({ host: API_URI })
   istrav.app.pages.init({ host: API_URI })
   istrav.app.faq.init({ host: API_URI })
   istrav.tenant.members.init({ host: API_URI })
@@ -150,8 +155,8 @@ function init (response) {
   istrav.store.collections.init({ host: API_URI })
   istrav.store.categories.init({ host: API_URI })
   istrav.store.products.init({ host: API_URI })
-  istrav.subscriptions.licenses.init({ host: API_URI })
-  istrav.subscriptions.plans.init({ host: API_URI })
+  istrav.subscription.licenses.init({ host: API_URI })
+  istrav.subscription.plans.init({ host: API_URI })
   istrav.channel.videos.init({ host: API_URI })
   istrav.channel.guides.init({ host: API_URI })
   istrav.channel.playlists.init({ host: API_URI })
