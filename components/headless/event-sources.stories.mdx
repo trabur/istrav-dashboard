@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Source } from '@storybook/addon-docs/blocks';
+import dedent from 'ts-dedent';
+
+<Meta
+  title="headless/event.sources()"
+  parameters={{
+    iframe: {
+      url: 'https://farmerless.com/scripts/event.sources.js',
+    },
+  }}
+/>
+
+# HEADLESS
+### event.sources()
+
+Many applications today are built around create, read, update, and delete or CRUD. That's not good enough for accounting level reliabilty; because with delete and update information is lost. Meaning, if we update a model more than once ... our history is not kept. Where data loss is not acceptable this is not good. In order to combat that every action is saved as an event. We then play out these events over a view to get our state. With our history getting backed up we can replay all of the events over a new view for recovery, analytics, or w/e.
+
+So instead of a CRUD REST API like we are more CQRS/microservice like. For instance, take an application where there is a bunch of traffic hitting one API method more than another ... such as: only 10 new employees per month vs 1k vehicles updating their position every second. With microservices and CQRS we can scale up/down specific blocks of code in our app. So to handle this our naming convention for all scripts starts with "get" or "do" in order to signify "query" or "command" respectively. Back to the example: getRegister and doChangeLocation.
+
+
+<style>{`
+  .script {
+    border: 1px solid #000;
+    padding: 1em;
+    border-radius: 0.5em;
+    color: black;
+  }
+`}</style>
+
+<br />
+<a className="script" href="./?path=/iframe/headless-event-sources--page">
+  SCRIPT
+</a>

@@ -8,15 +8,15 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 COPY scripts ./scripts
-COPY templates ./templates
+COPY components ./components
 COPY bundle.js ./
 COPY index.html ./
 COPY index.js ./
-COPY prism-theme.css ./
 COPY require.js ./
 COPY server.js ./
 
 RUN npm install
+RUN npm run build-storybook
 
 # Bundle app source
 COPY . .

@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import Code from './assets/code-brackets.svg';
+import Colors from './assets/colors.svg';
+import Comments from './assets/comments.svg';
+import Direction from './assets/direction.svg';
+import Flow from './assets/flow.svg';
+import Plugin from './assets/plugin.svg';
+import Repo from './assets/repo.svg';
+import StackAlt from './assets/stackalt.svg';
+
+<Meta 
+  title="Frontend web components combined with headless backend."
+/>
+
+<style>{`
+  .subheading {
+    --mediumdark: '#999999';
+    font-weight: 900;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 6px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .tip-wrapper {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .tip-wrapper code {
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  
+`}</style>
+
+# FARMERLESS: Frontend web components combined with headless backend.
+
+### Powered by ISTRAV.
+
+What makes these web components different from other components? First of all, they are highly opinionated; we make assumptions about which technologies to use. You may like some of the decisions that we have made or you may not like one particular thing or another. Such as our decision to use material design as our CSS library. Or perhaps Svelte as our frontend framework. In the future we may branch out and be party agnostic. However, our focus right now is around getting everything on point before we move forward. Because, second of all, the challenge that we face is not just having web components but a having them and being able to hydrate them with data. In short, we need web components that are dynamic. Note: later we explain what blocks and wireframes are. Then finally, we need our web components to support community based interaction on a Command Query Responsibility Segregation (CQRS) level with event sourcing. Like having users with roles that have permissions or also known as identification access management (IAM). Now setting up a profile page where only users can edit their own account becomes possible. Many call this, "feature flagging". In short, we already made many of the tough opninionated decisions for you, web components may be hydrated with dynamic data, and lastly web components are event source driven so functionality such as feature flagging exists.
+
+<div className="subheading">FARMERLESS</div>
+
+<div className="link-list">
+  <a className="link-item" href="./?path=/story/headless-event-sources--page">
+    <img src={Code} alt="code" />
+    <span>
+      <strong>Headless</strong>
+      $ npm install istrav
+    </span>
+  </a>
+  <a className="link-item" href="https://storybook.js.org/docs/react/addons/addon-types">
+    <img src={Plugin} alt="plugin" />
+    <span>
+      <strong>Blocks</strong>
+      Svelte components hydrated with data from headless.
+    </span>
+  </a>
+  <a className="link-item" href="https://storybook.js.org/docs/react/configure/webpack">
+    <img src={StackAlt} alt="Build" />
+    <span>
+      <strong>Wireframes</strong>
+      Svelte components slotted with blocks.
+    </span>
+  </a>
+</div>
+
+<div className="tip-wrapper">
+  <span className="tip">FREE</span> We are open source! Checkout: <a href="https://github.com/trabur/istrav-headless" target="_blank">github.com/trabur/istrav-headless</a>
+</div>
