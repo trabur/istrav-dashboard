@@ -1,11 +1,12 @@
 <script>
   import { onMount } from 'svelte';
 
+  import { scripts } from '../../scripts/headless.js'
+  
   export let app
   export let page
   // export let block
   // export let data
-  let scripts = window['scripts']
 
   let items = []
 

@@ -7,6 +7,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-svelte-csf",
-    "@geometricpanda/storybook-addon-iframe"
+    "@geometricpanda/storybook-addon-iframe",
+    "@storybook/addon-google-analytics"
   ]
 }

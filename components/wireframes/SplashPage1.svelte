@@ -4,17 +4,45 @@
   export let showWiring
   export let app
   // export let page
+  
+  let secondaryBtnTextColor
+  let secondaryBtnBackColor
+  if (app) {
+    secondaryBtnTextColor = app.secondaryBtnTextColor || 'white-text'
+    secondaryBtnBackColor = app.secondaryBtnBackColor || 'teal lighten-2'
+  } else {
+    secondaryBtnTextColor = 'white-text'
+    secondaryBtnBackColor = 'teal lighten-2'
+  }
 
-	onMount(() => {
-		/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-		window['particlesJS'].load('particles-js', './particles.json', function() {
-			console.log('callback - particles.js config loaded');
-		});
-	})
+  import particlesConfig from '../particles.json'
+  let ParticlesComponent;
+
+  console.log('particlesConfig', particlesConfig)
+
+  onMount(async () => {
+    const module = await import("svelte-particles")
+
+    ParticlesComponent = module.default
+  })
+
+  let onParticlesLoaded = (event) => {
+    const particlesContainer = event.detail.particles
+  }
+
+  let onParticlesInit = (main) => {
+  }
 </script>
 
 <header class={showWiring ? 'wire' : ''}>
-  <div id="particles-js">
+  <svelte:component
+    this="{ParticlesComponent}"
+    id="tsparticles"
+    options="{particlesConfig}"
+    on:particlesLoaded="{onParticlesLoaded}"
+    on:particlesInit="{onParticlesInit}"
+  />
+  <div>
     {#if showWiring}
       <div class="name">header</div>
     {/if}
@@ -31,7 +59,7 @@
         {/if}
         <slot name="slogan"></slot>
       </div>
-      <a href="/#jump-here" class={`btn-floating btn-large waves-effect waves-light ${app.secondaryBtnBackColor || 'teal lighten-2'} ${app.secondaryBtnTextColor || 'white-text'}`}>
+      <a href="/#jump-here" class={`btn-floating btn-large waves-effect waves-light ${secondaryBtnBackColor} ${secondaryBtnTextColor}`}>
         <i class="material-icons">expand_more</i>
       </a>
     </div>
@@ -78,24 +106,15 @@
 </footer>
 
 <style>
-  :global(#sapper) {
-    overflow: auto;
+  :global(body) {
+    overflow: hidden;
+    padding: 0 !important;
   }
 
   header {
     min-height: 100vh !important;
     position: relative;
   }
-
-  #particles-js {
-		background-color: #ee6e73;
-		overflow: hidden;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
 
   .wire {
     border: 1px dashed #000;
@@ -108,6 +127,7 @@
   .wrapper {
     margin: 0;
     min-height: 0;
+    align-items: top;
   }
 
   .name {

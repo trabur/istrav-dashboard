@@ -1,4 +1,4 @@
-import { istrav } from '../node_modules/istrav/api/index.js'
+import { istrav } from 'istrav'
 import { scripts } from './headless.js'
 
 export async function getLog (state, event) {

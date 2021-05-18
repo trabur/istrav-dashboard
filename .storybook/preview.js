@@ -11,3 +11,9 @@ export const parameters = {
     },
   },
 }
+
+// export const loaders = [
+//   async () => ({
+//     currentUser: (await fetch('https://jsonplaceholder.typicode.com/users/1')).json(),
+//   }),
+// ];

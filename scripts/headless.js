@@ -1,4 +1,4 @@
-import { istrav } from '../node_modules/istrav/api/index.js'
+import { istrav } from 'istrav'
 
 import * as eventSources from './event.sources.js'
 // import * as eventBackup from './event.backup.js'

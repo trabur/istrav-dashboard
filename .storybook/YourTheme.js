@@ -1,4 +1,5 @@
 // .storybook/YourTheme.js
+import "materialize-css"
 
 import { create } from '@storybook/theming';
 

@@ -5,38 +5,65 @@
   // export let page
   export let showWiring
 
-	onMount(() => {
-		/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-		window['particlesJS'].load('particles-js', './particles.json', function() {
-			console.log('callback - particles.js config loaded');
-		});
-	})
+	// onMount(() => {
+	// 	/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+	// 	window['particlesJS'].load('particles-js', './particles.json', function() {
+	// 		console.log('callback - particles.js config loaded');
+	// 	});
+	// })
+
+  import particlesConfig from '../particles.json'
+  let ParticlesComponent;
+
+  console.log('particlesConfig', particlesConfig)
+
+  onMount(async () => {
+    const module = await import("svelte-particles")
+
+    ParticlesComponent = module.default
+  })
+
+  let onParticlesLoaded = (event) => {
+    const particlesContainer = event.detail.particles
+
+    // you can use particlesContainer to call all the Container class
+    // (from the core library) methods like play, pause, refresh, start, stop
+  }
+
+  let onParticlesInit = (main) => {
+    // you can use main to customize the tsParticles instance adding presets or custom shapes
+  }
 </script>
 
 <header class={showWiring ? 'wire' : ''}>
-  <div id="particles-js">
-    <div class="row wrapper middle">
-      <div class="col wrapper s12 m6">
-        <div class={showWiring ? 'logo wire' : 'logo'}>
-          {#if showWiring}
-            <div class="name">logo</div>
-          {/if}
-          <slot name="logo"></slot>
-        </div>
-        <div class={showWiring ? 'slogan wire' : 'slogan'}>
-          {#if showWiring}
-            <div class="name">slogan</div>
-          {/if}
-          <slot name="slogan"></slot>
-        </div>
+  <svelte:component
+    this="{ParticlesComponent}"
+    id="tsparticles"
+    options="{particlesConfig}"
+    on:particlesLoaded="{onParticlesLoaded}"
+    on:particlesInit="{onParticlesInit}"
+  />
+  <div class="row wrapper middle">
+    <div class="col wrapper s12 m6" style="flex-direction: column;">
+      <div class={showWiring ? 'logo wire' : 'logo'}>
+        {#if showWiring}
+          <div class="name">logo</div>
+        {/if}
+        <slot name="logo"></slot>
       </div>
-      <div class="col wrapper s12 m6">
-        <div class={showWiring ? 'controls wire' : 'controls'}>
-          {#if showWiring}
-            <div class="name">controls</div>
-          {/if}
-          <slot name="controls"></slot>
-        </div>
+      <div class={showWiring ? 'slogan wire' : 'slogan'}>
+        {#if showWiring}
+          <div class="name">slogan</div>
+        {/if}
+        <slot name="slogan"></slot>
+      </div>
+    </div>
+    <div class="col wrapper s12 m6">
+      <div class={showWiring ? 'controls wire' : 'controls'}>
+        {#if showWiring}
+          <div class="name">controls</div>
+        {/if}
+        <slot name="controls"></slot>
       </div>
     </div>
   </div>
@@ -89,6 +116,11 @@
 </footer>
 
 <style>
+  :global(body) {
+    overflow: hidden;
+    padding: 0 !important;
+  }
+  
   .wire {
     border: 1px dashed #000;
     padding: 0.2em;
@@ -100,6 +132,8 @@
   .wrapper {
     margin: 0;
     padding: 0;
+    border-bottom: 0;
+    align-items: inherit;
   }
 
   .name {
@@ -113,6 +147,10 @@
     padding: 0.2em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+
+  .slogan {
+    text-align: center;
   }
 
   header.wire,
@@ -137,7 +175,7 @@
     position: relative;
   }
 
-  #particles-js {
+  :global(#tsparticles) {
 		background-color: #ee6e73;
 		overflow: hidden;
 		position: absolute;
@@ -160,5 +198,13 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+
+  .logo,
+  .slogan,
+  .controls,
+  article,
+  aside {
+    width: 100%;
   }
 </style>

@@ -16,3 +16,11 @@
 {#if page && page.content}
   <SvelteMarkdown source={page.content} />
 {/if}
+
+<style>
+  :global(h1, h2, h3, h4, h5, h6) {
+    margin: 0 0 0.5em 0;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+</style>

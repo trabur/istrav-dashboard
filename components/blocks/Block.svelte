@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from "svelte";
 
+  import { scripts } from '../../scripts/headless.js'
+
   // load all blocks here
   import Logo from './Logo.svelte'
   import MainFooter from './MainFooter.svelte'
@@ -26,7 +28,6 @@
 	export let app
   export let page
   export let block
-  let scripts = window['scripts']
 
 	let data
 

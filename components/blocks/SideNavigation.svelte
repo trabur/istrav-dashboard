@@ -45,6 +45,7 @@
     display: grid;
     grid-template-columns: 24px 1fr;
     padding: 0.5em;
+    margin-bottom: 0;
   }
 
   ul li .active {

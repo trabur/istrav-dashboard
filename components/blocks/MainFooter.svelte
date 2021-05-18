@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
 
+  import { scripts } from '../../scripts/headless.js'
+
   import TawkToChatWidget from './Footer/TawkToChatWidget.svelte'
   import GoogleAnalytics from './Footer/GoogleAnalytics.svelte'
 
@@ -8,7 +10,6 @@
   // export let page
   // export let block
 	// export let data
-  let scripts = window['scripts']
   
   let propertyId = app.tawkToPropertyId // || '6051205af7ce18270930caec'
   let chatId = app.tawkToChatId // || '1f0ueco46'

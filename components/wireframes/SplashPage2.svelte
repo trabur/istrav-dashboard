@@ -5,12 +5,23 @@
   // export let page
   export let showWiring
 
-	onMount(() => {
-		/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-		window['particlesJS'].load('particles-js', './particles.json', function() {
-			console.log('callback - particles.js config loaded');
-		});
-	})
+  import particlesConfig from '../particles.json'
+  let ParticlesComponent;
+
+  console.log('particlesConfig', particlesConfig)
+
+  onMount(async () => {
+    const module = await import("svelte-particles")
+
+    ParticlesComponent = module.default
+  })
+
+  let onParticlesLoaded = (event) => {
+    const particlesContainer = event.detail.particles
+  }
+
+  let onParticlesInit = (main) => {
+  }
 </script>
 
 <div class="dotted">
@@ -20,38 +31,43 @@
     {/if}
     <div class="row wrapper">
       <div class="contain col s12 m6">
-        <div id="particles-js">
-          <div style="position: absolute; overflow: auto; bottom: 0; top: 0; width: 100%;">
-            <br />
-            <br />
-            <br />
-            <div class={showWiring ? 'logo wire' : 'logo'}>
-              {#if showWiring}
-                <div class="name">logo</div>
-              {/if}
-              <slot name="logo"></slot>
-            </div>
-            <div class={showWiring ? 'slogan wire' : 'slogan'}>
-              {#if showWiring}
-                <div class="name">slogan</div>
-              {/if}
-              <slot name="slogan"></slot>
-            </div>
-            <article class={showWiring ? 'wire' : ''}>
-              {#if showWiring}
-                <div class="name">article</div>
-              {/if}
-              <div class="card" style="margin: 1em; padding: 1em;">
-                <slot name="article"></slot>
-              </div>
-            </article>
-            <footer class={showWiring ? 'wire' : ''}>
-              {#if showWiring}
-                <div class="name">footer</div>
-              {/if}
-              <slot name="footer"></slot>
-            </footer>
+        <svelte:component
+          this="{ParticlesComponent}"
+          id="tsparticles"
+          options="{particlesConfig}"
+          on:particlesLoaded="{onParticlesLoaded}"
+          on:particlesInit="{onParticlesInit}"
+        />
+        <div style="position: absolute; overflow: auto; bottom: 0; top: 0; left: 0; right: 0;">
+          <br />
+          <br />
+          <br />
+          <div class={showWiring ? 'logo wire' : 'logo'}>
+            {#if showWiring}
+              <div class="name">logo</div>
+            {/if}
+            <slot name="logo"></slot>
           </div>
+          <div class={showWiring ? 'slogan wire' : 'slogan'}>
+            {#if showWiring}
+              <div class="name">slogan</div>
+            {/if}
+            <slot name="slogan"></slot>
+          </div>
+          <article class={showWiring ? 'wire' : ''}>
+            {#if showWiring}
+              <div class="name">article</div>
+            {/if}
+            <div class="card" style="margin: 1em; padding: 1em;">
+              <slot name="article"></slot>
+            </div>
+          </article>
+          <footer class={showWiring ? 'wire' : ''}>
+            {#if showWiring}
+              <div class="name">footer</div>
+            {/if}
+            <slot name="footer"></slot>
+          </footer>
         </div>
       </div>
       <div class="contain col s12 m6">
@@ -82,16 +98,6 @@
     overflow: hidden;
   }
 
-  #particles-js {
-		background-color: #ee6e73;
-		overflow: hidden;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-
   #right {
 		overflow: hidden;
 		position: absolute;
@@ -109,6 +115,7 @@
     right: 0;
     left: 0;
     margin: 0;
+    padding: 0;
   }
 
 	.dotted {
@@ -156,6 +163,10 @@
     padding: 0.2em;
     text-transform: uppercase;
     font-weight: 500;
+  }
+
+  .slogan {
+    text-align: center;
   }
 
   header.wire,

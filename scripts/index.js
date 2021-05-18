@@ -1,6 +1,6 @@
 
 import * as headless from './headless.js'
-import { istrav } from '../node_modules/istrav/api/index.js'
+import { istrav } from 'istrav'
 
 window.istrav = istrav
 window.scripts = headless.scripts
