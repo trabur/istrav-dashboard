@@ -94,3 +94,10 @@
     </section>
   </svelte:component>
 {/if}
+
+<style>
+  .slot {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+</style>

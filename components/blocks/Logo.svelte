@@ -1,10 +1,14 @@
 <script>
   import { onMount } from "svelte";
-
+	
   export let app
   // export let page
   // export let block
 	// export let data
+
+	onMount(() => {
+		console.log('app', app)
+	})
 
 	let show = false
 
@@ -16,28 +20,30 @@
 	}
 </script>
 
-{#if app.domain === 'istrav.com'}
-	<div class="logo">
-		<span style="font-style: italic; font-size: 3em; margin: 0 -0.1em;">IS</span>
-		<span style="font-style: italic; vertical-align: top; font-size: 1.5em; line-height: 2.3em;">TRAV</span>
-	</div>
-{:else if app.domain === 'aaghc.com'}
-	<div class="aaghc" on:mouseenter={showMagic} on:mouseleave={hideMagic}>
-		{#if show}
-			AAGHC
-		{:else}
-			<div class="first-a">A</div><div class="second-a">A</div><div class="third-g">G</div><div class="rotate-letter">H</div><div class="space-letter">C</div>
-		{/if}
-	</div>
-{:else}
-	{#if app.logo}
+{#if app}
+	{#if app.domain === 'istrav.com'}
 		<div class="logo">
-			<img src={`${app.uploads}/${app.logo}`} style="height: 3em; margin: 0.5em;" alt={app.name} />
+			<span style="font-style: italic; font-size: 3em; margin: 0 -0.1em;">IS</span>
+			<span style="font-style: italic; vertical-align: top; font-size: 1.5em; line-height: 2.3em;">TRAV</span>
+		</div>
+	{:else if app.domain === 'aaghc.com'}
+		<div class="aaghc" on:mouseenter={showMagic} on:mouseleave={hideMagic}>
+			{#if show}
+				AAGHC
+			{:else}
+				<div class="first-a">A</div><div class="second-a">A</div><div class="third-g">G</div><div class="rotate-letter">H</div><div class="space-letter">C</div>
+			{/if}
 		</div>
 	{:else}
-		<div class="logo">
-			<span style="font-size: 1.5em; line-height: 2em;">{app.labelName || ''}</span>
-		</div>
+		{#if app.logo}
+			<div class="logo">
+				<img src={`${app.uploads}/${app.logo}`} style="height: 3em; margin: 0.5em;" alt={app.name} />
+			</div>
+		{:else}
+			<div class="logo">
+				<span style="font-size: 1.5em; line-height: 2em;">{app.labelName || ''}</span>
+			</div>
+		{/if}
 	{/if}
 {/if}
 
