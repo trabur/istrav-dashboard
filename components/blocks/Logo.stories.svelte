@@ -23,7 +23,7 @@
   args={{
     domain: 'istrav.com',
     state: 'production',
-    slug: 'subscribe',
+    slug: 'homepage',
     component: 'Logo',
     fontSize: '3em'
   }}
@@ -34,7 +34,7 @@
   args={{
     domain: 'istrav.com',
     state: 'production',
-    slug: 'subscribe',
+    slug: 'homepage',
     component: 'Logo',
     fontSize: '1em'
   }}
