@@ -52,7 +52,7 @@
     slug: 'homepage',
     blockName: 'Logo',
     blockArgs: {
-      height: '5em'
+      height: '10em'
     }
   }}
 />
