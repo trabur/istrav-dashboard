@@ -12,7 +12,7 @@
 
 <Template let:args>
   <div style="min-height: 100vh;">
-    <div class="middle" style={`font-size: ${args.fontSize};`}>
+    <div class="middle">
       <Example {...args} />
     </div>
   </div>
@@ -24,8 +24,10 @@
     domain: 'istrav.com',
     state: 'production',
     slug: 'homepage',
-    component: 'Logo',
-    fontSize: '3em'
+    blockName: 'Logo',
+    blockArgs: {
+      fontSize: '3em'
+    }
   }}
 />
 
@@ -35,8 +37,23 @@
     domain: 'istrav.com',
     state: 'production',
     slug: 'homepage',
-    component: 'Logo',
-    fontSize: '1em'
+    blockName: 'Logo',
+    blockArgs: {
+      fontSize: '1em'
+    }
+  }}
+/>
+
+<Story 
+  name="With Image"
+  args={{
+    domain: 'tyu67.com',
+    state: 'production',
+    slug: 'homepage',
+    blockName: 'Logo',
+    blockArgs: {
+      height: '5em'
+    }
   }}
 />
 

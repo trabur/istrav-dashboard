@@ -26,7 +26,8 @@
   export let domain
   export let state
   export let slug
-  export let component
+  export let blockName
+  export let blockArgs
   let app
   let page
 
@@ -48,7 +49,7 @@
       console.log('esPage', esPage)
       if (esPage.payload.success === true) {
         page = esPage.payload.data
-        updateViewportComponent(component)
+        updateViewportComponent(blockName)
       } else {
         alert(esPage.payload.reason)
       }
@@ -65,5 +66,5 @@
 </script>
 
 {#if app && page}
-  <svelte:component this={viewportComponent} {app} {page}></svelte:component>
+  <svelte:component this={viewportComponent} {app} {page} {...blockArgs}></svelte:component>
 {/if}
