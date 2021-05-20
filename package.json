@@ -2,7 +2,7 @@
   "name": "farmerless",
   "version": "1.1.0",
   "description": "Frontend web components combined with headless backend.",
-  "main": "./scripts/index.mjs",
+  "main": "./scripts/index.ts",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
