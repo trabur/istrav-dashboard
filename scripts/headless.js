@@ -68,7 +68,7 @@ export async function doHelloWorld () {
 
   // in the code:
   // import { istrav } from './node_modules/istrav/api/index.js'
-  // import { scripts } from './scripts/headless.cjs'
+  // import { scripts } from './scripts/headless.js'
   
   // then:
   // use any istrav api...

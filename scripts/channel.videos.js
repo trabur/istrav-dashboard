@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.cjs'
+import { scripts } from './headless.js'
 
 export async function getAll (appId) {
   // object

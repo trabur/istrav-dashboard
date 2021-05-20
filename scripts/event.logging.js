@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.cjs'
+import { scripts } from './headless.js'
 
 export async function getLog (state, event) {
   event.payload = await state.account.users.register({

@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   
   import { istrav } from 'istrav'
-  import { scripts } from '../scripts/headless.cjs'
+  import { scripts } from '../scripts/headless.js'
   
   import FeaturedGuide from "./blocks/FeaturedGuide.svelte";
   import Logo from "./blocks/Logo.svelte";

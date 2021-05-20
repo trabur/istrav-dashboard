@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 
-  import { scripts } from '../../scripts/headless.cjs'
+  import { scripts } from '../../scripts/headless.js'
 
   // load all blocks here
   import Logo from './Logo.svelte'

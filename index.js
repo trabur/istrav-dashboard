@@ -1,4 +1,4 @@
-import { headlessTemplate, headlessInit } from './templates/headless.cjs'
+import { headlessTemplate, headlessInit } from './templates/headless.js'
 import { eventSourcesTemplate, eventSourcesInit } from './templates/event.sources.js'
 import { eventBackupTemplate, eventBackupInit } from "./templates/event.backup.js";
 import { eventLoggingTemplate, eventLoggingInit } from './templates/event.logging.js'
@@ -168,7 +168,7 @@ async function environment () {
 }
 environment()
 
-import { scripts } from './scripts/headless.cjs'
+import { scripts } from './scripts/headless.js'
 
 window.scripts = scripts
 window.doRun = scripts.headless.doRun
