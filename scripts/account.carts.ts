@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.js'
+import { scripts } from './headless.ts'
 
 export async function getSave (appId, token, change) {
   // object

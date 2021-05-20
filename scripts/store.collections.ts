@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.js'
+import { scripts } from './headless.ts'
 
 export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getSave', 'store.collections')
 
   // params
   es.arguements = {
@@ -16,7 +16,7 @@ export async function getSave (appId, token, change) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.save(es)
+  let eventSource = await istrav.store.collections.save(es)
 
   // finish
   return eventSource
@@ -24,7 +24,7 @@ export async function getSave (appId, token, change) {
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getAll', 'store.collections')
 
   // params
   es.arguements = {
@@ -32,7 +32,7 @@ export async function getAll (appId) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.all(es)
+  let eventSource = await istrav.store.collections.all(es)
 
   // finish
   return eventSource
@@ -40,7 +40,7 @@ export async function getAll (appId) {
 
 export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getUpdate', 'store.collections')
 
   // params
   es.arguements = {
@@ -53,7 +53,7 @@ export async function getUpdate (appId, token, slug, change) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.update(es)
+  let eventSource = await istrav.store.collections.update(es)
 
   // finish
   return eventSource
@@ -61,7 +61,7 @@ export async function getUpdate (appId, token, slug, change) {
 
 export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getOne', 'store.collections')
 
   // params
   es.arguements = {
@@ -70,7 +70,7 @@ export async function getOne (appId, slug) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.get(es)
+  let eventSource = await istrav.store.collections.get(es)
 
   // finish
   return eventSource
@@ -78,7 +78,7 @@ export async function getOne (appId, slug) {
 
 export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getRemove', 'store.collections')
 
   // params
   es.arguements = {
@@ -88,15 +88,15 @@ export async function getRemove (appId, token, slug) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.remove(es)
+  let eventSource = await istrav.store.collections.remove(es)
 
   // finish
   return eventSource
 }
 
-export async function getVideos (appId, slug) {
+export async function getProducts (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getVideos', 'channel.guides')
+  let es = await scripts.event.sources.doEventSource('getProducts', 'store.collections')
 
   // params
   es.arguements = {
@@ -105,7 +105,7 @@ export async function getVideos (appId, slug) {
   }
 
   // perform
-  let eventSource = await istrav.channel.guides.videos(es)
+  let eventSource = await istrav.store.collections.products(es)
 
   // finish
   return eventSource

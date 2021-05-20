@@ -1,5 +1,5 @@
 
-import * as headless from './headless.js'
+import * as headless from './headless.ts'
 import { istrav } from 'istrav'
 
 export let istrav = istrav

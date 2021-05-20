@@ -1,25 +1,25 @@
 import { istrav } from 'istrav'
 
-import * as eventSources from './event.sources.js'
-// import * as eventBackup from './event.backup.js'
-// import * as eventLogging from './event.logging.js'
-import * as accountUsers from './account.users.js'
-import * as accountCarts from './account.carts.js'
-import * as accountOrders from './account.orders.js'
-import * as tenantApps from './tenant.apps.js'
-import * as tenantMembers from './tenant.members.js'
-import * as storeCategories from './store.categories.js'
-import * as storeCollections from './store.collections.js'
-import * as storeProducts from './store.products.js'
-import * as appMenus from './app.menus.js'
-import * as appBlocks from './app.blocks.js'
-import * as appPages from './app.pages.js'
-import * as appFAQ from './app.faq.js'
-import * as subscriptionLicenses from './subscription.licenses.js'
-import * as subscriptionPlans from './subscription.plans.js'
-import * as channelVideos from './channel.videos.js'
-import * as channelGuides from './channel.guides.js'
-import * as channelPlaylists from './channel.playlists.js'
+import * as eventSources from './event.sources.ts'
+// import * as eventBackup from './event.backup.ts'
+// import * as eventLogging from './event.logging.ts'
+import * as accountUsers from './account.users.ts'
+import * as accountCarts from './account.carts.ts'
+import * as accountOrders from './account.orders.ts'
+import * as tenantApps from './tenant.apps.ts'
+import * as tenantMembers from './tenant.members.ts'
+import * as storeCategories from './store.categories.ts'
+import * as storeCollections from './store.collections.ts'
+import * as storeProducts from './store.products.ts'
+import * as appMenus from './app.menus.ts'
+import * as appBlocks from './app.blocks.ts'
+import * as appPages from './app.pages.ts'
+import * as appFAQ from './app.faq.ts'
+import * as subscriptionLicenses from './subscription.licenses.ts'
+import * as subscriptionPlans from './subscription.plans.ts'
+import * as channelVideos from './channel.videos.ts'
+import * as channelGuides from './channel.guides.ts'
+import * as channelPlaylists from './channel.playlists.ts'
 
 export let scripts = {
   headless: {
@@ -67,8 +67,8 @@ export async function doHelloWorld () {
   // npm install istrav
 
   // in the code:
-  // import { istrav } from './node_modules/istrav/api/index.js'
-  // import { scripts } from './scripts/headless.js'
+  // import { istrav } from './node_modules/istrav/api/index.ts'
+  // import { scripts } from './scripts/headless.ts'
   
   // then:
   // use any istrav api...

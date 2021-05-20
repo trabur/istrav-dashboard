@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.js'
+import { scripts } from './headless.ts'
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'app.menus')
+  let es = await scripts.event.sources.doEventSource('getAll', 'store.products')
 
   // params
   es.arguements = {
@@ -11,7 +11,7 @@ export async function getAll (appId) {
   }
 
   // perform
-  let eventSource = await istrav.app.menus.all(es)
+  let eventSource = await istrav.store.products.all(es)
 
   // finish
   return eventSource
@@ -19,7 +19,7 @@ export async function getAll (appId) {
 
 export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'app.menus')
+  let es = await scripts.event.sources.doEventSource('getSave', 'store.products')
 
   // params
   es.arguements = {
@@ -28,20 +28,16 @@ export async function getSave (appId, token, change) {
     change: change || {
       name: 'istrav.com',
       slug: 'istrav.com',
-      raw: { // json
-        "name": "things",
-        "url": "/categories/plain",
-        "children": [
-          { "name": "plain", "url": "/categories/plain" },
-          { "name": "simple", "url": "/categories/simple" },
-          { "name": "generic", "url": "/categories/generic" }
-        ]
-      }
+      categoryId: "plain",
+      image: "IMG-0695.jpg",
+      price: 23.00,
+      details: "",
+      description: ""
     }
   }
 
   // perform
-  let eventSource = await istrav.app.menus.save(es)
+  let eventSource = await istrav.store.products.save(es)
 
   // finish
   return eventSource
@@ -49,7 +45,7 @@ export async function getSave (appId, token, change) {
 
 export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'app.menus')
+  let es = await scripts.event.sources.doEventSource('getOne', 'store.products')
 
   // params
   es.arguements = {
@@ -58,7 +54,7 @@ export async function getOne (appId, slug) {
   }
 
   // perform
-  let eventSource = await istrav.app.menus.get(es)
+  let eventSource = await istrav.store.products.get(es)
 
   // finish
   return eventSource
@@ -66,7 +62,7 @@ export async function getOne (appId, slug) {
 
 export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'app.menus')
+  let es = await scripts.event.sources.doEventSource('getUpdate', 'store.products')
 
   // params
   es.arguements = {
@@ -74,12 +70,12 @@ export async function getUpdate (appId, token, slug, change) {
     token: token || '',
     slug: slug || 'fpuh348f38f...',
     change: change || {
-      name: 'our-app'
+      price: 25.00
     }
   }
 
   // perform
-  let eventSource = await istrav.app.menus.update(es)
+  let eventSource = await istrav.store.products.update(es)
 
   // finish
   return eventSource
@@ -87,7 +83,7 @@ export async function getUpdate (appId, token, slug, change) {
 
 export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'app.menus')
+  let es = await scripts.event.sources.doEventSource('getRemove', 'store.products')
 
   // params
   es.arguements = {
@@ -97,7 +93,7 @@ export async function getRemove (appId, token, slug) {
   }
 
   // perform
-  let eventSource = await istrav.app.menus.remove(es)
+  let eventSource = await istrav.store.products.remove(es)
 
   // finish
   return eventSource
