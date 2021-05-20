@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { scripts } from '../../scripts/headless.js'
+  import { scripts } from '../../scripts/headless.cjs'
   
   export let app
   export let page

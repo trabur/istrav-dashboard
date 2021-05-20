@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.js'
+import { scripts } from './headless.cjs'
 
 export async function doEventSource (scriptId, folderId, roomId) {
   /**

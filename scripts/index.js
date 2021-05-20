@@ -1,5 +1,5 @@
 
-import * as headless from './headless.js'
+import * as headless from './headless.cjs'
 import { istrav } from 'istrav'
 
 window.istrav = istrav
