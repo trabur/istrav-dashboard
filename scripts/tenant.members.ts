@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './headless.ts'
+import * as scripts from './scripts.ts'
 
 export async function getAll () {
   // object
