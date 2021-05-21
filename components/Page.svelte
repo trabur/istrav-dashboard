@@ -1,8 +1,7 @@
 <script>
 	import { onMount } from "svelte";
   
-  import { istrav } from 'istrav'
-  import { scripts } from '../scripts/headless.ts'
+  import { istrav, scripts } from '../api'
 
   import Block from './blocks/Block.svelte'
   import SplashPage1 from './wireframes/SplashPage1.svelte'

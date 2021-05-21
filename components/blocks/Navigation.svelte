@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { scripts } from '../../scripts/headless.ts'
+  import { istrav, scripts } from '../../api'
   
   export let app
   export let page

@@ -1,4 +1,4 @@
-import * as s from './scripts.ts'
+import * as s from './scripts/all.ts'
 import * as it from 'istrav'
 
 export let istrav = it.istrav

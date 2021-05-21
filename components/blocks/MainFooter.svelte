@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  import { scripts } from '../../scripts/headless.ts'
+  import { istrav, scripts } from '../../api'
 
   import TawkToChatWidget from './Footer/TawkToChatWidget.svelte'
   import GoogleAnalytics from './Footer/GoogleAnalytics.svelte'
