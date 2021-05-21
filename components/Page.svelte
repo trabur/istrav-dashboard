@@ -14,7 +14,7 @@
     MasterDetail1
   }
 
-  import queryString from "query-string";
+  import { parse } from "query-string";
 
 	export let app
   export let slug
@@ -31,7 +31,7 @@
     }
     istrav.app.pages.init({ host: backend })
 
-    parsed = queryString.parse(window.location.search)
+    parsed = parse(window.location.search)
     console.log('parsed', parsed)
 
     let esPage = await scripts.app.pages.getOne(app.id, slug)
