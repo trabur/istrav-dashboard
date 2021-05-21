@@ -21,7 +21,7 @@ import * as channelVideos from './channel.videos.ts'
 import * as channelGuides from './channel.guides.ts'
 import * as channelPlaylists from './channel.playlists.ts'
 
-let scripts = {
+export let scripts = {
   headless: {
     doHelloWorld: doHelloWorld,
     doRun: doRun
@@ -68,7 +68,7 @@ async function doHelloWorld () {
 
   // in the code:
   // import { istrav } from './node_modules/istrav/api/index.ts'
-  // import { scripts } from './scripts/headless.ts'
+  // import { scripts } from './scripts/all.ts'
   
   // then:
   // use any istrav api...
@@ -88,5 +88,3 @@ async function doRun (scriptId) {
   
   // console.log('welcome to istrav')
 }
-
-export default scripts

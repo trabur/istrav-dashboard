@@ -168,7 +168,7 @@ async function environment () {
 }
 environment()
 
-import { scripts } from './scripts/headless.ts'
+import { scripts } from './scripts/all.ts'
 
 window.scripts = scripts
 window.doRun = scripts.headless.doRun
