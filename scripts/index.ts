@@ -1,8 +1,8 @@
 
-import * as headless from './headless.ts'
-import * as it  from 'istrav'
+import headless from './headless.ts'
+import { istrav }  from 'istrav'
 
 export default {
-  istrav: it, 
+  istrav, 
   scripts: headless
 }

@@ -21,7 +21,7 @@ import * as channelVideos from './channel.videos.ts'
 import * as channelGuides from './channel.guides.ts'
 import * as channelPlaylists from './channel.playlists.ts'
 
-export let scripts = {
+let scripts = {
   headless: {
     doHelloWorld: doHelloWorld,
     doRun: doRun
@@ -62,7 +62,7 @@ export let scripts = {
   }
 }
 
-export async function doHelloWorld () {
+async function doHelloWorld () {
   // get started:
   // npm install istrav
 
@@ -79,7 +79,7 @@ export async function doHelloWorld () {
   return 'hello world!'
 }
 
-export async function doRun (scriptId) {
+async function doRun (scriptId) {
   scriptId = scriptId || 'doHelloWorld'
   let script = window[`${scriptId}Code`].getValue()
   let call = new Function('return ' + script)()
@@ -88,3 +88,5 @@ export async function doRun (scriptId) {
   
   // console.log('welcome to istrav')
 }
+
+export default scripts
