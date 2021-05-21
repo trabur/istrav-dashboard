@@ -1,5 +1,5 @@
-import * as headless from './headless.ts'
+import * as s from './scripts.ts'
 import * as it from 'istrav'
 
 export let istrav = it.istrav
-export let scripts = headless.scripts
+export let scripts = s
