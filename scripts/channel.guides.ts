@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import * as scripts from './all.ts'
+import { scripts } from './all'
 
 export async function getSave (appId, token, change) {
   // object
