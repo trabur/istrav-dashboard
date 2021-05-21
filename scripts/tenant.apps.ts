@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import * as scripts from './scripts.ts'
+import * as scripts from './all.ts'
 
 export async function getAll (token) {
   // object
