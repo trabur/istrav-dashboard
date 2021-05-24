@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'account.users')
+  let es = await doEventSource('getAll', 'account.users', null)
 
   // params
   es.arguements = {
@@ -19,7 +19,7 @@ export async function getAll (appId) {
 
 export async function getRegister (appId, email, username, password, firstName, lastName) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRegister', 'account.users')
+  let es = await doEventSource('getRegister', 'account.users', null)
 
   // params
   es.arguements = {
@@ -40,7 +40,7 @@ export async function getRegister (appId, email, username, password, firstName, 
 
 export async function getLogin (appId, email, password) {
   // object
-  let es = await scripts.event.sources.doEventSource('getLogin', 'account.users')
+  let es = await doEventSource('getLogin', 'account.users', null)
 
   // params
   es.arguements = {
@@ -58,7 +58,7 @@ export async function getLogin (appId, email, password) {
 
 export async function getOne (appId, token, username) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'account.users')
+  let es = await doEventSource('getOne', 'account.users', null)
 
   // params
   es.arguements = {
@@ -76,7 +76,7 @@ export async function getOne (appId, token, username) {
 
 export async function getUpdate (appId, token, username, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'account.users')
+  let es = await doEventSource('getUpdate', 'account.users', null)
 
   // params
   es.arguements = {
@@ -98,7 +98,7 @@ export async function getUpdate (appId, token, username, change) {
 
 export async function getRemove (appId, token, username) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'account.users')
+  let es = await doEventSource('getRemove', 'account.users', null)
 
   // params
   es.arguements = {

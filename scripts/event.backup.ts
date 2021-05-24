@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function doSaveEvents (to, from) {
   // object
-  let es = await scripts.event.sources.doEventSource('doSaveEvents', 'event.backup')
+  let es = await doEventSource('doSaveEvents', 'event.backup', null)
 
   // params
   es.arguements = {
@@ -20,8 +20,8 @@ export async function doSaveEvents (to, from) {
 
 export async function getLoadEvents (from, to) {
   // object
-  let es = await scripts.event.sources.doEventSource('getLoadEvents', 'event.backup')
-
+  let es = await doEventSource('getLoadEvents', 'event.backup', null)
+  
   // params
   es.arguements = {
     from: from || 'my-storage',  // mongodb collection
@@ -37,7 +37,7 @@ export async function getLoadEvents (from, to) {
 
 export async function doPlayEvents (source, state, stopAt) {
   // object
-  let es = await scripts.event.sources.doEventSource('doPlayEvents', 'event.backup')
+  let es = await doEventSource('doPlayEvents', 'event.backup', null)
 
   // params
   es.arguements = {

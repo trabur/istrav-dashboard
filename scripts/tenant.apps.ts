@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getAll (token) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'tenent.apps')
+  let es = await doEventSource('getAll', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -19,7 +19,7 @@ export async function getAll (token) {
 
 export async function getSave (token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'tenent.apps')
+  let es = await doEventSource('getSave', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -39,7 +39,7 @@ export async function getSave (token, change) {
 
 export async function getOne (token, domain, state) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'tenent.apps')
+  let es = await doEventSource('getOne', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -57,7 +57,7 @@ export async function getOne (token, domain, state) {
 
 export async function getUpdate (token, domain, state, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'tenent.apps')
+  let es = await doEventSource('getUpdate', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -80,7 +80,7 @@ export async function getUpdate (token, domain, state, change) {
 
 export async function getRemove (token, domain, state) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'tenent.apps')
+  let es = await doEventSource('getRemove', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -98,7 +98,7 @@ export async function getRemove (token, domain, state) {
 
 export async function getEndpoint (token, endpoint) {
   // object
-  let es = await scripts.event.sources.doEventSource('getEndpoint', 'tenent.apps')
+  let es = await doEventSource('getEndpoint', 'tenent.apps', null)
 
   // params
   es.arguements = {
@@ -115,7 +115,7 @@ export async function getEndpoint (token, endpoint) {
 
 export async function getTotals (domain, state) {
   // object
-  let es = await scripts.event.sources.doEventSource('getTotals', 'tenent.apps')
+  let es = await doEventSource('getTotals', 'tenent.apps', null)
 
   // params
   es.arguements = {

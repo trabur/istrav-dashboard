@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getAll () {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'tenant.members')
+  let es = await doEventSource('getAll', 'tenant.members', null)
 
   // params
   es.arguements = {
@@ -19,7 +19,7 @@ export async function getAll () {
 
 export async function getRegister (email, username, password, firstName, lastName) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRegister', 'tenent.members')
+  let es = await doEventSource('getRegister', 'tenent.members', null)
 
   // params
   es.arguements = {
@@ -40,7 +40,7 @@ export async function getRegister (email, username, password, firstName, lastNam
 
 export async function getLogin (email, password) {
   // object
-  let es = await scripts.event.sources.doEventSource('getLogin', 'tenent.members')
+  let es = await doEventSource('getLogin', 'tenent.members', null)
 
   // params
   es.arguements = {
@@ -57,7 +57,7 @@ export async function getLogin (email, password) {
 
 export async function getOne (email) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'tenant.members')
+  let es = await doEventSource('getOne', 'tenant.members', null)
 
   // params
   es.arguements = {
@@ -73,7 +73,7 @@ export async function getOne (email) {
 
 export async function getUpdate (token, email, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'tenant.members')
+  let es = await doEventSource('getUpdate', 'tenant.members', null)
 
   // params
   es.arguements = {
@@ -94,7 +94,7 @@ export async function getUpdate (token, email, change) {
 
 export async function getRemove (token, email) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'tenant.members')
+  let es = await doEventSource('getRemove', 'tenant.members', null)
 
   // params
   es.arguements = {

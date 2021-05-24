@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'store.categories')
+  let es = await doEventSource('getSave', 'store.categories', null)
 
   // params
   es.arguements = {
@@ -25,7 +25,7 @@ export async function getSave (appId, token, change) {
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'store.categories')
+  let es = await doEventSource('getAll', 'store.categories', null)
 
   // params
   es.arguements = {
@@ -41,7 +41,7 @@ export async function getAll (appId) {
 
 export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'store.categories')
+  let es = await doEventSource('getUpdate', 'store.categories', null)
 
   // params
   es.arguements = {
@@ -62,7 +62,7 @@ export async function getUpdate (appId, token, slug, change) {
 
 export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'store.categories')
+  let es = await doEventSource('getOne', 'store.categories', null)
 
   // params
   es.arguements = {
@@ -79,7 +79,7 @@ export async function getOne (appId, slug) {
 
 export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'store.categories')
+  let es = await doEventSource('getRemove', 'store.categories', null)
 
   // params
   es.arguements = {
@@ -97,7 +97,7 @@ export async function getRemove (appId, token, slug) {
 
 export async function getProducts (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getProducts', 'store.categories')
+  let es = await doEventSource('getProducts', 'store.categories', null)
 
   // params
   es.arguements = {

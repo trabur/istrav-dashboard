@@ -1,9 +1,9 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getAll (appId) {
   // object
-  let es = await scripts.event.sources.doEventSource('getAll', 'app.pages')
+  let es = await doEventSource('getAll', 'app.pages', null)
 
   // params
   es.arguements = {
@@ -19,7 +19,7 @@ export async function getAll (appId) {
 
 export async function getSave (appId, token, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getSave', 'app.pages')
+  let es = await doEventSource('getSave', 'app.pages', null)
 
   // params
   es.arguements = {
@@ -41,7 +41,7 @@ export async function getSave (appId, token, change) {
 
 export async function getOne (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getOne', 'app.pages')
+  let es = await doEventSource('getOne', 'app.pages', null)
 
   // params
   es.arguements = {
@@ -58,7 +58,7 @@ export async function getOne (appId, slug) {
 
 export async function getUpdate (appId, token, slug, change) {
   // object
-  let es = await scripts.event.sources.doEventSource('getUpdate', 'app.pages')
+  let es = await doEventSource('getUpdate', 'app.pages', null)
 
   // params
   es.arguements = {
@@ -79,7 +79,7 @@ export async function getUpdate (appId, token, slug, change) {
 
 export async function getRemove (appId, token, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getRemove', 'app.pages')
+  let es = await doEventSource('getRemove', 'app.pages', null)
 
   // params
   es.arguements = {
@@ -97,7 +97,7 @@ export async function getRemove (appId, token, slug) {
 
 export async function getBlocks (appId, slug) {
   // object
-  let es = await scripts.event.sources.doEventSource('getBlocks', 'app.pages')
+  let es = await doEventSource('getBlocks', 'app.pages', null)
 
   // params
   es.arguements = {

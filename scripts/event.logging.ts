@@ -1,5 +1,5 @@
 import { istrav } from 'istrav'
-import { scripts } from './all'
+import { doEventSource } from './event.sources'
 
 export async function getLog (state, event) {
   event.payload = await state.account.users.register({
