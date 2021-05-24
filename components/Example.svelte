@@ -6,6 +6,7 @@
   import FeaturedGuide from "./blocks/FeaturedGuide.svelte";
   import Logo from "./blocks/Logo.svelte";
   import MainFooter from "./blocks/MainFooter.svelte";
+  import Navigation from "./blocks/Navigation.svelte";
   import Markdown from "./blocks/Markdown.svelte";
   import OpenSource from "./blocks/OpenSource.svelte";
   import SideNavigation from "./blocks/SideNavigation.svelte";
@@ -15,6 +16,7 @@
     FeaturedGuide,
     Logo,
     MainFooter,
+    Navigation,
     Markdown,
     OpenSource,
     SideNavigation,

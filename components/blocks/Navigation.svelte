@@ -6,6 +6,7 @@
   export let app
   export let page
   export let selected
+  export let menuId
   // export let block
   // export let data
 
@@ -13,13 +14,13 @@
 
 	onMount(async () => {    
     // get the menus
-    let esNavigation = await scripts.app.menus.getOne(app.id, 'main')
+    let esNavigation = await scripts.app.menus.getOne(app.id, menuId)
     if (esNavigation.payload.success === true) {
       items = JSON.parse(esNavigation.payload.data.raw)
     } else {
       console.log(esNavigation.payload.reason)
     }
-    console.log('main menu', items)
+    console.log('menu', menuId, items)
   })
 </script>
 
