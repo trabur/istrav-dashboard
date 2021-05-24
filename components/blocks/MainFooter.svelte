@@ -3,8 +3,8 @@
 
   import { istrav, scripts } from '../../api'
 
-  import TawkToChatWidget from './Footer/TawkToChatWidget.svelte'
-  import GoogleAnalytics from './Footer/GoogleAnalytics.svelte'
+  import TawkToChatWidget from './footer/TawkToChatWidget.svelte'
+  import GoogleAnalytics from './footer/GoogleAnalytics.svelte'
 
   export let app = {}
   // export let page
