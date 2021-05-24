@@ -1,42 +1,64 @@
 <script>
 	import { onMount } from "svelte";
 
-	export let uploads
-	// export let appId
-	export let guide
+  import { istrav, scripts } from '../../../api'
 
-	onMount(() => {
-		let splide = new Splide(`#${guide.slug}`, {
-			type: 'loop',
-			fixedWidth: '20em',
-			autoplay: false
+  export let app
+  // export let page
+	let guides
+
+	onMount(async () => {
+    let esGuides = await scripts.channel.guides.getAll(app.id)
+    if (esGuides.payload.success === true) {
+      guides = esGuides.payload.data
+    } else {
+      alert(esGuides.payload.reason)
+    }
+
+		// grab guide videos
+		guides.forEach(async (guide, index) => {
+			let esVideos = await scripts.channel.videos.getAll(app.id)
+			if (esVideos.payload.success === true) {
+				guides[index].videos = esVideos.payload.data
+
+				let splide = new Splide(`#${guide.slug}`, {
+					type: 'loop',
+					fixedWidth: '20em',
+					autoplay: false
+				})
+
+				splide.on('autoplay:playing', function (rate) {
+					console.log(rate); // 0-1
+				})
+
+				splide.mount(window.splide.Extensions)
+			} else {
+				alert(esVideos.payload.reason)
+			}
 		})
-
-		splide.on('autoplay:playing', function (rate) {
-			console.log(rate); // 0-1
-		})
-
-		splide.mount(window.splide.Extensions)
 	})
 </script>
 
-
-<a href={`/browse/${guide.slug}`}><h1 class="title">{guide.name} →</h1></a>
-<div class={`splide`} id={guide.slug}>
-	<div class="splide__track">
-		<ul class="splide__list">
-			{#if guide.videos && guide.videos.length}
-				{#each guide.videos as video (video.id)}
-					<li class="splide__slide" data-splide-html-video={`${uploads}/${video.video}`}>
-						<div class="tumbnail" style={`background: center center url(${uploads}/${video.image})`}>
-							<a href={`/watch/${video.slug}`} class="name">{video.name}</a>
-						</div>
-					</li>
-				{/each}
-			{/if}
-		</ul>
-	</div>
-</div>
+{#if guides && guides.length}
+	{#each guides as guide (guide.id)}
+		<a href={`/browse/${guide.slug}`}><h1 class="title">{guide.name} →</h1></a>
+		<div class={`splide`} id={guide.slug}>
+			<div class="splide__track">
+				<ul class="splide__list">
+					{#if guide.videos && guide.videos.length}
+						{#each guide.videos as video (video.id)}
+							<li class="splide__slide" data-splide-html-video={`${app.uploads}/${video.video}`}>
+								<div class="tumbnail" style={`background: center center url(${app.uploads}/${video.image})`}>
+									<a href={`/watch/${video.slug}`} class="name">{video.name}</a>
+								</div>
+							</li>
+						{/each}
+					{/if}
+				</ul>
+			</div>
+		</div>
+	{/each}
+{/if}
 
 <style>
 	.title {
@@ -68,7 +90,7 @@
 		z-index: 10;
     font-size: 1em;
     padding: 1em;
-    color: #fff;
+    color: #fff !important;
     background: #000;
 	}
 
