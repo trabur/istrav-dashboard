@@ -5,6 +5,7 @@
   
   export let app
   export let page
+  export let selected
   // export let block
   // export let data
 
@@ -25,7 +26,7 @@
 {#if items.length > 0}
 	<div class="nav">
 		{#each items as nav}
-			{#if nav.id === `pages.${page.slug}`}
+			{#if nav.id === `pages.${page.slug}` || nav.id === selected}
 				<a href={nav.url} class={`btn-large waves-effect waves-light ${app.primaryBtnBackColor} ${app.primaryBtnTextColor}`}>
 					{nav.name}
 				</a>
