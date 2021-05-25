@@ -150,7 +150,6 @@
   .logo.wire,
   .slogan.wire,
   article.wire,
-  aside.wire,
   main.wire,
   footer.wire,
   .navigation.wire {
@@ -195,8 +194,7 @@
   .logo,
   .slogan,
   .controls,
-  article,
-  aside {
+  article {
     width: 100%;
   }
 </style>

@@ -16,6 +16,7 @@ import SplashPage2 from './wireframes/SplashPage2.svelte'
 import MasterDetail1 from './wireframes/MasterDetail1.svelte'
 
 export let views = {
+  // blocks
   SlideShow,
   Watch,
   FeaturedGuide,
@@ -27,7 +28,7 @@ export let views = {
   SideNavigation,
   Slogan,
   Solutions,
-  
+  // wireframes
   Generic1,
   SplashPage1,
   SplashPage2,
