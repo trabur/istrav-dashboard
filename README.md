@@ -1,7 +1,7 @@
 ISTRAV-HEADLESS
 ========
 ```bash
-$ export PORT=9999; npm start
+$ npm run storybook
 ```
 
 ```bash

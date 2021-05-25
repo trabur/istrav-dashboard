@@ -47,7 +47,7 @@
 				<ul class="splide__list">
 					{#if guide.videos && guide.videos.length}
 						{#each guide.videos as video (video.id)}
-							<li class="splide__slide" data-splide-html-video={`${app.uploads}/${video.video}`}>
+							<li class="splide__slide">
 								<div class="tumbnail" style={`background: center center url(${app.uploads}/${video.image})`}>
 									<a href={`/watch/${video.slug}`} class="name">{video.name}</a>
 								</div>
