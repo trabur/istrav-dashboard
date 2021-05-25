@@ -2,12 +2,12 @@
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
   import Example from "../../Example.svelte";
-  import SlideShow from "./SlideShow.svelte";
+  import Watch from "./Watch.svelte";
 </script>
 
 <Meta
-  title="blocks/channel/SlideShow"
-  component={SlideShow}
+  title="blocks/channel/Watch"
+  component={Watch}
 />
 
 <Template let:args>
@@ -17,13 +17,14 @@
 </Template>
 
 <Story
-  name="full list"
+  name="play video"
   args={{
     domain: 'istrav.com',
     state: 'production',
     slug: 'homepage',
-    blockName: 'SlideShow',
+    blockName: 'Watch',
     blockArgs: {
+      slug: 'MUCCIA'
     }
   }}
 />

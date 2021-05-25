@@ -1,45 +1,25 @@
 <script>
   import { onMount } from 'svelte';
 
-	export let domain
-  export let state
+  import { istrav, scripts } from '../../../api'
+  
+  export let app
+  // export let page
   export let slug
 
-  let name = ''
   let video
-  let appId
-  let uploads
-  let token
-  let createdAt
-  let viewCount
-  let contentCreator
 
   onMount(async () => {
     M.updateTextFields();
-    token = localStorage.getItem('token')
 
-    let esOne = await scripts.tenant.apps.getOne(null, domain, state)
-    console.log('esOne', esOne)
-    if (esOne.payload.success === true) {
-      appId = esOne.payload.data.id
-      uploads = esOne.payload.data.uploads
-
-      // fetch video
-      let esVideo = await scripts.channel.videos.getOne(appId, slug)
-      console.log('esVideo', esVideo)
-      if (esVideo.payload.success === true) {
-        let data = esVideo.payload.data
-        name = data.name
-        video = data.video
-        createdAt = data.createdAt
-        viewCount = data.viewCount
-        contentCreator = data.contentCreator
-        setTimeout(() => M.updateTextFields(), 0)
-      } else {
-        alert(esVideo.payload.reason)
-      }
+    // fetch video
+    let esVideo = await scripts.channel.videos.getOne(app.id, slug)
+    console.log('esVideo', esVideo)
+    if (esVideo.payload.success === true) {
+      video = esVideo.payload.data
+      setTimeout(() => M.updateTextFields(), 0)
     } else {
-      alert(esOne.payload.reason)
+      alert(esVideo.payload.reason)
     }
   })
 
@@ -55,42 +35,41 @@
 {#if video}
   <!-- svelte-ignore a11y-media-has-caption -->
   <video controls class="video">
-    <source src={`${uploads}/${video}`}>
+    <source src={`${app.uploads}/${video.video}`}>
   </video>
-{/if}
-
-<div class="row" style="min-height: 100vh;">
-  <div class="col s0 m2"></div>
-  <div class="col s12 m8">
-    <div class="card">
-      <div class="card" style="padding: 1em; overflow: hidden; background-color: #ccc;">
-        <button on:click={() => window.history.back()} class="waves-effect btn" style="float: left; margin-right: 0.5em;">⟵ BACK</button>
-        <h3 class="path">/{slug}</h3>
-        <div style="text-align: right;">
-          <!-- <a href={`/${slug}`} class="waves-effect btn right teal" style="margin-right: 1em;" target="_blank"><i class="navicon material-icons">public</i></a> -->
+  <div class="row" style="min-height: 100vh;">
+    <div class="col s0 m2"></div>
+    <div class="col s12 m8">
+      <div class="card">
+        <div class="card" style="padding: 1em; overflow: hidden; background-color: #ccc;">
+          <button on:click={() => window.history.back()} class="waves-effect btn" style="float: left; margin-right: 0.5em;">⟵ BACK</button>
+          <h3 class="path">/{slug}</h3>
+          <div style="text-align: right;">
+            <!-- <a href={`/${slug}`} class="waves-effect btn right teal" style="margin-right: 1em;" target="_blank"><i class="navicon material-icons">public</i></a> -->
+          </div>
+        </div>
+        <div class="details">
+          <h3 class="title">{video.name}</h3>
+          <div>{video.viewCount} views • {displayDate(video.createdAt)}</div>
+          <br />
+          {#if video.contentCreator}
+            <div class="row valign-wrapper">
+              <div class="col s2">
+                <img src={`${app.uploads}/${video.contentCreator.image}`} alt="" class="circle responsive-img">
+              </div>
+              <div class="col s10">
+                <div>Content Creator:</div>
+                <h3 style="margin: 0;">{video.contentCreator.username}</h3>
+              </div>
+            </div>
+          {/if}
+          <!-- <p>{`${uploads}/${video}`}</p> -->
         </div>
       </div>
-      <div class="details">
-        <h3 class="title">{name}</h3>
-        <div>{viewCount} views • {displayDate(createdAt)}</div>
-        <br />
-        {#if contentCreator}
-          <div class="row valign-wrapper">
-            <div class="col s2">
-              <img src={`${uploads}/${contentCreator.image}`} alt="" class="circle responsive-img">
-            </div>
-            <div class="col s10">
-              <div>Content Creator:</div>
-              <h3 style="margin: 0;">{contentCreator.username}</h3>
-            </div>
-          </div>
-        {/if}
-        <!-- <p>{`${uploads}/${video}`}</p> -->
-      </div>
     </div>
+    <div class="col s0 m2"></div>
   </div>
-  <div class="col s0 m2"></div>
-</div>
+{/if}
 
 <style>
   .path {
