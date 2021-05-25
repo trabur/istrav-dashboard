@@ -48,9 +48,8 @@
 					{#if guide.videos && guide.videos.length}
 						{#each guide.videos as video (video.id)}
 							<li class="splide__slide">
-								<div class="tumbnail" style={`background: center center url(${app.uploads}/${video.image})`}>
-									<a href={`/watch/${video.slug}`} class="name">{video.name}</a>
-								</div>
+								<div class="tumbnail" style={`background: center center url(${app.uploads}/${video.image})`}></div>
+								<a href={`/watch/${video.slug}`} class="name">{video.name}</a>
 							</li>
 						{/each}
 					{/if}
@@ -73,6 +72,8 @@
 
 	.splide__slide {
 		margin: 1em;
+		width: 24em !important;
+    height: 17em !important;
 	}
 
 	:global(.splide__pagination) {
@@ -80,21 +81,27 @@
 	}
 
 	.splide__slide .tumbnail {
-    height: 20em;
-    width: 20em;
-		background-size: cover !important;
+    height: 13.5em;
+    width: 24em;
+		background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-color: #000 !important;
 	}
 
-	.splide__slide .tumbnail .name {
+	.splide__slide .name {
 		position: absolute;
 		z-index: 10;
     font-size: 1em;
     padding: 1em;
     color: #fff !important;
     background: #000;
+		width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 	}
 
-	.splide__slide .tumbnail .name:hover {
+	.splide__slide .name:hover {
 		text-decoration: underline;
 	}
 </style>
