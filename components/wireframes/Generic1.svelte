@@ -75,8 +75,8 @@
   <slot name="navigation"></slot>
 </div>
 <div class="row wrapper">
-  <div class="col s12 m2"></div>
-  <div class="col s12 m8">
+  <div class="col s12 m1"></div>
+  <div class="col s12 m10">
     <br />
     <br />
     <br />
@@ -84,15 +84,13 @@
       {#if showWiring}
         <div class="name">article</div>
       {/if}
-      <div class="card" style="padding: 1em;">
-        <slot name="article"></slot>
-      </div>
+      <slot name="article"></slot>
     </article>
     <br />
     <br />
     <br />
   </div>
-  <div class="col s12 m2"></div>
+  <div class="col s12 m1"></div>
 </div>
 <main class={showWiring ? 'wire' : ''}>
   {#if showWiring}
