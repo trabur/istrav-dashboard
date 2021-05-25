@@ -32,6 +32,12 @@
   }
 </script>
 
+<svelte:head>
+  {#if video}
+	  <title>{video.name} - {app.labelName}</title>
+  {/if}
+</svelte:head>
+
 {#if video}
   <!-- svelte-ignore a11y-media-has-caption -->
   <video controls class="video">
