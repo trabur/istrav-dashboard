@@ -8,8 +8,10 @@
 
   export let app = {}
   // export let page
-  // export let block
-	// export let data
+  export let block
+	export let data
+  export let menuId
+  export let selected
   
   let propertyId = app.tawkToPropertyId // || '6051205af7ce18270930caec'
   let chatId = app.tawkToChatId // || '1f0ueco46'
@@ -17,12 +19,21 @@
   let items = []
 
 	onMount(async () => {
-    // get the menus
-    let esNavigation = await scripts.app.menus.getOne(app.id, 'marketing')
-    if (esNavigation.payload.success === true) {
-      items = JSON.parse(esNavigation.payload.data.raw)
-    } else {
-      console.log(esNavigation.payload.reason)
+    console.log('block', block)
+    console.log('selected', selected)
+
+    if (data) {
+      // we already have the menus
+      menuId = data.menuId
+      items = JSON.parse(data.menu.raw)
+    } else if (menuId) {
+      // get the menus
+      let esNavigation = await scripts.app.menus.getOne(app.id, menuId)
+      if (esNavigation.payload.success === true) {
+        items = JSON.parse(esNavigation.payload.data.raw)
+      } else {
+        console.log(esNavigation.payload.reason)
+      }
     }
     console.log('main menu', items)
   })
@@ -62,6 +73,10 @@
 </footer>
 
 <style>
+  footer {
+    text-align: left;
+  }
+
   .footer-copyright {
     background-color: rgba(0,0,0,0.1);
   }
