@@ -40,7 +40,7 @@
   <video controls class="video">
     <source src={`${app.uploads}/${video.video}`}>
   </video>
-  <div class="row" style="min-height: 100vh;">
+  <div class="row">
     <div class="col s0 m2"></div>
     <div class="col s12 m8">
       <div class="card">
