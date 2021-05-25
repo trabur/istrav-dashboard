@@ -154,10 +154,6 @@
     padding-top: 2.2em !important;
   }
 
-  article .card {
-    padding: 1em;
-  }
-
   header {
     overflow: hidden;
     height: 10em;
