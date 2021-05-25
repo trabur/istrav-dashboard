@@ -17,6 +17,9 @@
     console.log('esVideo', esVideo)
     if (esVideo.payload.success === true) {
       video = esVideo.payload.data
+
+      // SEO
+      document.title = `${video.name} - ${app.labelName}`
       setTimeout(() => M.updateTextFields(), 0)
     } else {
       alert(esVideo.payload.reason)
@@ -31,12 +34,6 @@
     return `${d.toLocaleString('default', { month: 'long' })} ${d.getDay()}, ${d.getFullYear()}`
   }
 </script>
-
-<svelte:head>
-  {#if video}
-	  <title>{video.name} - {app.labelName}</title>
-  {/if}
-</svelte:head>
 
 {#if video}
   <!-- svelte-ignore a11y-media-has-caption -->
