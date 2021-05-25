@@ -5,12 +5,13 @@
   // export let page
   // export let block
 	// export let data
+	export let fontSize
 </script>
 
 {#if app.labelSloganLine1}
-	<h1 class="slogan">{app.labelSloganLine1 || ''}<br />{app.labelSloganLine2 || ''}</h1>
+	<h1 class="slogan" style={`font-size: ${fontSize}`}>{app.labelSloganLine1 || ''}<br />{app.labelSloganLine2 || ''}</h1>
 {:else}
-	<h1 class="slogan">Community messaging<br />and bulletin board.</h1>
+	<h1 class="slogan" style={`font-size: ${fontSize}`}>Community messaging<br />and bulletin board.</h1>
 {/if}
 
 <style>
