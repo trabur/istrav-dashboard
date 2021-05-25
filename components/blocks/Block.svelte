@@ -4,26 +4,7 @@
   import { istrav, scripts } from '../../api'
 
   // load all blocks here
-  import Logo from './Logo.svelte'
-  import MainFooter from './MainFooter.svelte'
-  import Markdown from './Markdown.svelte'
-  import Navigation from './Navigation.svelte'
-  import OpenSource from './OpenSource.svelte'
-  import SideNavigation from './SideNavigation.svelte'
-  import FeaturedGuide from './FeaturedGuide.svelte'
-  import Slogan from './Slogan.svelte'
-  import Solutions from './Solutions.svelte'
-	const views = {
-    Logo,
-    MainFooter,
-    Markdown,
-    Navigation,
-    OpenSource,
-    SideNavigation,
-    FeaturedGuide,
-    Slogan,
-    Solutions
-  }
+  import { views } from '../views'
 
 	export let app
   export let page

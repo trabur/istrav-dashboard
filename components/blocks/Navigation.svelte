@@ -7,19 +7,29 @@
   export let page
   export let selected
   export let menuId
-  // export let block
-  // export let data
-
+  export let block
+  export let data
+  
   let items = []
-
+  
 	onMount(async () => {    
-    // get the menus
-    let esNavigation = await scripts.app.menus.getOne(app.id, menuId)
-    if (esNavigation.payload.success === true) {
-      items = JSON.parse(esNavigation.payload.data.raw)
+    console.log('block', block)
+    if (data) {
+      // we already have the menus
+      menuId = data.menuId
+      items = JSON.parse(data.menu.raw)
+    } else if (menuId) {
+      // get the menus from server
+      let esNavigation = await scripts.app.menus.getOne(app.id, menuId)
+      if (esNavigation.payload.success === true) {
+        items = JSON.parse(esNavigation.payload.data.raw)
+      } else {
+        console.log(esNavigation.payload.reason)
+      }
     } else {
-      console.log(esNavigation.payload.reason)
+      console.log('no menus to load')
     }
+
     console.log('menu', menuId, items)
   })
 </script>

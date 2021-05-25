@@ -4,14 +4,7 @@
   import { istrav, scripts } from '../api'
 
   import Block from './blocks/Block.svelte'
-  import SplashPage1 from './wireframes/SplashPage1.svelte'
-  import SplashPage2 from './wireframes/SplashPage2.svelte'
-  import MasterDetail1 from './wireframes/MasterDetail1.svelte'
-	const views = {
-    SplashPage1,
-    SplashPage2,
-    MasterDetail1
-  }
+  import { views } from './views'
 
   import { parse } from "query-string";
 
