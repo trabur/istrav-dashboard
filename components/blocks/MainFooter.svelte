@@ -7,7 +7,7 @@
   import GoogleAnalytics from './footer/GoogleAnalytics.svelte'
 
   export let app = {}
-  // export let page
+  export let page
   export let block
 	export let data
   export let menuId
@@ -19,6 +19,7 @@
   let items = []
 
 	onMount(async () => {
+    console.log('block', page)
     console.log('block', block)
     console.log('selected', selected)
 
