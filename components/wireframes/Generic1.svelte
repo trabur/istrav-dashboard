@@ -74,7 +74,7 @@
   {/if}
   <slot name="navigation"></slot>
 </div>
-<div class="row wrapper">
+<div class="row wrapper" style="min-height: 100vh;">
   <div class="col s12 m1"></div>
   <div class="col s12 m10">
     <br />
