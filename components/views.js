@@ -1,3 +1,5 @@
+// authentication
+import Account from "./blocks/authentication/Account.svelte";
 // channel
 import SlideShow from "./blocks/channel/SlideShow.svelte";
 import Watch from "./blocks/channel/Watch.svelte";
@@ -21,6 +23,8 @@ import SplashPage2 from './wireframes/SplashPage2.svelte'
 import MasterDetail1 from './wireframes/MasterDetail1.svelte'
 
 export let views = {
+  // blocks: authentication
+  Account,
   // blocks: channel
   SlideShow,
   Watch,
