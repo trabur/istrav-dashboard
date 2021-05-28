@@ -66,7 +66,7 @@
     <br class="hide-on-med-and-down" />
     <br />
     <h3 class="title">LOGIN</h3>
-    <div class="card" style="padding: 1em; background: #eee;">
+    <div class="card" style="padding: 1em;">
       <div class="row">
         <div class="input-field col s12">
           <input id="email" type="text" class="validate" bind:value={email}>
