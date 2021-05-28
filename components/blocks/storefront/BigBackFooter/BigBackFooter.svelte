@@ -99,10 +99,10 @@
   </div>
   <div class="we-accept col s12 m4">
     We Accept:
-    <img src="./we-accept/accept1.png" alt="VISA" class="accept" />
-    <img src="./we-accept/accept2.png" alt="MASTERCARD" class="accept" />
-    <img src="./we-accept/accept3.png" alt="DISCOVER" class="accept" />
-    <img src="./we-accept/accept4.png" alt="AMERICANEXPRESS" class="accept" />
+    <img src="/we-accept/accept1.png" alt="VISA" class="accept" />
+    <img src="/we-accept/accept2.png" alt="MASTERCARD" class="accept" />
+    <img src="/we-accept/accept3.png" alt="DISCOVER" class="accept" />
+    <img src="/we-accept/accept4.png" alt="AMERICANEXPRESS" class="accept" />
   </div>
   <div class="col s0 m1"></div>
 </div>
