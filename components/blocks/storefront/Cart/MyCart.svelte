@@ -12,8 +12,8 @@
 
   let cart
   let token
-  let subtotal
-  let total
+  let subtotal = 0
+  let total = 0
 
   function calculateSubtotal (products, raw) {
     let amount = 0
