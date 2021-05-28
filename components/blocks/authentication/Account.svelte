@@ -40,7 +40,7 @@
   #accountTabs {
     background: transparent;
   }
-  
+
   .card {
     /* background: #eee; */
     min-height: 400px;
