@@ -31,6 +31,8 @@
 	onMount(async () => {
     token = localStorage.getItem('token')
 
+    if (!token) return;
+
     let esCarts = await scripts.account.carts.getAll(app.id, token)
     console.log('esCarts', esCarts)
     if (esCarts.payload.success === true) {
@@ -39,7 +41,7 @@
       console.log('esCart', esCart)
       if (esCart.payload.success === true) {
         cart = esCart.payload.data
-        subtotal = calculateSubtotal(cart.products, raw)
+        subtotal = calculateSubtotal(cart.products, cart.raw)
         total = subtotal
       } else {
         alert(esCart.payload.reason)
@@ -64,7 +66,7 @@
     {/if}
   </div>
   <div class="col s12 m12 l3">
-    <div class="card" style="padding: 1em; background: #eee;">
+    <div class="card" style="padding: 1em;">
       <div class="calculate">
         <hr>
         <div style="float: right;">${subtotal / 100}</div>

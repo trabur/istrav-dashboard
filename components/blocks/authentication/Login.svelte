@@ -3,9 +3,9 @@
 
   import { istrav, scripts } from '../../../api'
 
+  export let app
 	let email = '';
   let password = '';
-  let esApp
 
 	async function auth() {
     if (email === '') return alert('Email must be defined.')
@@ -13,7 +13,7 @@
 
     console.log('esApp', esApp)
     if (esApp.payload.success === true) {
-      let esLogin = await scripts.account.users.getLogin(esApp.payload.data.id, email, password)
+      let esLogin = await scripts.account.users.getLogin(app.id.id, email, password)
       console.log('esLogin', esLogin)
       if (esLogin.payload.success === true) {
         localStorage.setItem('token', esLogin.payload.data.token)
@@ -25,38 +25,6 @@
       alert(esApp.payload.reason)
     }
   }
-
-
-	onMount(async () => {
-    // fetch
-    let domainId = window.location.host
-    let state = 'production'
-
-    // pick an app to show for local development
-    if (domainId.includes('localhost:7000')) {
-      domainId = 'istrav.com'
-    }
-    // set appId from domain 
-    if (domainId.includes('dimension.click')) {
-      // for subdomains such as http://istrav.dimension.click
-      let endpoint = domainId.split('.')[0]
-      let esEndpoint = await scripts.tenant.apps.getEndpoint(null, endpoint)
-      if (esEndpoint.payload.success === true) {
-        esApp = esEndpoint
-      } else {
-        alert(esEndpoint.payload.reason)
-      }
-    } else {
-      // for custom domains such as https://istrav.com
-      domainId = domainId.split('.').slice(-2).join('.')
-      let esOne = await scripts.tenant.apps.getOne(null, domainId, state)
-      if (esOne.payload.success === true) {
-        esApp = esOne
-      } else {
-        alert(esOne.payload.reason)
-      }
-    }
-  })
 </script>
 
 <div class="row" style="min-height: 100vh;">
