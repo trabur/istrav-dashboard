@@ -1,5 +1,9 @@
+// channel
 import SlideShow from "./blocks/channel/SlideShow.svelte";
 import Watch from "./blocks/channel/Watch.svelte";
+// storefront
+import BigFrontHeader from "./blocks/storefront/BigFrontHeader.svelte";
+// other
 import FeaturedGuide from "./blocks/FeaturedGuide.svelte";
 import Logo from "./blocks/Logo.svelte";
 import MainFooter from "./blocks/MainFooter.svelte";
@@ -16,9 +20,12 @@ import SplashPage2 from './wireframes/SplashPage2.svelte'
 import MasterDetail1 from './wireframes/MasterDetail1.svelte'
 
 export let views = {
-  // blocks
+  // blocks: channel
   SlideShow,
   Watch,
+  // blocks: storefront
+  BigFrontHeader,
+  // blocks: other
   FeaturedGuide,
   Logo,
   MainFooter,
