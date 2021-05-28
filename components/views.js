@@ -2,6 +2,7 @@
 import SlideShow from "./blocks/channel/SlideShow.svelte";
 import Watch from "./blocks/channel/Watch.svelte";
 // storefront
+import BigBackFooter from "./blocks/storefront/BigBackFooter/BigBackFooter.svelte";
 import BigFrontHeader from "./blocks/storefront/BigFrontHeader.svelte";
 // other
 import FeaturedGuide from "./blocks/FeaturedGuide.svelte";
@@ -24,6 +25,7 @@ export let views = {
   SlideShow,
   Watch,
   // blocks: storefront
+  BigBackFooter,
   BigFrontHeader,
   // blocks: other
   FeaturedGuide,
