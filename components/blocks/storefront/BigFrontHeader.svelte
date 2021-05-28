@@ -208,7 +208,7 @@
     text-decoration: underline;
   }
   .top-bar {
-    background: #ccc;
+    background: #bbb;
   }
 
   .name-and-search {
@@ -216,6 +216,7 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 84px;
+    background: #ddd;
   }
 
   .query-inline .input-field,
