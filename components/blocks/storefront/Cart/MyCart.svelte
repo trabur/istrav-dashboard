@@ -31,7 +31,9 @@
 	onMount(async () => {
     token = localStorage.getItem('token')
 
-    if (!token) return;
+    if (!token) {
+      return // don't try to load cart
+    }
 
     let esCarts = await scripts.account.carts.getAll(app.id, token)
     console.log('esCarts', esCarts)
