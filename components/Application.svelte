@@ -17,6 +17,8 @@
     } else {
       backend = 'https://api.hacktracks.org'
     }
+
+    // config backend for app
     istrav.tenant.apps.init({ host: backend })
 
     let esApp = await scripts.tenant.apps.getOne(null, domain, state)

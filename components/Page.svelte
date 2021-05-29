@@ -5,6 +5,7 @@
 
   import Block from './blocks/Block.svelte'
   import { views } from './views'
+  import { configure } from './configure.js'
 
   import { parse } from "query-string";
 
@@ -15,13 +16,7 @@
   let parsed
 
 	onMount(async () => {
-    let backend
-    if (window.location.host === 'localhost:6006') {
-      backend = 'http://localhost:1337'
-    } else {
-      backend = 'https://api.hacktracks.org'
-    }
-    istrav.app.pages.init({ host: backend })
+    configure(istrav)
 
     parsed = parse(window.location.search)
     console.log('parsed', parsed)
