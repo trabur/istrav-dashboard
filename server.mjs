@@ -21,36 +21,14 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// headless navigation
-app.get([
-  '/event-sources',
-  '/event-backup',
-  '/event-logging',
-  '/tenant-members',
-  '/tenant-apps',
-  '/app-menus',
-  '/app-blocks',
-  '/app-pages',
-  '/app-faq',
-  '/store-collections',
-  '/store-categories',
-  '/store-products',
-  '/fleet-vehicles',
-  '/account-users',
-  '/account-carts',
-  '/account-orders',
-  '/subscription-licenses',
-  '/subscription-plans',
-  '/channel-videos',
-  '/channel-guides',
-  '/channel-playlists',
-], function(req, res) {
-  res.sendFile('./index.html', { root: __dirname });
-})
-
 // directory listing
 import serveIndex from 'serve-index'
 app.use('/scripts', serveIndex('scripts'))
+
+// Powered By ISTRAV:
+app.get('/poweredByISTRAV.png', function (req, res) {
+  res.sendFile(__dirname + '/poweredByISTRAV.png')
+})
 
 // headless default
 app.get('/*', express.static('storybook-static'))
